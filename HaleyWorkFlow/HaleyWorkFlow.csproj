@@ -87,4 +87,22 @@
       </ItemGroup>
     </Otherwise>
   </Choose>
+
+  <ItemGroup>
+    <Content Include="Resources\wfengine.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Abstractions\" />
+    <Folder Include="Enums\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\HaleyLog\Haley.png" Link="Haley.png">
+      <PackagePath></PackagePath>
+      <Pack>True</Pack>
+    </None>
+  </ItemGroup>
 </Project>

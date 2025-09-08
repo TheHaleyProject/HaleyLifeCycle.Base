@@ -1,0 +1,225 @@
+{
+  "id": "vendor-prequalification-v2",
+  "name": "Vendor Prequalification and Approval",
+  "version": "2.0.0",
+  "parameters": {
+    "procurementApprovers": ["{{db.get('procurement_emails')}}"],
+    "approvalDeadlineDays": 7,
+    "reminderIntervalHours": 24,
+    "requiredDocs": ["tax-id", "insurance-certificate", "company-profile"]
+  },
+  "context": {
+    "vendor": {
+      "email": "vendor@example.com",
+      "industry": "construction",
+      "contractValue": 95000,
+      "submittedDocs": ["tax-id", "insurance-certificate"]
+    }
+  },
+  "phases": [
+    {
+      "phaseId": "vendor-registration",
+      "type": "sequential",
+      "condition": "true",
+      "steps": [
+        {
+          "stepId": "register-vendor",
+          "action": "api_call",
+          "config": {
+            "url": "http://vendor-service/register",
+            "method": "POST",
+            "payload": "{{context.vendor}}"
+          }
+        },
+        {
+          "stepId": "check-previous-status",
+          "action": "api_call",
+          "config": {
+            "url": "http://vendor-db/check-history",
+            "method": "POST",
+            "payload": { "email": "{{context.vendor.email}}" },
+            "successCondition": "response.status != 'rejected'"
+          },
+          "onFailure": {
+            "action": "email",
+            "config": {
+              "template": "vendor-rejection",
+              "recipient": "{{context.vendor.email}}",
+              "reason": "Previously rejected"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "phaseId": "procurement-review",
+      "type": "sequential",
+      "condition": "true",
+      "steps": [
+        {
+          "stepId": "procurement-approval",
+          "action": "approval",
+          "config": {
+            "approvers": "{{parameters.procurementApprovers}}",
+            "deadline": "{{parameters.approvalDeadlineDays}} days",
+            "reminder": {
+              "interval": "{{parameters.reminderIntervalHours}}h",
+              "template": "procurement-reminder"
+            },
+            "onFailure": {
+              "action": "email",
+              "config": {
+                "template": "vendor-rejection",
+                "recipient": "{{context.vendor.email}}",
+                "reason": "Procurement team rejection"
+              }
+            }
+          }
+        },
+        {
+          "stepId": "assign-vendor-id",
+          "action": "api_call",
+          "config": {
+            "url": "http://vendor-service/assign-id",
+            "method": "POST",
+            "payload": { "email": "{{context.vendor.email}}" },
+            "successCondition": "response.status == 'assigned'"
+          }
+        }
+      ]
+    },
+    {
+      "phaseId": "document-verification",
+      "type": "parallel",
+      "condition": "true",
+      "loop": {
+        "over": "{{parameters.requiredDocs}}",
+        "stepTemplate": {
+          "stepId": "verify-doc-{{item}}",
+          "action": "api_call",
+          "config": {
+            "url": "http://doc-service/validate/{{item}}",
+            "method": "POST",
+            "successCondition": "response.status == 'valid'"
+          },
+          "onFailure": {
+            "action": "email",
+            "config": {
+              "template": "document-rejection",
+              "recipient": "{{context.vendor.email}}",
+              "reason": "{{item}} validation failed"
+            }
+          }
+        }
+      }
+    },
+    {
+      "phaseId": "team-evaluations",
+      "type": "parallel",
+      "steps": [
+        {
+          "stepId": "technical-review",
+          "action": "group",
+          "type": "parallel",
+          "members": [
+            {
+              "stepId": "tech-review-1",
+              "action": "approval",
+              "config": {
+                "approvers": ["tech1@company.com"],
+                "deadline": "3 days"
+              }
+            },
+            {
+              "stepId": "tech-review-2",
+              "action": "approval",
+              "config": {
+                "approvers": ["tech2@company.com"]
+              }
+            },
+            {
+              "stepId": "tech-review-3",
+              "action": "approval",
+              "config": {
+                "approvers": ["tech3@company.com"]
+              }
+            }
+          ]
+        },
+        {
+          "stepId": "hsse-review",
+          "action": "api_call",
+          "config": {
+            "url": "http://hsse-service/validate",
+            "method": "POST",
+            "successCondition": "response.status == 'approved'"
+          }
+        },
+        {
+          "stepId": "finance-review",
+          "action": "group",
+          "type": "sequential",
+          "members": [
+            {
+              "stepId": "finance-review-1",
+              "action": "approval",
+              "config": {
+                "approvers": ["fin1@company.com"]
+              }
+            },
+            {
+              "stepId": "finance-review-2",
+              "action": "approval",
+              "config": {
+                "approvers": ["fin2@company.com"]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "phaseId": "business-evaluation",
+      "type": "sequential",
+      "steps": [
+        {
+          "stepId": "evaluate-vendor",
+          "action": "api_call",
+          "config": {
+            "url": "http://evaluation-service/run-checks",
+            "method": "POST",
+            "payload": "{{context.vendor}}",
+            "successCondition": "response.approved == true"
+          }
+        }
+      ]
+    },
+    {
+      "phaseId": "finalization",
+      "type": "parallel",
+      "steps": [
+        {
+          "stepId": "notify-vendor",
+          "action": "email",
+          "config": {
+            "template": "vendor-approval",
+            "recipient": "{{context.vendor.email}}"
+          }
+        },
+        {
+          "stepId": "initiate-tier-update",
+          "action": "api_call",
+          "config": {
+            "url": "http://tier-service/update",
+            "method": "POST",
+            "payload": { "email": "{{context.vendor.email}}" }
+          }
+        }
+      ]
+    }
+  ],
+  "telemetry": {
+    "auditTrail": true,
+    "logStepEvents": true
+  }
+}
