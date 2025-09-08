@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 namespace Haley.Models {
     public class LoopConfig {
         public string Over { get; set; }
-        public WorkFlowStep StepTemplate { get; set; }
+        public WorkflowStep StepTemplate { get; set; }
     }
 }

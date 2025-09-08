@@ -89,14 +89,13 @@
   </Choose>
 
   <ItemGroup>
-    <Content Include="Resources\wfengine.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Compile Remove="Utils\MariaDBRepository.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Abstractions\" />
-    <Folder Include="Enums\" />
+    <Content Include="Resources\wfengine.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Haley.Models {
-    public class WorkFlowPhase {
+    public class WorkflowPhase {
         public int Code { get; set; }
         public string Name { get; set; }
         public List<int> Steps { get; set; }
