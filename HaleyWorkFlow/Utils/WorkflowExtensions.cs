@@ -1,4 +1,5 @@
 ﻿using Haley.Enums;
+using Haley.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,5 +19,16 @@ namespace Haley.Utils {
                 _ => false
             };
         }
+
+        public static object ResolveParameter(this WorkflowInstance instance, WorkflowDefinition definition, string key) {
+            if (instance.Parameters != null && instance.Parameters.TryGetValue(key, out var value))
+                return value;
+
+            if (definition.Parameters != null && definition.Parameters.TryGetValue(key, out var fallback))
+                return fallback;
+
+            throw new KeyNotFoundException($"Parameter '{key}' not found in instance or definition.");
+        }
+
     }
 }

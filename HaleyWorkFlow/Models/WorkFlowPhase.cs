@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Azure.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace Haley.Models {
         public string Name { get; set; }
         public List<int> Steps { get; set; }
         public RetryConfig Retries { get; set; }
-        public string RetryMode { get; set; }
+        public RetryMode RetryMode { get; set; }
         public LoopConfig Loop { get; set; } // Optional
     }
 }
