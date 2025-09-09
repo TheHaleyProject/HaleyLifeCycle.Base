@@ -212,7 +212,7 @@
         "surveyId": "$.parameters.surveyId",
         "responseScore": "$.1002.output.score"
       },
-      "dependsOnGroup": [1001],
+      "dependsOnPhase": [1001],
       "parallel": true,
       "timeout": "PT15S",
       "tags": ["finalization"],

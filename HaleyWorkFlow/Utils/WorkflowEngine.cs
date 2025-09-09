@@ -13,7 +13,7 @@ namespace Haley.Utils {
         private readonly IWorkflowRepository _repository;
         private readonly ILogger<WorkflowEngine> _logger;
         private readonly Dictionary<Guid, WorkflowInstance> _activeInstances = new();
-        private readonly Dictionary<Guid, WorkflowDefinition> _definitionCache = new();
+        private readonly Dictionary<Guid, WorkflowDefinition> _definitionCache = new(); //Get the definition only based on the GUID.
 
         public WorkflowEngine(IWorkflowRepository repository, ILogger<WorkflowEngine> logger) {
             _repository = repository;
@@ -23,7 +23,7 @@ namespace Haley.Utils {
         public async Task<Guid> StartWorkflowAsync(Guid definitionId, Dictionary<string, object> parameters, Dictionary<string, string> urlOverrides) {
             var definition = await LoadDefinitionAsync(definitionId);
             var instance = new WorkflowInstance {
-                InstanceId = Guid.NewGuid(), //This has to come from DB, not here.
+                InstanceId = Guid.NewGuid(), // this should come from the database. So,
                 DefinitionId = definitionId,
                 Parameters = parameters,
                 UrlOverrides = urlOverrides,

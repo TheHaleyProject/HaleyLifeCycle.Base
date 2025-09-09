@@ -11,5 +11,6 @@ namespace Haley.Models {
         public DateTime Timestamp { get; set; }
         public WorkflowStatus Status { get; set; }
         public string Message { get; set; }
+        public object Output { get; set; }
     }
 }

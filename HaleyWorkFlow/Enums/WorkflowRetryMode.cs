@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Haley.Enums {
-    public enum RetryMode {
+    public enum WorkflowRetryMode {
        Group,
        Step
     }
