@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project name="Smilodon" database="MariaDb" id="be85c71b-56d7-49a5-adfc-f1d9f130360a" >
 	<schema name="smilodon" >
+		<table name="appsource" prior="appsou" >
+			<column name="code" prior="id" type="INT" mandatory="y" />
+			<column name="name" type="VARCHAR" length="120" mandatory="y" />
+			<index name="pk_appsource" unique="PRIMARY_KEY" >
+				<column name="code" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
 		<table name="attempt_log" prior="attempt" >
-			<column name="status" type="INT" mandatory="y" />
 			<column name="output" type="LONGTEXT" mandatory="y" />
 			<column name="created" type="TIMESTAMP" mandatory="y" >
 				<defo><![CDATA[current_timestamp()]]></defo>
 			</column>
+			<column name="status" type="INT" mandatory="y" />
 			<column name="modified" type="TIMESTAMP" mandatory="y" >
 				<defo><![CDATA[current_timestamp()]]></defo>
 			</column>
@@ -73,6 +81,21 @@
 			</fk>
 			<options><![CDATA[engine=InnoDB]]></options>
 		</table>
+		<table name="wf_belongs_to" prior="wf_belongs" >
+			<column name="source" prior="appsource" type="INT" mandatory="y" />
+			<column name="wf_id" type="INT" mandatory="y" />
+			<index name="pk_wf_belongs_to" unique="PRIMARY_KEY" >
+				<column name="wf_id" />
+				<column name="source" />
+			</index>
+			<fk name="fk_wf_belongs_to_appsource" to_schema="smilodon" to_table="appsource" >
+				<fk_column name="source" pk="code" />
+			</fk>
+			<fk name="fk_wf_belongs_to_workflow" to_schema="smilodon" to_table="workflow" >
+				<fk_column name="wf_id" pk="id" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
 		<table name="wf_engine" prior="environment" >
 			<column name="environment" type="INT" mandatory="y" />
 			<column name="id" type="INT" mandatory="y" >
@@ -109,7 +132,6 @@
 			<column name="wfi" type="BIGINT" mandatory="y" />
 			<column name="parameters" type="LONGTEXT" />
 			<column name="url_overrides" type="LONGTEXT" />
-			<column name="ref" type="VARCHAR" length="60" />
 			<index name="pk_wf_info" unique="PRIMARY_KEY" >
 				<column name="wfi" />
 			</index>
@@ -119,8 +141,6 @@
 			<options><![CDATA[engine=InnoDB]]></options>
 		</table>
 		<table name="wf_instance" prior="wf_instan" >
-			<column name="env" prior="environment" type="INT" mandatory="y" />
-			<column name="wf_version" prior="workflow" type="INT" mandatory="y" />
 			<column name="guid" type="VARCHAR" length="42" mandatory="y" >
 				<defo><![CDATA['uuid()']]></defo>
 			</column>
@@ -128,11 +148,13 @@
 				<defo><![CDATA[0]]></defo>
 				<comment><![CDATA[Engine Owner]]></comment>
 			</column>
-			<column name="id" type="BIGINT" mandatory="y" >
-				<identity><![CDATA[AUTO_INCREMENT]]></identity>
-			</column>
+			<column name="wf_version" prior="workflow" type="INT" mandatory="y" />
+			<column name="env" prior="environment" type="INT" mandatory="y" />
 			<column name="created" type="TIMESTAMP" mandatory="y" >
 				<defo><![CDATA[current_timestamp()]]></defo>
+			</column>
+			<column name="id" type="BIGINT" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
 			</column>
 			<column name="modified" prior="updated" type="TIMESTAMP" mandatory="y" >
 				<defo><![CDATA[current_timestamp()]]></defo>
@@ -167,6 +189,7 @@
 ]]></options>
 		</table>
 		<table name="wf_version" prior="workflow_version" >
+			<column name="workflow" type="INT" mandatory="y" />
 			<column name="id" type="INT" mandatory="y" >
 				<identity><![CDATA[AUTO_INCREMENT]]></identity>
 			</column>
@@ -186,7 +209,6 @@
 			<column name="guid" type="VARCHAR" length="42" mandatory="y" >
 				<defo><![CDATA['uuid()']]></defo>
 			</column>
-			<column name="workflow" type="INT" mandatory="y" />
 			<index name="pk_workflow_version" unique="PRIMARY_KEY" >
 				<column name="id" />
 			</index>
@@ -209,6 +231,25 @@
 			<options><![CDATA[engine=InnoDB
  AUTO_INCREMENT 1200  
 ]]></options>
+		</table>
+		<table name="wfi_belongs_to" prior="wfi_belong" >
+			<column name="source" type="INT" mandatory="y" />
+			<column name="wfi_id" type="BIGINT" mandatory="y" />
+			<column name="owner" type="BIGINT" mandatory="y" >
+				<defo><![CDATA[0]]></defo>
+			</column>
+			<column name="ref" type="VARCHAR" length="45" />
+			<index name="pk_wfi_belongs_to" unique="PRIMARY_KEY" >
+				<column name="wfi_id" />
+				<column name="source" />
+			</index>
+			<fk name="fk_wfi_belongs_to_appsource" to_schema="smilodon" to_table="appsource" >
+				<fk_column name="source" pk="code" />
+			</fk>
+			<fk name="fk_wfi_belongs_to_wf_instance" to_schema="smilodon" to_table="wf_instance" >
+				<fk_column name="wfi_id" pk="id" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
 		</table>
 		<table name="wfi_phase" prior="wfi_group" >
 			<column name="wfi" prior="wf_instance" type="BIGINT" mandatory="y" />
@@ -252,11 +293,11 @@
 		</table>
 		<table name="wfi_step" prior="wf_step" >
 			<column name="wfi" prior="wf_instance" type="BIGINT" mandatory="y" />
-			<column name="status" type="INT" mandatory="y" />
 			<column name="code" prior="name" type="INT" mandatory="y" />
 			<column name="attempt" type="INT" mandatory="y" >
 				<defo><![CDATA[1]]></defo>
 			</column>
+			<column name="status" type="INT" mandatory="y" />
 			<column name="created" type="TIMESTAMP" mandatory="y" >
 				<defo><![CDATA[current_timestamp()]]></defo>
 			</column>
@@ -312,17 +353,20 @@
 		</table>
 	</schema>
 	<layout name="Default Diagram" id="35316b00-322c-430f-83ec-07d9ec742d12" joined_routing="y" show_relation="cascade" >
-		<entity schema="smilodon" name="environment" color="C1D8EE" x="247" y="57" />
-		<entity schema="smilodon" name="wf_engine" color="C1D8EE" x="57" y="57" />
-		<entity schema="smilodon" name="wf_info" color="C1D8EE" x="228" y="171" />
-		<entity schema="smilodon" name="wf_version" color="C1D8EE" x="627" y="114" />
-		<entity schema="smilodon" name="workflow" color="C1D8EE" x="646" y="342" />
-		<entity schema="smilodon" name="wf_instance" color="C1D8EE" x="418" y="95" />
-		<entity schema="smilodon" name="wfi_status" color="C1D8EE" x="266" y="456" />
-		<entity schema="smilodon" name="attempt_log" color="C1D8EE" x="57" y="456" />
-		<entity schema="smilodon" name="wfi_step" color="C1D8EE" x="475" y="437" />
-		<entity schema="smilodon" name="step_info" color="C1D8EE" x="646" y="532" />
-		<entity schema="smilodon" name="wfi_phase" color="C1D8EE" x="57" y="285" />
-		<entity schema="smilodon" name="step_belongs_to" color="C1D8EE" x="57" y="684" />
+		<entity schema="smilodon" name="wfi_step" color="C1D8EE" x="437" y="589" />
+		<entity schema="smilodon" name="wfi_phase" color="C1D8EE" x="209" y="456" />
+		<entity schema="smilodon" name="wf_info" color="C1D8EE" x="190" y="323" />
+		<entity schema="smilodon" name="attempt_log" color="C1D8EE" x="57" y="608" />
+		<entity schema="smilodon" name="wfi_status" color="C1D8EE" x="228" y="646" />
+		<entity schema="smilodon" name="step_belongs_to" color="C1D8EE" x="95" y="817" />
+		<entity schema="smilodon" name="step_info" color="C1D8EE" x="304" y="798" />
+		<entity schema="smilodon" name="wf_instance" color="C1D8EE" x="399" y="361" />
+		<entity schema="smilodon" name="wfi_belongs_to" color="C1D8EE" x="399" y="190" />
+		<entity schema="smilodon" name="wf_belongs_to" color="C1D8EE" x="399" y="57" />
+		<entity schema="smilodon" name="environment" color="C1D8EE" x="627" y="532" />
+		<entity schema="smilodon" name="wf_engine" color="C1D8EE" x="627" y="646" />
+		<entity schema="smilodon" name="wf_version" color="C1D8EE" x="570" y="209" />
+		<entity schema="smilodon" name="workflow" color="C1D8EE" x="570" y="76" />
+		<entity schema="smilodon" name="appsource" color="C1D8EE" x="247" y="133" />
 	</layout>
 </project>

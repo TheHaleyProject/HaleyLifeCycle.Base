@@ -1,33 +1,33 @@
-﻿ISO 8601 duration 
+﻿ISO 8601 DURATION: 
 
-P = period (starts the duration)
-nY = years
-nM = months
-nD = days
-T = time (separates date from time)
-nH = hours
-nM = minutes
-nS = seconds
+	P = period (starts the duration)
+	nY = years
+	nM = months
+	nD = days
+	T = time (separates date from time)
+	nH = hours
+	nM = minutes
+	nS = seconds
 
-Workflow states:
+WORKFLOW STATES:
 
-Code	State	Phase	Description	Recovery Action
-1000	pending	Initialization	Workflow is created but not yet started. Awaiting dispatch.	✅ Resume
-1001	running	Execution	Workflow is actively executing one or more steps.	✅ Resume
-1002	retrying	Execution	Workflow is retrying after a failure (step or group level).	✅ Resume
-1003	waiting	Execution	Awaiting external input (e.g., user review, webhook callback).	⏸️ Hold
-1004	paused	Interruption	Temporarily halted—often for manual intervention or external signal.	⏸️ Hold
-1005	skipped	Interruption	Workflow was bypassed due to conditional logic or configuration.	❌ Ignore
-1006	cancelled	Termination	Manually or programmatically terminated before completion.	❌ Ignore
-1007	failed	Termination	One or more steps failed and recovery was not possible.	⚠️ Inspect
-1008	timed_out	Termination	Workflow exceeded its allowed duration or a critical step timed out.	⚠️ Inspect
-1009	completed	Termination	All steps have finished successfully.	❌ Ignore
+	Code	State	Phase	Description	Recovery Action
+	1000	pending	Initialization	Workflow is created but not yet started. Awaiting dispatch.	✅ Resume
+	1001	running	Execution	Workflow is actively executing one or more steps.	✅ Resume
+	1002	retrying	Execution	Workflow is retrying after a failure (step or group level).	✅ Resume
+	1003	waiting	Execution	Awaiting external input (e.g., user review, webhook callback).	⏸️ Hold
+	1004	paused	Interruption	Temporarily halted—often for manual intervention or external signal.	⏸️ Hold
+	1005	skipped	Interruption	Workflow was bypassed due to conditional logic or configuration.	❌ Ignore
+	1006	cancelled	Termination	Manually or programmatically terminated before completion.	❌ Ignore
+	1007	failed	Termination	One or more steps failed and recovery was not possible.	⚠️ Inspect
+	1008	timed_out	Termination	Workflow exceeded its allowed duration or a critical step timed out.	⚠️ Inspect
+	1009	completed	Termination	All steps have finished successfully.	❌ Ignore
 
-WorkFlow Engine:
+WORKFLOW ENGINE:
 
-1. Load and cache workflow definitions
-2. Instantiate workflows with parameters and overrides
-3. Execute steps in order, respecting dependencies and phases
-4. Track status transitions and retries
-5. Handle timeouts, failures, and external triggers
-6. Persist state to MariaDB and support crash recovery
+	1. Load and cache workflow definitions
+	2. Instantiate workflows with parameters and overrides
+	3. Execute steps in order, respecting dependencies and phases
+	4. Track status transitions and retries
+	5. Handle timeouts, failures, and external triggers
+	6. Persist state to MariaDB and support crash recovery

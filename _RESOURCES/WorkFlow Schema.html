@@ -43,7 +43,7 @@ input::placeholder {
 <a name='layout1' style='position:sticky; top:0;'/><h4>Default Diagram</h4>
 <input type='text' placeholder='Highlight in Diagram' oninput='searchSVG(this.value)' class='text-start my-2'/>
 <div class='svgContainer'>
-<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'   width='817' height='946' viewBox='0 0 817 946' >
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'   width='817' height='1079' viewBox='0 0 817 1079' >
   <script type='text/ecmascript'>
   <![CDATA[
   function hghl(el) { for ( var i in el ){ var elem = document.getElementById(el[i]); if ( elem != null ) elem.setAttribute('class','highlight');  }  }
@@ -294,7 +294,7 @@ input::placeholder {
 
 <!-- == Shape Colors == -->
 <!-- == Desktop == -->
-<rect x='0' y='0' width='817' height='946' rx='9' ry='9' style='fill:url(#layoutBgA); stroke:#ccc; stroke-width:.7px; cursor:move;' />
+<rect x='0' y='0' width='817' height='1079' rx='9' ry='9' style='fill:url(#layoutBgA); stroke:#ccc; stroke-width:.7px; cursor:move;' />
 
 <!-- == Legend == -->
 <g transform='translate(10,10)'>
@@ -303,387 +303,467 @@ input::placeholder {
 Zoom with CTRL+whell mouse button, pan by dragging the diagram with the right-mouse button</title></use>
   <use x='20' y='40' xlink:href='#logo'><title>DbSchema Database Designer </title></use>  <text x='20' y='30' class='legendTitle' >Default Diagram</text> 
   <text x='57' y='47' class='legendSubTitle'><tspan>Read schema comments as mouse-over tooltips</tspan></text>
-  <a xlink:href='https://dbschema.com'><text x='57' y='61' class='legendSubTitle'><tspan>DbSchema.com © 2025-09-08 Wise Coders<title>DbSchema is an universal database designer.
+  <a xlink:href='https://dbschema.com'><text x='57' y='61' class='legendSubTitle'><tspan>DbSchema.com © 2025-09-26 Wise Coders<title>DbSchema is an universal database designer.
 DbSchema has a free Community Edition.</title></tspan></text></a> 
 </g>
 
 <g transform='translate(0,110)'>
-<!-- == Fk 'wf_engine_fk_wf_engine_environment' == -->
-<path id='wf_engine_fk_wf_engine_environment'  onmouseover="hghl(['wf_engine_fk_wf_engine_environment','smilodon.wf_engine.environment','smilodon.environment.code'])" onmouseout="uhghl(['wf_engine_fk_wf_engine_environment','smilodon.wf_engine.environment','smilodon.environment.code'])" transform='translate(9,0)' class='unhighlight' d='M 190,95L 228,95' >
-	<title>&#x1F517;  Foreign Key fk_wf_engine_environment
-wf_engine ref environment ( environment -&gt; code )</title>
-</path>
-<path transform='translate(9,0)' marker-start='url(#OneMore)' marker-end='url(#Arrow)'    d='M 190,95L 228,95' ><title>&#x1F517;  Foreign Key fk_wf_engine_environment
-wf_engine ref environment ( environment -&gt; code )</title></path>
-<text x='199' y='89' transform='rotate(0 199,89)' class='relName'></text>
-<!-- == Fk 'wf_info_fk_wf_info_wf_instance' == -->
-<path id='wf_info_fk_wf_info_wf_instance'  onmouseover="hghl(['wf_info_fk_wf_info_wf_instance','smilodon.wf_info.wfi','smilodon.wf_instance.id'])" onmouseout="uhghl(['wf_info_fk_wf_info_wf_instance','smilodon.wf_info.wfi','smilodon.wf_instance.id'])" transform='translate(9,0)' class='unhighlight' d='M 361,209L 399,209' >
-	<title>&#x1F517;  Foreign Key fk_wf_info_wf_instance
-wf_info ref wf_instance ( wfi -&gt; id )</title>
-</path>
-<path transform='translate(9,0)' marker-start='url(#One)' marker-end='url(#Arrow)'    d='M 361,209L 399,209' ><title>&#x1F517;  Foreign Key fk_wf_info_wf_instance
-wf_info ref wf_instance ( wfi -&gt; id )</title></path>
-<text x='370' y='203' transform='rotate(0 370,203)' class='relName'></text>
-<!-- == Fk 'wf_version_fk_workflow_version_workflow' == -->
-<path id='wf_version_fk_workflow_version_workflow'  onmouseover="hghl(['wf_version_fk_workflow_version_workflow','smilodon.wf_version.workflow','smilodon.workflow.id'])" onmouseout="uhghl(['wf_version_fk_workflow_version_workflow','smilodon.wf_version.workflow','smilodon.workflow.id'])" transform='translate(9,0)' class='unhighlight' d='M 741,285L 750,285Q 760,285 760,294L 760,370Q 760,380 750,380L 741,380' >
-	<title>&#x1F517;  Foreign Key fk_workflow_version_workflow
-wf_version ref workflow ( workflow -&gt; id )</title>
-</path>
-<path transform='translate(9,0)' marker-start='url(#OneMore)' marker-end='url(#Arrow)'    d='M 741,285L 750,285Q 760,285 760,294L 760,370Q 760,380 750,380L 741,380' ><title>&#x1F517;  Foreign Key fk_workflow_version_workflow
-wf_version ref workflow ( workflow -&gt; id )</title></path>
-<text x='750' y='279' transform='rotate(0 750,279)' class='relName'></text>
-<!-- == Fk 'wf_instance_fk_wf_instance_wf_version' == -->
-<path id='wf_instance_fk_wf_instance_wf_version'  onmouseover="hghl(['wf_instance_fk_wf_instance_wf_version','smilodon.wf_instance.wf_version','smilodon.wf_version.id'])" onmouseout="uhghl(['wf_instance_fk_wf_instance_wf_version','smilodon.wf_instance.wf_version','smilodon.wf_version.id'])" transform='translate(9,0)' class='unhighlight' d='M 532,152L 608,152' >
-	<title>&#x1F517;  Foreign Key fk_wf_instance_wf_version
-wf_instance ref wf_version ( wf_version -&gt; id )</title>
-</path>
-<path transform='translate(9,0)' marker-start='url(#OneMore)' marker-end='url(#Arrow)'    d='M 532,152L 608,152' ><title>&#x1F517;  Foreign Key fk_wf_instance_wf_version
-wf_instance ref wf_version ( wf_version -&gt; id )</title></path>
-<text x='541' y='146' transform='rotate(0 541,146)' class='relName'></text>
-<!-- == Fk 'wf_instance_fk_wf_instance_wf_status' == -->
-<path id='wf_instance_fk_wf_instance_wf_status'  onmouseover="hghl(['wf_instance_fk_wf_instance_wf_status','smilodon.wf_instance.status','smilodon.wfi_status.code'])" onmouseout="uhghl(['wf_instance_fk_wf_instance_wf_status','smilodon.wf_instance.status','smilodon.wfi_status.code'])" transform='translate(9,0)' class='unhighlight' d='M 532,266L 541,266Q 551,266 551,275L 551,389Q 551,399 541,399L 199,399Q 190,399 190,408L 190,418' >
-	<title>&#x1F517;  Foreign Key fk_wf_instance_wf_status
-wf_instance ref wfi_status ( status -&gt; code )</title>
-</path>
-<path transform='translate(9,0)' marker-start='url(#OneMore)'     d='M 532,266L 541,266Q 551,266 551,275L 551,389Q 551,399 541,399L 199,399Q 190,399 190,408L 190,418' ><title>&#x1F517;  Foreign Key fk_wf_instance_wf_status
-wf_instance ref wfi_status ( status -&gt; code )</title></path>
-<text x='541' y='260' transform='rotate(0 541,260)' class='relName'></text>
-<!-- == Fk 'wf_instance_fk_wf_instance_environment' == -->
-<path id='wf_instance_fk_wf_instance_environment'  onmouseover="hghl(['wf_instance_fk_wf_instance_environment','smilodon.wf_instance.env','smilodon.environment.code'])" onmouseout="uhghl(['wf_instance_fk_wf_instance_environment','smilodon.wf_instance.env','smilodon.environment.code'])" transform='translate(9,0)' class='unhighlight' d='M 399,133L 389,133Q 380,133 380,123L 380,104Q 380,95 370,95L 361,95' >
-	<title>&#x1F517;  Foreign Key fk_wf_instance_environment
-wf_instance ref environment ( env -&gt; code )</title>
-</path>
-<path transform='translate(9,0)' marker-start='url(#OneMore)' marker-end='url(#Arrow)'    d='M 399,133L 389,133Q 380,133 380,123L 380,104Q 380,95 370,95L 361,95' ><title>&#x1F517;  Foreign Key fk_wf_instance_environment
-wf_instance ref environment ( env -&gt; code )</title></path>
-<text x='408' y='127' transform='rotate(0 408,127)' class='relName'></text>
-<!-- == Fk 'attempt_log_fk_step_log_wf_status' == -->
-<path id='attempt_log_fk_step_log_wf_status'  onmouseover="hghl(['attempt_log_fk_step_log_wf_status','smilodon.attempt_log.status','smilodon.wfi_status.code'])" onmouseout="uhghl(['attempt_log_fk_step_log_wf_status','smilodon.attempt_log.status','smilodon.wfi_status.code'])" transform='translate(9,0)' class='unhighlight' d='M 171,494L 247,494' >
-	<title>&#x1F517;  Foreign Key fk_step_log_wf_status
-attempt_log ref wfi_status ( status -&gt; code )</title>
-</path>
-<path transform='translate(9,0)' marker-start='url(#OneMore)' marker-end='url(#Arrow)'    d='M 171,494L 247,494' ><title>&#x1F517;  Foreign Key fk_step_log_wf_status
-attempt_log ref wfi_status ( status -&gt; code )</title></path>
-<text x='180' y='488' transform='rotate(0 180,488)' class='relName'></text>
-<!-- == Fk 'attempt_log_fk_step_log_wf_step' == -->
-<path id='attempt_log_fk_step_log_wf_step'  onmouseover="hghl(['attempt_log_fk_step_log_wf_step','smilodon.attempt_log.step','smilodon.wfi_step.id'])" onmouseout="uhghl(['attempt_log_fk_step_log_wf_step','smilodon.attempt_log.step','smilodon.wfi_step.id'])" transform='translate(9,0)' class='unhighlight' d='M 171,608L 456,608' >
-	<title>&#x1F517;  Foreign Key fk_step_log_wf_step
-attempt_log ref wfi_step ( step -&gt; id )</title>
-</path>
-<path transform='translate(9,0)' marker-start='url(#OneMore)' marker-end='url(#Arrow)'    d='M 171,608L 456,608' ><title>&#x1F517;  Foreign Key fk_step_log_wf_step
-attempt_log ref wfi_step ( step -&gt; id )</title></path>
-<text x='180' y='602' transform='rotate(0 180,602)' class='relName'></text>
 <!-- == Fk 'wfi_step_fk_wf_step_wf_instance' == -->
-<path id='wfi_step_fk_wf_step_wf_instance'  onmouseover="hghl(['wfi_step_fk_wf_step_wf_instance','smilodon.wfi_step.wfi','smilodon.wf_instance.id'])" onmouseout="uhghl(['wfi_step_fk_wf_step_wf_instance','smilodon.wfi_step.wfi','smilodon.wf_instance.id'])" transform='translate(9,0)' class='unhighlight' d='M 456,475L 389,475Q 380,475 380,465L 380,304' >
+<path id='wfi_step_fk_wf_step_wf_instance'  onmouseover="hghl(['wfi_step_fk_wf_step_wf_instance','smilodon.wfi_step.wfi','smilodon.wf_instance.id'])" onmouseout="uhghl(['wfi_step_fk_wf_step_wf_instance','smilodon.wfi_step.wfi','smilodon.wf_instance.id'])" transform='translate(9,0)' class='unhighlight' d='M 551,627L 560,627Q 570,627 570,617L 570,503Q 570,494 560,494L 513,494' >
 	<title>&#x1F517;  Foreign Key fk_wf_step_wf_instance
 wfi_step ref wf_instance ( wfi -&gt; id )</title>
 </path>
-<path transform='translate(9,0)' marker-start='url(#OneMore)'     d='M 456,475L 389,475Q 380,475 380,465L 380,304' ><title>&#x1F517;  Foreign Key fk_wf_step_wf_instance
+<path transform='translate(9,0)' marker-start='url(#OneMore)' marker-end='url(#Arrow)'    d='M 551,627L 560,627Q 570,627 570,617L 570,503Q 570,494 560,494L 513,494' ><title>&#x1F517;  Foreign Key fk_wf_step_wf_instance
 wfi_step ref wf_instance ( wfi -&gt; id )</title></path>
-<text x='465' y='469' transform='rotate(0 465,469)' class='relName'></text>
+<text x='560' y='621' transform='rotate(0 560,621)' class='relName'></text>
 <!-- == Fk 'wfi_step_fk_wf_step_wf_status' == -->
-<path id='wfi_step_fk_wf_step_wf_status'  onmouseover="hghl(['wfi_step_fk_wf_step_wf_status','smilodon.wfi_step.status','smilodon.wfi_status.code'])" onmouseout="uhghl(['wfi_step_fk_wf_step_wf_status','smilodon.wfi_step.status','smilodon.wfi_status.code'])" transform='translate(9,0)' class='unhighlight' d='M 456,494L 361,494' >
+<path id='wfi_step_fk_wf_step_wf_status'  onmouseover="hghl(['wfi_step_fk_wf_step_wf_status','smilodon.wfi_step.status','smilodon.wfi_status.code'])" onmouseout="uhghl(['wfi_step_fk_wf_step_wf_status','smilodon.wfi_step.status','smilodon.wfi_status.code'])" transform='translate(9,0)' class='unhighlight' d='M 418,684L 323,684' >
 	<title>&#x1F517;  Foreign Key fk_wf_step_wf_status
 wfi_step ref wfi_status ( status -&gt; code )</title>
 </path>
-<path transform='translate(9,0)' marker-start='url(#OneMore)' marker-end='url(#Arrow)'    d='M 456,494L 361,494' ><title>&#x1F517;  Foreign Key fk_wf_step_wf_status
+<path transform='translate(9,0)' marker-start='url(#OneMore)'     d='M 418,684L 323,684' ><title>&#x1F517;  Foreign Key fk_wf_step_wf_status
 wfi_step ref wfi_status ( status -&gt; code )</title></path>
-<text x='465' y='488' transform='rotate(0 465,488)' class='relName'></text>
-<!-- == Fk 'step_info_fk_step_info_wfi_step' == -->
-<path id='step_info_fk_step_info_wfi_step'  onmouseover="hghl(['step_info_fk_step_info_wfi_step','smilodon.step_info.step','smilodon.wfi_step.id'])" onmouseout="uhghl(['step_info_fk_step_info_wfi_step','smilodon.step_info.step','smilodon.wfi_step.id'])" transform='translate(9,0)' class='unhighlight' d='M 627,608L 589,608' >
-	<title>&#x1F517;  Foreign Key fk_step_info_wfi_step
-step_info ref wfi_step ( step -&gt; id )</title>
-</path>
-<path transform='translate(9,0)' marker-start='url(#One)' marker-end='url(#Arrow)'    d='M 627,608L 589,608' ><title>&#x1F517;  Foreign Key fk_step_info_wfi_step
-step_info ref wfi_step ( step -&gt; id )</title></path>
-<text x='636' y='602' transform='rotate(0 636,602)' class='relName'></text>
+<text x='427' y='678' transform='rotate(0 427,678)' class='relName'></text>
 <!-- == Fk 'wfi_phase_fk_wf_group_wf_instance' == -->
-<path id='wfi_phase_fk_wf_group_wf_instance'  onmouseover="hghl(['wfi_phase_fk_wf_group_wf_instance','smilodon.wfi_phase.wfi','smilodon.wf_instance.id'])" onmouseout="uhghl(['wfi_phase_fk_wf_group_wf_instance','smilodon.wfi_phase.wfi','smilodon.wf_instance.id'])" transform='translate(9,0)' class='unhighlight' d='M 171,323L 370,323Q 380,323 380,313L 380,218Q 380,209 389,209L 399,209' >
+<path id='wfi_phase_fk_wf_group_wf_instance'  onmouseover="hghl(['wfi_phase_fk_wf_group_wf_instance','smilodon.wfi_phase.wfi','smilodon.wf_instance.id'])" onmouseout="uhghl(['wfi_phase_fk_wf_group_wf_instance','smilodon.wfi_phase.wfi','smilodon.wf_instance.id'])" transform='translate(9,0)' class='unhighlight' d='M 323,494L 380,494' >
 	<title>&#x1F517;  Foreign Key fk_wf_group_wf_instance
 wfi_phase ref wf_instance ( wfi -&gt; id )</title>
 </path>
-<path transform='translate(9,0)' marker-start='url(#OneMore)'     d='M 171,323L 370,323Q 380,323 380,313L 380,218Q 380,209 389,209L 399,209' ><title>&#x1F517;  Foreign Key fk_wf_group_wf_instance
+<path transform='translate(9,0)' marker-start='url(#OneMore)'     d='M 323,494L 380,494' ><title>&#x1F517;  Foreign Key fk_wf_group_wf_instance
 wfi_phase ref wf_instance ( wfi -&gt; id )</title></path>
-<text x='180' y='317' transform='rotate(0 180,317)' class='relName'></text>
+<text x='332' y='488' transform='rotate(0 332,488)' class='relName'></text>
 <!-- == Fk 'wfi_phase_fk_wf_group_wf_status' == -->
-<path id='wfi_phase_fk_wf_group_wf_status'  onmouseover="hghl(['wfi_phase_fk_wf_group_wf_status','smilodon.wfi_phase.status','smilodon.wfi_status.code'])" onmouseout="uhghl(['wfi_phase_fk_wf_group_wf_status','smilodon.wfi_phase.status','smilodon.wfi_status.code'])" transform='translate(9,0)' class='unhighlight' d='M 171,399L 180,399Q 190,399 190,408L 190,484Q 190,494 199,494L 209,494' >
+<path id='wfi_phase_fk_wf_group_wf_status'  onmouseover="hghl(['wfi_phase_fk_wf_group_wf_status','smilodon.wfi_phase.status','smilodon.wfi_status.code'])" onmouseout="uhghl(['wfi_phase_fk_wf_group_wf_status','smilodon.wfi_phase.status','smilodon.wfi_status.code'])" transform='translate(9,0)' class='unhighlight' d='M 323,570L 332,570Q 342,570 342,579L 342,674Q 342,684 332,684L 323,684' >
 	<title>&#x1F517;  Foreign Key fk_wf_group_wf_status
 wfi_phase ref wfi_status ( status -&gt; code )</title>
 </path>
-<path transform='translate(9,0)' marker-start='url(#OneMore)'     d='M 171,399L 180,399Q 190,399 190,408L 190,484Q 190,494 199,494L 209,494' ><title>&#x1F517;  Foreign Key fk_wf_group_wf_status
+<path transform='translate(9,0)' marker-start='url(#OneMore)' marker-end='url(#Arrow)'    d='M 323,570L 332,570Q 342,570 342,579L 342,674Q 342,684 332,684L 323,684' ><title>&#x1F517;  Foreign Key fk_wf_group_wf_status
 wfi_phase ref wfi_status ( status -&gt; code )</title></path>
-<text x='180' y='393' transform='rotate(0 180,393)' class='relName'></text>
+<text x='332' y='564' transform='rotate(0 332,564)' class='relName'></text>
+<!-- == Fk 'wf_info_fk_wf_info_wf_instance' == -->
+<path id='wf_info_fk_wf_info_wf_instance'  onmouseover="hghl(['wf_info_fk_wf_info_wf_instance','smilodon.wf_info.wfi','smilodon.wf_instance.id'])" onmouseout="uhghl(['wf_info_fk_wf_info_wf_instance','smilodon.wf_info.wfi','smilodon.wf_instance.id'])" transform='translate(9,0)' class='unhighlight' d='M 323,361L 351,361Q 361,361 361,370L 361,484Q 361,494 370,494L 380,494' >
+	<title>&#x1F517;  Foreign Key fk_wf_info_wf_instance
+wf_info ref wf_instance ( wfi -&gt; id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#One)' marker-end='url(#Arrow)'    d='M 323,361L 351,361Q 361,361 361,370L 361,484Q 361,494 370,494L 380,494' ><title>&#x1F517;  Foreign Key fk_wf_info_wf_instance
+wf_info ref wf_instance ( wfi -&gt; id )</title></path>
+<text x='332' y='355' transform='rotate(0 332,355)' class='relName'></text>
+<!-- == Fk 'attempt_log_fk_step_log_wf_status' == -->
+<path id='attempt_log_fk_step_log_wf_status'  onmouseover="hghl(['attempt_log_fk_step_log_wf_status','smilodon.attempt_log.status','smilodon.wfi_status.code'])" onmouseout="uhghl(['attempt_log_fk_step_log_wf_status','smilodon.attempt_log.status','smilodon.wfi_status.code'])" transform='translate(9,0)' class='unhighlight' d='M 171,684L 209,684' >
+	<title>&#x1F517;  Foreign Key fk_step_log_wf_status
+attempt_log ref wfi_status ( status -&gt; code )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#OneMore)' marker-end='url(#Arrow)'    d='M 171,684L 209,684' ><title>&#x1F517;  Foreign Key fk_step_log_wf_status
+attempt_log ref wfi_status ( status -&gt; code )</title></path>
+<text x='180' y='678' transform='rotate(0 180,678)' class='relName'></text>
+<!-- == Fk 'attempt_log_fk_step_log_wf_step' == -->
+<path id='attempt_log_fk_step_log_wf_step'  onmouseover="hghl(['attempt_log_fk_step_log_wf_step','smilodon.attempt_log.step','smilodon.wfi_step.id'])" onmouseout="uhghl(['attempt_log_fk_step_log_wf_step','smilodon.attempt_log.step','smilodon.wfi_step.id'])" transform='translate(9,0)' class='unhighlight' d='M 171,760L 418,760' >
+	<title>&#x1F517;  Foreign Key fk_step_log_wf_step
+attempt_log ref wfi_step ( step -&gt; id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#OneMore)' marker-end='url(#Arrow)'    d='M 171,760L 418,760' ><title>&#x1F517;  Foreign Key fk_step_log_wf_step
+attempt_log ref wfi_step ( step -&gt; id )</title></path>
+<text x='180' y='754' transform='rotate(0 180,754)' class='relName'></text>
 <!-- == Fk 'step_belongs_to_fk_step_belongs_to_wf_step' == -->
-<path id='step_belongs_to_fk_step_belongs_to_wf_step'  onmouseover="hghl(['step_belongs_to_fk_step_belongs_to_wf_step','smilodon.step_belongs_to.step_id','smilodon.wfi_step.id'])" onmouseout="uhghl(['step_belongs_to_fk_step_belongs_to_wf_step','smilodon.step_belongs_to.step_id','smilodon.wfi_step.id'])" transform='translate(9,0)' class='unhighlight' d='M 190,741L 199,741Q 209,741 209,731L 209,617Q 209,608 218,608L 228,608' >
+<path id='step_belongs_to_fk_step_belongs_to_wf_step'  onmouseover="hghl(['step_belongs_to_fk_step_belongs_to_wf_step','smilodon.step_belongs_to.step_id','smilodon.wfi_step.id'])" onmouseout="uhghl(['step_belongs_to_fk_step_belongs_to_wf_step','smilodon.step_belongs_to.step_id','smilodon.wfi_step.id'])" transform='translate(9,0)' class='unhighlight' d='M 228,874L 237,874Q 247,874 247,864L 247,769Q 247,760 256,760L 266,760' >
 	<title>&#x1F517;  Foreign Key fk_step_belongs_to_wf_step
 step_belongs_to ref wfi_step ( step_id -&gt; id )</title>
 </path>
-<path transform='translate(9,0)' marker-start='url(#OneMore)'     d='M 190,741L 199,741Q 209,741 209,731L 209,617Q 209,608 218,608L 228,608' ><title>&#x1F517;  Foreign Key fk_step_belongs_to_wf_step
+<path transform='translate(9,0)' marker-start='url(#OneMore)'     d='M 228,874L 237,874Q 247,874 247,864L 247,769Q 247,760 256,760L 266,760' ><title>&#x1F517;  Foreign Key fk_step_belongs_to_wf_step
 step_belongs_to ref wfi_step ( step_id -&gt; id )</title></path>
-<text x='199' y='735' transform='rotate(0 199,735)' class='relName'></text>
+<text x='237' y='868' transform='rotate(0 237,868)' class='relName'></text>
 <!-- == Fk 'step_belongs_to_fk_step_belongs_to_wf_group' == -->
-<path id='step_belongs_to_fk_step_belongs_to_wf_group'  onmouseover="hghl(['step_belongs_to_fk_step_belongs_to_wf_group','smilodon.step_belongs_to.phase_id','smilodon.wfi_phase.id'])" onmouseout="uhghl(['step_belongs_to_fk_step_belongs_to_wf_group','smilodon.step_belongs_to.phase_id','smilodon.wfi_phase.id'])" transform='translate(9,0)' class='unhighlight' d='M 38,722L 28,722Q 19,722 19,712L 19,370Q 19,361 28,361L 38,361' >
+<path id='step_belongs_to_fk_step_belongs_to_wf_group'  onmouseover="hghl(['step_belongs_to_fk_step_belongs_to_wf_group','smilodon.step_belongs_to.phase_id','smilodon.wfi_phase.id'])" onmouseout="uhghl(['step_belongs_to_fk_step_belongs_to_wf_group','smilodon.step_belongs_to.phase_id','smilodon.wfi_phase.id'])" transform='translate(9,0)' class='unhighlight' d='M 76,855L 28,855Q 19,855 19,845L 19,541Q 19,532 28,532L 190,532' >
 	<title>&#x1F517;  Foreign Key fk_step_belongs_to_wf_group
 step_belongs_to ref wfi_phase ( phase_id -&gt; id )</title>
 </path>
-<path transform='translate(9,0)' marker-start='url(#OneMore)' marker-end='url(#Arrow)'    d='M 38,722L 28,722Q 19,722 19,712L 19,370Q 19,361 28,361L 38,361' ><title>&#x1F517;  Foreign Key fk_step_belongs_to_wf_group
+<path transform='translate(9,0)' marker-start='url(#OneMore)' marker-end='url(#Arrow)'    d='M 76,855L 28,855Q 19,855 19,845L 19,541Q 19,532 28,532L 190,532' ><title>&#x1F517;  Foreign Key fk_step_belongs_to_wf_group
 step_belongs_to ref wfi_phase ( phase_id -&gt; id )</title></path>
-<text x='47' y='716' transform='rotate(0 47,716)' class='relName'></text>
+<text x='85' y='849' transform='rotate(0 85,849)' class='relName'></text>
+<!-- == Fk 'step_info_fk_step_info_wfi_step' == -->
+<path id='step_info_fk_step_info_wfi_step'  onmouseover="hghl(['step_info_fk_step_info_wfi_step','smilodon.step_info.step','smilodon.wfi_step.id'])" onmouseout="uhghl(['step_info_fk_step_info_wfi_step','smilodon.step_info.step','smilodon.wfi_step.id'])" transform='translate(9,0)' class='unhighlight' d='M 285,874L 256,874Q 247,874 247,864L 247,855' >
+	<title>&#x1F517;  Foreign Key fk_step_info_wfi_step
+step_info ref wfi_step ( step -&gt; id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#One)'     d='M 285,874L 256,874Q 247,874 247,864L 247,855' ><title>&#x1F517;  Foreign Key fk_step_info_wfi_step
+step_info ref wfi_step ( step -&gt; id )</title></path>
+<text x='294' y='868' transform='rotate(0 294,868)' class='relName'></text>
+<!-- == Fk 'wf_instance_fk_wf_instance_wf_version' == -->
+<path id='wf_instance_fk_wf_instance_wf_version'  onmouseover="hghl(['wf_instance_fk_wf_instance_wf_version','smilodon.wf_instance.wf_version','smilodon.wf_version.id'])" onmouseout="uhghl(['wf_instance_fk_wf_instance_wf_version','smilodon.wf_instance.wf_version','smilodon.wf_version.id'])" transform='translate(9,0)' class='unhighlight' d='M 513,437L 522,437Q 532,437 532,427L 532,275Q 532,266 541,266L 551,266' >
+	<title>&#x1F517;  Foreign Key fk_wf_instance_wf_version
+wf_instance ref wf_version ( wf_version -&gt; id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#OneMore)' marker-end='url(#Arrow)'    d='M 513,437L 522,437Q 532,437 532,427L 532,275Q 532,266 541,266L 551,266' ><title>&#x1F517;  Foreign Key fk_wf_instance_wf_version
+wf_instance ref wf_version ( wf_version -&gt; id )</title></path>
+<text x='522' y='431' transform='rotate(0 522,431)' class='relName'></text>
+<!-- == Fk 'wf_instance_fk_wf_instance_wf_status' == -->
+<path id='wf_instance_fk_wf_instance_wf_status'  onmouseover="hghl(['wf_instance_fk_wf_instance_wf_status','smilodon.wf_instance.status','smilodon.wfi_status.code'])" onmouseout="uhghl(['wf_instance_fk_wf_instance_wf_status','smilodon.wf_instance.status','smilodon.wfi_status.code'])" transform='translate(9,0)' class='unhighlight' d='M 380,532L 351,532Q 342,532 342,541L 342,589' >
+	<title>&#x1F517;  Foreign Key fk_wf_instance_wf_status
+wf_instance ref wfi_status ( status -&gt; code )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#OneMore)'     d='M 380,532L 351,532Q 342,532 342,541L 342,589' ><title>&#x1F517;  Foreign Key fk_wf_instance_wf_status
+wf_instance ref wfi_status ( status -&gt; code )</title></path>
+<text x='389' y='526' transform='rotate(0 389,526)' class='relName'></text>
+<!-- == Fk 'wf_instance_fk_wf_instance_environment' == -->
+<path id='wf_instance_fk_wf_instance_environment'  onmouseover="hghl(['wf_instance_fk_wf_instance_environment','smilodon.wf_instance.env','smilodon.environment.code'])" onmouseout="uhghl(['wf_instance_fk_wf_instance_environment','smilodon.wf_instance.env','smilodon.environment.code'])" transform='translate(9,0)' class='unhighlight' d='M 513,456L 579,456Q 589,456 589,465L 589,560Q 589,570 598,570L 608,570' >
+	<title>&#x1F517;  Foreign Key fk_wf_instance_environment
+wf_instance ref environment ( env -&gt; code )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#OneMore)'     d='M 513,456L 579,456Q 589,456 589,465L 589,560Q 589,570 598,570L 608,570' ><title>&#x1F517;  Foreign Key fk_wf_instance_environment
+wf_instance ref environment ( env -&gt; code )</title></path>
+<text x='522' y='450' transform='rotate(0 522,450)' class='relName'></text>
+<!-- == Fk 'wfi_belongs_to_fk_wfi_belongs_to_appsource' == -->
+<path id='wfi_belongs_to_fk_wfi_belongs_to_appsource'  onmouseover="hghl(['wfi_belongs_to_fk_wfi_belongs_to_appsource','smilodon.wfi_belongs_to.source','smilodon.appsource.code'])" onmouseout="uhghl(['wfi_belongs_to_fk_wfi_belongs_to_appsource','smilodon.wfi_belongs_to.source','smilodon.appsource.code'])" transform='translate(9,0)' class='unhighlight' d='M 380,228L 370,228Q 361,228 361,218L 361,180Q 361,171 351,171L 342,171' >
+	<title>&#x1F517;  Foreign Key fk_wfi_belongs_to_appsource
+wfi_belongs_to ref appsource ( source -&gt; code )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#OneMore)'     d='M 380,228L 370,228Q 361,228 361,218L 361,180Q 361,171 351,171L 342,171' ><title>&#x1F517;  Foreign Key fk_wfi_belongs_to_appsource
+wfi_belongs_to ref appsource ( source -&gt; code )</title></path>
+<text x='389' y='222' transform='rotate(0 389,222)' class='relName'></text>
+<!-- == Fk 'wfi_belongs_to_fk_wfi_belongs_to_wf_instance' == -->
+<path id='wfi_belongs_to_fk_wfi_belongs_to_wf_instance'  onmouseover="hghl(['wfi_belongs_to_fk_wfi_belongs_to_wf_instance','smilodon.wfi_belongs_to.wfi_id','smilodon.wf_instance.id'])" onmouseout="uhghl(['wfi_belongs_to_fk_wfi_belongs_to_wf_instance','smilodon.wfi_belongs_to.wfi_id','smilodon.wf_instance.id'])" transform='translate(9,0)' class='unhighlight' d='M 380,247L 370,247Q 361,247 361,256L 361,380' >
+	<title>&#x1F517;  Foreign Key fk_wfi_belongs_to_wf_instance
+wfi_belongs_to ref wf_instance ( wfi_id -&gt; id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#OneMore)'     d='M 380,247L 370,247Q 361,247 361,256L 361,380' ><title>&#x1F517;  Foreign Key fk_wfi_belongs_to_wf_instance
+wfi_belongs_to ref wf_instance ( wfi_id -&gt; id )</title></path>
+<text x='389' y='241' transform='rotate(0 389,241)' class='relName'></text>
+<!-- == Fk 'wf_belongs_to_fk_wf_belongs_to_appsource' == -->
+<path id='wf_belongs_to_fk_wf_belongs_to_appsource'  onmouseover="hghl(['wf_belongs_to_fk_wf_belongs_to_appsource','smilodon.wf_belongs_to.source','smilodon.appsource.code'])" onmouseout="uhghl(['wf_belongs_to_fk_wf_belongs_to_appsource','smilodon.wf_belongs_to.source','smilodon.appsource.code'])" transform='translate(9,0)' class='unhighlight' d='M 380,95L 370,95Q 361,95 361,104L 361,161Q 361,171 351,171L 342,171' >
+	<title>&#x1F517;  Foreign Key fk_wf_belongs_to_appsource
+wf_belongs_to ref appsource ( source -&gt; code )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#OneMore)' marker-end='url(#Arrow)'    d='M 380,95L 370,95Q 361,95 361,104L 361,161Q 361,171 351,171L 342,171' ><title>&#x1F517;  Foreign Key fk_wf_belongs_to_appsource
+wf_belongs_to ref appsource ( source -&gt; code )</title></path>
+<text x='389' y='89' transform='rotate(0 389,89)' class='relName'></text>
+<!-- == Fk 'wf_belongs_to_fk_wf_belongs_to_workflow' == -->
+<path id='wf_belongs_to_fk_wf_belongs_to_workflow'  onmouseover="hghl(['wf_belongs_to_fk_wf_belongs_to_workflow','smilodon.wf_belongs_to.wf_id','smilodon.workflow.id'])" onmouseout="uhghl(['wf_belongs_to_fk_wf_belongs_to_workflow','smilodon.wf_belongs_to.wf_id','smilodon.workflow.id'])" transform='translate(9,0)' class='unhighlight' d='M 513,114L 551,114' >
+	<title>&#x1F517;  Foreign Key fk_wf_belongs_to_workflow
+wf_belongs_to ref workflow ( wf_id -&gt; id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#OneMore)' marker-end='url(#Arrow)'    d='M 513,114L 551,114' ><title>&#x1F517;  Foreign Key fk_wf_belongs_to_workflow
+wf_belongs_to ref workflow ( wf_id -&gt; id )</title></path>
+<text x='522' y='108' transform='rotate(0 522,108)' class='relName'></text>
+<!-- == Fk 'wf_engine_fk_wf_engine_environment' == -->
+<path id='wf_engine_fk_wf_engine_environment'  onmouseover="hghl(['wf_engine_fk_wf_engine_environment','smilodon.wf_engine.environment','smilodon.environment.code'])" onmouseout="uhghl(['wf_engine_fk_wf_engine_environment','smilodon.wf_engine.environment','smilodon.environment.code'])" transform='translate(9,0)' class='unhighlight' d='M 608,684L 598,684Q 589,684 589,674L 589,579Q 589,570 598,570L 608,570' >
+	<title>&#x1F517;  Foreign Key fk_wf_engine_environment
+wf_engine ref environment ( environment -&gt; code )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#OneMore)' marker-end='url(#Arrow)'    d='M 608,684L 598,684Q 589,684 589,674L 589,579Q 589,570 598,570L 608,570' ><title>&#x1F517;  Foreign Key fk_wf_engine_environment
+wf_engine ref environment ( environment -&gt; code )</title></path>
+<text x='617' y='678' transform='rotate(0 617,678)' class='relName'></text>
+<!-- == Fk 'wf_version_fk_workflow_version_workflow' == -->
+<path id='wf_version_fk_workflow_version_workflow'  onmouseover="hghl(['wf_version_fk_workflow_version_workflow','smilodon.wf_version.workflow','smilodon.workflow.id'])" onmouseout="uhghl(['wf_version_fk_workflow_version_workflow','smilodon.wf_version.workflow','smilodon.workflow.id'])" transform='translate(9,0)' class='unhighlight' d='M 551,247L 541,247Q 532,247 532,237L 532,123Q 532,114 541,114L 551,114' >
+	<title>&#x1F517;  Foreign Key fk_workflow_version_workflow
+wf_version ref workflow ( workflow -&gt; id )</title>
+</path>
+<path transform='translate(9,0)' marker-start='url(#OneMore)'     d='M 551,247L 541,247Q 532,247 532,237L 532,123Q 532,114 541,114L 551,114' ><title>&#x1F517;  Foreign Key fk_workflow_version_workflow
+wf_version ref workflow ( workflow -&gt; id )</title></path>
+<text x='560' y='241' transform='rotate(0 560,241)' class='relName'></text>
+<!-- == Table 'wfi_step' == -->
+<rect id='depict_smilodon&#46;wfi&#95;step' class='entity' style='stroke:#F9FAFC' x='437' y='580' width='114' height='228' rx='4' ry='4' />
+<rect x='437' y='580' width='114' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
+<rect x='437' y='584' width='114' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
+<a xlink:href='#smilodon.wfi_step'><text id='depict&#45;smilodon&#46;wfi&#95;step' x='466' y='601' class='tableHeader' style='fill:#414448;'>wfi&#95;step</text><title>Table smilodon.wfi_step</title></a>
+  <use x='438' y='623' xlink:href='#nn'/><use x='439' y='622' xlink:href='#idx'><title>&#x1F50D;  fk_wf_step_wf_instance ( wfi ) </title></use><a xlink:href='#smilodon.wfi_step.wfi'><text id='smilodon&#46;wfi&#95;step&#46;wfi' x='459' y='635' onmouseover="hghl(['wfi_step_fk_wf_step_wf_instance','smilodon.wf_instance.id'])" onmouseout="uhghl(['wfi_step_fk_wf_step_wf_instance','smilodon.wf_instance.id'])">wfi</text><title>&#10697;  wfi
+     * bigint
+ &#8599; wf_instance( id )</title></a>
+<a xlink:href='#smilodon.wfi_step.wfi'><use x='537' y='622' xlink:href='#fk'/><title>&#x1F517;  References wf_instance ( wfi -&gt; id ) </title></a>
+  <use x='438' y='642' xlink:href='#nn'/><a xlink:href='#smilodon.wfi_step.code'><text id='smilodon&#46;wfi&#95;step&#46;code' x='459' y='654'>code</text><title>&#10697;  code
+     * int</title></a>
+<text x='548' y='650' text-anchor='end' class='colType'>&#35;</text>  <use x='438' y='661' xlink:href='#nn'/><a xlink:href='#smilodon.wfi_step.attempt'><text id='smilodon&#46;wfi&#95;step&#46;attempt' x='459' y='673'>attempt</text><title>&#10697;  attempt
+     * int default 1</title></a>
+<text x='548' y='669' text-anchor='end' class='colType'>&#35;</text>  <use x='438' y='680' xlink:href='#nn'/><use x='439' y='679' xlink:href='#idx'><title>&#x1F50D;  fk_wf_step_wf_status ( status ) </title></use><a xlink:href='#smilodon.wfi_step.status'><text id='smilodon&#46;wfi&#95;step&#46;status' x='459' y='692' onmouseover="hghl(['wfi_step_fk_wf_step_wf_status','smilodon.wfi_status.code'])" onmouseout="uhghl(['wfi_step_fk_wf_step_wf_status','smilodon.wfi_status.code'])">status</text><title>&#10697;  status
+     * int
+ &#8599; wfi_status( code )</title></a>
+<a xlink:href='#smilodon.wfi_step.status'><use x='537' y='679' xlink:href='#fk'/><title>&#x1F517;  References wfi_status ( status -&gt; code ) </title></a>
+  <use x='438' y='699' xlink:href='#nn'/><a xlink:href='#smilodon.wfi_step.created'><text id='smilodon&#46;wfi&#95;step&#46;created' x='459' y='711'>created</text><title>&#10697;  created
+     * timestamp default current_timestamp()</title></a>
+  <use x='438' y='718' xlink:href='#nn'/><a xlink:href='#smilodon.wfi_step.modified'><text id='smilodon&#46;wfi&#95;step&#46;modified' x='459' y='730'>modified</text><title>&#10697;  modified
+     * timestamp default current_timestamp()</title></a>
+  <use x='438' y='737' xlink:href='#nn'/><a xlink:href='#smilodon.wfi_step.timeout'><text id='smilodon&#46;wfi&#95;step&#46;timeout' x='459' y='749'>timeout</text><title>&#10697;  timeout
+     * timestamp default current_timestamp()</title></a>
+  <use x='438' y='756' xlink:href='#nn'/><use x='439' y='755' xlink:href='#pk'><title>&#x1F511;  Pk pk_wf_step ( id ) </title></use><a xlink:href='#smilodon.wfi_step.id'><text id='smilodon&#46;wfi&#95;step&#46;id' x='459' y='768' onmouseover="hghl(['attempt_log_fk_step_log_wf_step','smilodon.attempt_log.step','step_belongs_to_fk_step_belongs_to_wf_step','smilodon.step_belongs_to.step_id','step_info_fk_step_info_wfi_step','smilodon.step_info.step'])" onmouseout="uhghl(['attempt_log_fk_step_log_wf_step','smilodon.attempt_log.step','step_belongs_to_fk_step_belongs_to_wf_step','smilodon.step_belongs_to.step_id','step_info_fk_step_info_wfi_step','smilodon.step_info.step'])" class='colPk'>id</text><title>&#10697;  id
+     * bigint
+ &#8601; attempt_log( step )
+ &#8601; step_belongs_to( step_id )
+ &#8601; step_info( step )</title></a>
+<a xlink:href='#smilodon.wfi_step.id'><use x='537' y='755' xlink:href='#ref'/><title>&#x1F517;  Referred by attempt_log ( step -&gt; id ) 
+Referred by step_belongs_to ( step_id -&gt; id ) 
+Referred by step_info ( step -&gt; id ) </title></a>
+  <use x='438' y='775' xlink:href='#nn'/><a xlink:href='#smilodon.wfi_step.engine_id'><text id='smilodon&#46;wfi&#95;step&#46;engine&#95;id' x='459' y='787'>engine&#95;id</text><title>&#10697;  engine_id
+     * int default 0</title></a>
+<text x='548' y='783' text-anchor='end' class='colType'>&#35;</text>
+<!-- == Table 'wfi_phase' == -->
+<rect id='depict_smilodon&#46;wfi&#95;phase' class='entity' style='stroke:#F9FAFC' x='209' y='447' width='114' height='152' rx='4' ry='4' />
+<rect x='209' y='447' width='114' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
+<rect x='209' y='451' width='114' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
+<a xlink:href='#smilodon.wfi_phase'><text id='depict&#45;smilodon&#46;wfi&#95;phase' x='233' y='468' class='tableHeader' style='fill:#414448;'>wfi&#95;phase</text><title>Table smilodon.wfi_phase</title></a>
+  <use x='210' y='490' xlink:href='#nn'/><use x='211' y='489' xlink:href='#idx'><title>&#x1F50D;  fk_wf_group_wf_instance ( wfi ) </title></use><a xlink:href='#smilodon.wfi_phase.wfi'><text id='smilodon&#46;wfi&#95;phase&#46;wfi' x='231' y='502' onmouseover="hghl(['wfi_phase_fk_wf_group_wf_instance','smilodon.wf_instance.id'])" onmouseout="uhghl(['wfi_phase_fk_wf_group_wf_instance','smilodon.wf_instance.id'])">wfi</text><title>&#10697;  wfi
+     * bigint
+ &#8599; wf_instance( id )</title></a>
+<a xlink:href='#smilodon.wfi_phase.wfi'><use x='309' y='489' xlink:href='#fk'/><title>&#x1F517;  References wf_instance ( wfi -&gt; id ) </title></a>
+  <use x='210' y='509' xlink:href='#nn'/><a xlink:href='#smilodon.wfi_phase.code'><text id='smilodon&#46;wfi&#95;phase&#46;code' x='231' y='521'>code</text><title>&#10697;  code
+     * int</title></a>
+<text x='320' y='517' text-anchor='end' class='colType'>&#35;</text>  <use x='210' y='528' xlink:href='#nn'/><use x='211' y='527' xlink:href='#pk'><title>&#x1F511;  Pk pk_wf_group ( id ) </title></use><a xlink:href='#smilodon.wfi_phase.id'><text id='smilodon&#46;wfi&#95;phase&#46;id' x='231' y='540' onmouseover="hghl(['step_belongs_to_fk_step_belongs_to_wf_group','smilodon.step_belongs_to.phase_id'])" onmouseout="uhghl(['step_belongs_to_fk_step_belongs_to_wf_group','smilodon.step_belongs_to.phase_id'])" class='colPk'>id</text><title>&#10697;  id
+     * bigint
+ &#8601; step_belongs_to( phase_id )</title></a>
+<a xlink:href='#smilodon.wfi_phase.id'><use x='309' y='527' xlink:href='#ref'/><title>&#x1F517;  Referred by step_belongs_to ( phase_id -&gt; id ) </title></a>
+  <use x='210' y='547' xlink:href='#nn'/><a xlink:href='#smilodon.wfi_phase.attempt'><text id='smilodon&#46;wfi&#95;phase&#46;attempt' x='231' y='559'>attempt</text><title>&#10697;  attempt
+     * int default 1</title></a>
+<text x='320' y='555' text-anchor='end' class='colType'>&#35;</text>  <use x='210' y='566' xlink:href='#nn'/><use x='211' y='565' xlink:href='#idx'><title>&#x1F50D;  fk_wf_group_wf_status ( status ) </title></use><a xlink:href='#smilodon.wfi_phase.status'><text id='smilodon&#46;wfi&#95;phase&#46;status' x='231' y='578' onmouseover="hghl(['wfi_phase_fk_wf_group_wf_status','smilodon.wfi_status.code'])" onmouseout="uhghl(['wfi_phase_fk_wf_group_wf_status','smilodon.wfi_status.code'])">status</text><title>&#10697;  status
+     * int
+ &#8599; wfi_status( code )</title></a>
+<a xlink:href='#smilodon.wfi_phase.status'><use x='309' y='565' xlink:href='#fk'/><title>&#x1F517;  References wfi_status ( status -&gt; code ) </title></a>
+
+<!-- == Table 'wf_info' == -->
+<rect id='depict_smilodon&#46;wf&#95;info' class='entity' style='stroke:#F9FAFC' x='190' y='314' width='133' height='114' rx='4' ry='4' />
+<rect x='190' y='314' width='133' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
+<rect x='190' y='318' width='133' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
+<a xlink:href='#smilodon.wf_info'><text id='depict&#45;smilodon&#46;wf&#95;info' x='232' y='335' class='tableHeader' style='fill:#414448;'>wf&#95;info</text><title>Table smilodon.wf_info</title></a>
+  <use x='191' y='357' xlink:href='#nn'/><use x='192' y='356' xlink:href='#pk'><title>&#x1F511;  Pk pk_wf_info ( wfi ) </title></use><a xlink:href='#smilodon.wf_info.wfi'><text id='smilodon&#46;wf&#95;info&#46;wfi' x='212' y='369' onmouseover="hghl(['wf_info_fk_wf_info_wf_instance','smilodon.wf_instance.id'])" onmouseout="uhghl(['wf_info_fk_wf_info_wf_instance','smilodon.wf_instance.id'])" class='colPk'>wfi</text><title>&#10697;  wfi
+     * bigint
+ &#8599; wf_instance( id )</title></a>
+<a xlink:href='#smilodon.wf_info.wfi'><use x='309' y='356' xlink:href='#fk'/><title>&#x1F517;  References wf_instance ( wfi -&gt; id ) </title></a>
+  <a xlink:href='#smilodon.wf_info.parameters'><text id='smilodon&#46;wf&#95;info&#46;parameters' x='212' y='388'>parameters</text><title>&#10697;  parameters
+     longtext</title></a>
+<text x='320' y='384' text-anchor='end' class='colType'>t</text>  <a xlink:href='#smilodon.wf_info.url_overrides'><text id='smilodon&#46;wf&#95;info&#46;url&#95;overrides' x='212' y='407'>url&#95;overrides</text><title>&#10697;  url_overrides
+     longtext</title></a>
+<text x='320' y='403' text-anchor='end' class='colType'>t</text>
+<!-- == Table 'attempt_log' == -->
+<rect id='depict_smilodon&#46;attempt&#95;log' class='entity' style='stroke:#F9FAFC' x='57' y='599' width='114' height='190' rx='4' ry='4' />
+<rect x='57' y='599' width='114' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
+<rect x='57' y='603' width='114' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
+<a xlink:href='#smilodon.attempt_log'><text id='depict&#45;smilodon&#46;attempt&#95;log' x='75' y='620' class='tableHeader' style='fill:#414448;'>attempt&#95;log</text><title>Table smilodon.attempt_log</title></a>
+  <use x='58' y='642' xlink:href='#nn'/><a xlink:href='#smilodon.attempt_log.output'><text id='smilodon&#46;attempt&#95;log&#46;output' x='79' y='654'>output</text><title>&#10697;  output
+     * longtext</title></a>
+<text x='168' y='650' text-anchor='end' class='colType'>t</text>  <use x='58' y='661' xlink:href='#nn'/><a xlink:href='#smilodon.attempt_log.created'><text id='smilodon&#46;attempt&#95;log&#46;created' x='79' y='673'>created</text><title>&#10697;  created
+     * timestamp default current_timestamp()</title></a>
+  <use x='58' y='680' xlink:href='#nn'/><use x='59' y='679' xlink:href='#idx'><title>&#x1F50D;  fk_step_log_wf_status ( status ) </title></use><a xlink:href='#smilodon.attempt_log.status'><text id='smilodon&#46;attempt&#95;log&#46;status' x='79' y='692' onmouseover="hghl(['attempt_log_fk_step_log_wf_status','smilodon.wfi_status.code'])" onmouseout="uhghl(['attempt_log_fk_step_log_wf_status','smilodon.wfi_status.code'])">status</text><title>&#10697;  status
+     * int
+ &#8599; wfi_status( code )</title></a>
+<a xlink:href='#smilodon.attempt_log.status'><use x='157' y='679' xlink:href='#fk'/><title>&#x1F517;  References wfi_status ( status -&gt; code ) </title></a>
+  <use x='58' y='699' xlink:href='#nn'/><a xlink:href='#smilodon.attempt_log.modified'><text id='smilodon&#46;attempt&#95;log&#46;modified' x='79' y='711'>modified</text><title>&#10697;  modified
+     * timestamp default current_timestamp()</title></a>
+  <use x='58' y='718' xlink:href='#nn'/><a xlink:href='#smilodon.attempt_log.engine_id'><text id='smilodon&#46;attempt&#95;log&#46;engine&#95;id' x='79' y='730'>engine&#95;id</text><title>&#10697;  engine_id
+     * int default 0</title></a>
+<text x='168' y='726' text-anchor='end' class='colType'>&#35;</text>  <use x='58' y='737' xlink:href='#nn'/><use x='59' y='736' xlink:href='#pk'><title>&#x1F511;  Pk pk_step_log ( step, attempt ) </title></use><a xlink:href='#smilodon.attempt_log.attempt'><text id='smilodon&#46;attempt&#95;log&#46;attempt' x='79' y='749' class='colPk'>attempt</text><title>&#10697;  attempt
+     * int default 1</title></a>
+<text x='168' y='745' text-anchor='end' class='colType'>&#35;</text>  <use x='58' y='756' xlink:href='#nn'/><use x='59' y='755' xlink:href='#pk'><title>&#x1F511;  Pk pk_step_log ( step, attempt ) </title></use><a xlink:href='#smilodon.attempt_log.step'><text id='smilodon&#46;attempt&#95;log&#46;step' x='79' y='768' onmouseover="hghl(['attempt_log_fk_step_log_wf_step','smilodon.wfi_step.id'])" onmouseout="uhghl(['attempt_log_fk_step_log_wf_step','smilodon.wfi_step.id'])" class='colPk'>step</text><title>&#10697;  step
+     * bigint
+ &#8599; wfi_step( id )</title></a>
+<a xlink:href='#smilodon.attempt_log.step'><use x='157' y='755' xlink:href='#fk'/><title>&#x1F517;  References wfi_step ( step -&gt; id ) </title></a>
+
+<!-- == Table 'wfi_status' == -->
+<rect id='depict_smilodon&#46;wfi&#95;status' class='entity' style='stroke:#F9FAFC' x='228' y='637' width='95' height='95' rx='4' ry='4' />
+<rect x='228' y='637' width='95' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
+<rect x='228' y='641' width='95' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
+<a xlink:href='#smilodon.wfi_status'><text id='depict&#45;smilodon&#46;wfi&#95;status' x='243' y='658' class='tableHeader' style='fill:#414448;'>wfi&#95;status</text><title>Table smilodon.wfi_status</title></a>
+  <use x='229' y='680' xlink:href='#nn'/><use x='230' y='679' xlink:href='#pk'><title>&#x1F511;  Pk pk_wf_status ( code ) </title></use><a xlink:href='#smilodon.wfi_status.code'><text id='smilodon&#46;wfi&#95;status&#46;code' x='250' y='692' onmouseover="hghl(['attempt_log_fk_step_log_wf_status','smilodon.attempt_log.status','wf_instance_fk_wf_instance_wf_status','smilodon.wf_instance.status','wfi_phase_fk_wf_group_wf_status','smilodon.wfi_phase.status','wfi_step_fk_wf_step_wf_status','smilodon.wfi_step.status'])" onmouseout="uhghl(['attempt_log_fk_step_log_wf_status','smilodon.attempt_log.status','wf_instance_fk_wf_instance_wf_status','smilodon.wf_instance.status','wfi_phase_fk_wf_group_wf_status','smilodon.wfi_phase.status','wfi_step_fk_wf_step_wf_status','smilodon.wfi_step.status'])" class='colPk'>code</text><title>&#10697;  code
+     * int
+ &#8601; attempt_log( status )
+ &#8601; wf_instance( status )
+ &#8601; wfi_phase( status )
+ &#8601; wfi_step( status )</title></a>
+<a xlink:href='#smilodon.wfi_status.code'><use x='309' y='679' xlink:href='#ref'/><title>&#x1F517;  Referred by attempt_log ( status -&gt; code ) 
+Referred by wf_instance ( status -&gt; code ) 
+Referred by wfi_phase ( status -&gt; code ) 
+Referred by wfi_step ( status -&gt; code ) </title></a>
+  <use x='229' y='699' xlink:href='#nn'/><use x='230' y='698' xlink:href='#unq'><title>&#x1F50D;  Unq unq_wf_status ( name ) </title></use><a xlink:href='#smilodon.wfi_status.name'><text id='smilodon&#46;wfi&#95;status&#46;name' x='250' y='711'>name</text><title>&#10697;  name
+     * varchar(120)</title></a>
+<text x='320' y='707' text-anchor='end' class='colType'>t</text>
+<!-- == Table 'step_belongs_to' == -->
+<rect id='depict_smilodon&#46;step&#95;belongs&#95;to' class='entity' style='stroke:#F9FAFC' x='95' y='808' width='133' height='95' rx='4' ry='4' />
+<rect x='95' y='808' width='133' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
+<rect x='95' y='812' width='133' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
+<a xlink:href='#smilodon.step_belongs_to'><text id='depict&#45;smilodon&#46;step&#95;belongs&#95;to' x='110' y='829' class='tableHeader' style='fill:#414448;'>step&#95;belongs&#95;to</text><title>Table smilodon.step_belongs_to</title></a>
+  <use x='96' y='851' xlink:href='#nn'/><use x='97' y='850' xlink:href='#pk'><title>&#x1F511;  Pk pk_step_belongs_to ( step_id, phase_id ) &#x1F50D;  fk_step_belongs_to_wf_group ( phase_id ) </title></use><a xlink:href='#smilodon.step_belongs_to.phase_id'><text id='smilodon&#46;step&#95;belongs&#95;to&#46;phase&#95;id' x='117' y='863' onmouseover="hghl(['step_belongs_to_fk_step_belongs_to_wf_group','smilodon.wfi_phase.id'])" onmouseout="uhghl(['step_belongs_to_fk_step_belongs_to_wf_group','smilodon.wfi_phase.id'])" class='colPk'>phase&#95;id</text><title>&#10697;  phase_id
+     * bigint
+ &#8599; wfi_phase( id )</title></a>
+<a xlink:href='#smilodon.step_belongs_to.phase_id'><use x='214' y='850' xlink:href='#fk'/><title>&#x1F517;  References wfi_phase ( phase_id -&gt; id ) </title></a>
+  <use x='96' y='870' xlink:href='#nn'/><use x='97' y='869' xlink:href='#pk'><title>&#x1F511;  Pk pk_step_belongs_to ( step_id, phase_id ) </title></use><a xlink:href='#smilodon.step_belongs_to.step_id'><text id='smilodon&#46;step&#95;belongs&#95;to&#46;step&#95;id' x='117' y='882' onmouseover="hghl(['step_belongs_to_fk_step_belongs_to_wf_step','smilodon.wfi_step.id'])" onmouseout="uhghl(['step_belongs_to_fk_step_belongs_to_wf_step','smilodon.wfi_step.id'])" class='colPk'>step&#95;id</text><title>&#10697;  step_id
+     * bigint
+ &#8599; wfi_step( id )</title></a>
+<a xlink:href='#smilodon.step_belongs_to.step_id'><use x='214' y='869' xlink:href='#fk'/><title>&#x1F517;  References wfi_step ( step_id -&gt; id ) </title></a>
+
+<!-- == Table 'step_info' == -->
+<rect id='depict_smilodon&#46;step&#95;info' class='entity' style='stroke:#F9FAFC' x='304' y='789' width='114' height='114' rx='4' ry='4' />
+<rect x='304' y='789' width='114' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
+<rect x='304' y='793' width='114' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
+<a xlink:href='#smilodon.step_info'><text id='depict&#45;smilodon&#46;step&#95;info' x='331' y='810' class='tableHeader' style='fill:#414448;'>step&#95;info</text><title>Table smilodon.step_info</title></a>
+  <a xlink:href='#smilodon.step_info.message'><text id='smilodon&#46;step&#95;info&#46;message' x='326' y='844'>message</text><title>&#10697;  message
+     text</title></a>
+<text x='415' y='840' text-anchor='end' class='colType'>t</text>  <a xlink:href='#smilodon.step_info.output'><text id='smilodon&#46;step&#95;info&#46;output' x='326' y='863'>output</text><title>&#10697;  output
+     longtext</title></a>
+<text x='415' y='859' text-anchor='end' class='colType'>t</text>  <use x='305' y='870' xlink:href='#nn'/><use x='306' y='869' xlink:href='#pk'><title>&#x1F511;  Pk pk_step_info ( step ) </title></use><a xlink:href='#smilodon.step_info.step'><text id='smilodon&#46;step&#95;info&#46;step' x='326' y='882' onmouseover="hghl(['step_info_fk_step_info_wfi_step','smilodon.wfi_step.id'])" onmouseout="uhghl(['step_info_fk_step_info_wfi_step','smilodon.wfi_step.id'])" class='colPk'>step</text><title>&#10697;  step
+     * bigint
+ &#8599; wfi_step( id )</title></a>
+<a xlink:href='#smilodon.step_info.step'><use x='404' y='869' xlink:href='#fk'/><title>&#x1F517;  References wfi_step ( step -&gt; id ) </title></a>
+
+<!-- == Table 'wf_instance' == -->
+<rect id='depict_smilodon&#46;wf&#95;instance' class='entity' style='stroke:#F9FAFC' x='399' y='352' width='114' height='209' rx='4' ry='4' />
+<rect x='399' y='352' width='114' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
+<rect x='399' y='356' width='114' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
+<a xlink:href='#smilodon.wf_instance'><text id='depict&#45;smilodon&#46;wf&#95;instance' x='418' y='373' class='tableHeader' style='fill:#414448;'>wf&#95;instance</text><title>Table smilodon.wf_instance</title></a>
+  <use x='400' y='395' xlink:href='#nn'/><use x='401' y='394' xlink:href='#unq'><title>&#x1F50D;  Unq unq_wf_instance ( guid ) </title></use><a xlink:href='#smilodon.wf_instance.guid'><text id='smilodon&#46;wf&#95;instance&#46;guid' x='421' y='407'>guid</text><title>&#10697;  guid
+     * varchar(42) default &apos;uuid()&apos;</title></a>
+<text x='510' y='403' text-anchor='end' class='colType'>t</text>  <use x='400' y='414' xlink:href='#nn'/><a xlink:href='#smilodon.wf_instance.locked_by'><text id='smilodon&#46;wf&#95;instance&#46;locked&#95;by' x='421' y='426'>locked&#95;by</text><title>&#10697;  locked_by
+     * int default 0
+ ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+      Engine Owner</title></a>
+<text x='510' y='422' text-anchor='end' class='colType'>&#35;</text>  <use x='400' y='433' xlink:href='#nn'/><use x='401' y='432' xlink:href='#idx'><title>&#x1F50D;  fk_wf_instance_wf_version ( wf_version ) </title></use><a xlink:href='#smilodon.wf_instance.wf_version'><text id='smilodon&#46;wf&#95;instance&#46;wf&#95;version' x='421' y='445' onmouseover="hghl(['wf_instance_fk_wf_instance_wf_version','smilodon.wf_version.id'])" onmouseout="uhghl(['wf_instance_fk_wf_instance_wf_version','smilodon.wf_version.id'])">wf&#95;version</text><title>&#10697;  wf_version
+     * int
+ &#8599; wf_version( id )</title></a>
+<a xlink:href='#smilodon.wf_instance.wf_version'><use x='499' y='432' xlink:href='#fk'/><title>&#x1F517;  References wf_version ( wf_version -&gt; id ) </title></a>
+  <use x='400' y='452' xlink:href='#nn'/><use x='401' y='451' xlink:href='#idx'><title>&#x1F50D;  fk_wf_instance_environment ( env ) </title></use><a xlink:href='#smilodon.wf_instance.env'><text id='smilodon&#46;wf&#95;instance&#46;env' x='421' y='464' onmouseover="hghl(['wf_instance_fk_wf_instance_environment','smilodon.environment.code'])" onmouseout="uhghl(['wf_instance_fk_wf_instance_environment','smilodon.environment.code'])">env</text><title>&#10697;  env
+     * int
+ &#8599; environment( code )</title></a>
+<a xlink:href='#smilodon.wf_instance.env'><use x='499' y='451' xlink:href='#fk'/><title>&#x1F517;  References environment ( env -&gt; code ) </title></a>
+  <use x='400' y='471' xlink:href='#nn'/><a xlink:href='#smilodon.wf_instance.created'><text id='smilodon&#46;wf&#95;instance&#46;created' x='421' y='483'>created</text><title>&#10697;  created
+     * timestamp default current_timestamp()</title></a>
+  <use x='400' y='490' xlink:href='#nn'/><use x='401' y='489' xlink:href='#pk'><title>&#x1F511;  Pk pk_wf_instance ( id ) </title></use><a xlink:href='#smilodon.wf_instance.id'><text id='smilodon&#46;wf&#95;instance&#46;id' x='421' y='502' onmouseover="hghl(['wf_info_fk_wf_info_wf_instance','smilodon.wf_info.wfi','wfi_phase_fk_wf_group_wf_instance','smilodon.wfi_phase.wfi','wfi_step_fk_wf_step_wf_instance','smilodon.wfi_step.wfi','wfi_belongs_to_fk_wfi_belongs_to_wf_instance','smilodon.wfi_belongs_to.wfi_id'])" onmouseout="uhghl(['wf_info_fk_wf_info_wf_instance','smilodon.wf_info.wfi','wfi_phase_fk_wf_group_wf_instance','smilodon.wfi_phase.wfi','wfi_step_fk_wf_step_wf_instance','smilodon.wfi_step.wfi','wfi_belongs_to_fk_wfi_belongs_to_wf_instance','smilodon.wfi_belongs_to.wfi_id'])" class='colPk'>id</text><title>&#10697;  id
+     * bigint
+ &#8601; wf_info( wfi )
+ &#8601; wfi_phase( wfi )
+ &#8601; wfi_step( wfi )
+ &#8601; wfi_belongs_to( wfi_id )</title></a>
+<a xlink:href='#smilodon.wf_instance.id'><use x='499' y='489' xlink:href='#ref'/><title>&#x1F517;  Referred by wf_info ( wfi -&gt; id ) 
+Referred by wfi_phase ( wfi -&gt; id ) 
+Referred by wfi_step ( wfi -&gt; id ) 
+Referred by wfi_belongs_to ( wfi_id -&gt; id ) </title></a>
+  <use x='400' y='509' xlink:href='#nn'/><a xlink:href='#smilodon.wf_instance.modified'><text id='smilodon&#46;wf&#95;instance&#46;modified' x='421' y='521'>modified</text><title>&#10697;  modified
+     * timestamp default current_timestamp()</title></a>
+  <use x='400' y='528' xlink:href='#nn'/><use x='401' y='527' xlink:href='#idx'><title>&#x1F50D;  fk_wf_instance_wf_status ( status ) </title></use><a xlink:href='#smilodon.wf_instance.status'><text id='smilodon&#46;wf&#95;instance&#46;status' x='421' y='540' onmouseover="hghl(['wf_instance_fk_wf_instance_wf_status','smilodon.wfi_status.code'])" onmouseout="uhghl(['wf_instance_fk_wf_instance_wf_status','smilodon.wfi_status.code'])">status</text><title>&#10697;  status
+     * int
+ &#8599; wfi_status( code )</title></a>
+<a xlink:href='#smilodon.wf_instance.status'><use x='499' y='527' xlink:href='#fk'/><title>&#x1F517;  References wfi_status ( status -&gt; code ) </title></a>
+
+<!-- == Table 'wfi_belongs_to' == -->
+<rect id='depict_smilodon&#46;wfi&#95;belongs&#95;to' class='entity' style='stroke:#F9FAFC' x='399' y='181' width='114' height='133' rx='4' ry='4' />
+<rect x='399' y='181' width='114' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
+<rect x='399' y='185' width='114' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
+<a xlink:href='#smilodon.wfi_belongs_to'><text id='depict&#45;smilodon&#46;wfi&#95;belongs&#95;to' x='408' y='202' class='tableHeader' style='fill:#414448;'>wfi&#95;belongs&#95;to</text><title>Table smilodon.wfi_belongs_to</title></a>
+  <use x='400' y='224' xlink:href='#nn'/><use x='401' y='223' xlink:href='#pk'><title>&#x1F511;  Pk pk_wfi_belongs_to ( wfi_id, source ) </title></use><a xlink:href='#smilodon.wfi_belongs_to.source'><text id='smilodon&#46;wfi&#95;belongs&#95;to&#46;source' x='421' y='236' onmouseover="hghl(['wfi_belongs_to_fk_wfi_belongs_to_appsource','smilodon.appsource.code'])" onmouseout="uhghl(['wfi_belongs_to_fk_wfi_belongs_to_appsource','smilodon.appsource.code'])" class='colPk'>source</text><title>&#10697;  source
+     * int
+ &#8599; appsource( code )</title></a>
+<a xlink:href='#smilodon.wfi_belongs_to.source'><use x='499' y='223' xlink:href='#fk'/><title>&#x1F517;  References appsource ( source -&gt; code ) </title></a>
+  <use x='400' y='243' xlink:href='#nn'/><use x='401' y='242' xlink:href='#pk'><title>&#x1F511;  Pk pk_wfi_belongs_to ( wfi_id, source ) </title></use><a xlink:href='#smilodon.wfi_belongs_to.wfi_id'><text id='smilodon&#46;wfi&#95;belongs&#95;to&#46;wfi&#95;id' x='421' y='255' onmouseover="hghl(['wfi_belongs_to_fk_wfi_belongs_to_wf_instance','smilodon.wf_instance.id'])" onmouseout="uhghl(['wfi_belongs_to_fk_wfi_belongs_to_wf_instance','smilodon.wf_instance.id'])" class='colPk'>wfi&#95;id</text><title>&#10697;  wfi_id
+     * bigint
+ &#8599; wf_instance( id )</title></a>
+<a xlink:href='#smilodon.wfi_belongs_to.wfi_id'><use x='499' y='242' xlink:href='#fk'/><title>&#x1F517;  References wf_instance ( wfi_id -&gt; id ) </title></a>
+  <use x='400' y='262' xlink:href='#nn'/><a xlink:href='#smilodon.wfi_belongs_to.owner'><text id='smilodon&#46;wfi&#95;belongs&#95;to&#46;owner' x='421' y='274'>owner</text><title>&#10697;  owner
+     * bigint default 0</title></a>
+<text x='510' y='270' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#smilodon.wfi_belongs_to.ref'><text id='smilodon&#46;wfi&#95;belongs&#95;to&#46;ref' x='421' y='293'>ref</text><title>&#10697;  ref
+     varchar(45)</title></a>
+<text x='510' y='289' text-anchor='end' class='colType'>t</text>
+<!-- == Table 'wf_belongs_to' == -->
+<rect id='depict_smilodon&#46;wf&#95;belongs&#95;to' class='entity' style='stroke:#F9FAFC' x='399' y='48' width='114' height='95' rx='4' ry='4' />
+<rect x='399' y='48' width='114' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
+<rect x='399' y='52' width='114' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
+<a xlink:href='#smilodon.wf_belongs_to'><text id='depict&#45;smilodon&#46;wf&#95;belongs&#95;to' x='410' y='69' class='tableHeader' style='fill:#414448;'>wf&#95;belongs&#95;to</text><title>Table smilodon.wf_belongs_to</title></a>
+  <use x='400' y='91' xlink:href='#nn'/><use x='401' y='90' xlink:href='#pk'><title>&#x1F511;  Pk pk_wf_belongs_to ( wf_id, source ) </title></use><a xlink:href='#smilodon.wf_belongs_to.source'><text id='smilodon&#46;wf&#95;belongs&#95;to&#46;source' x='421' y='103' onmouseover="hghl(['wf_belongs_to_fk_wf_belongs_to_appsource','smilodon.appsource.code'])" onmouseout="uhghl(['wf_belongs_to_fk_wf_belongs_to_appsource','smilodon.appsource.code'])" class='colPk'>source</text><title>&#10697;  source
+     * int
+ &#8599; appsource( code )</title></a>
+<a xlink:href='#smilodon.wf_belongs_to.source'><use x='499' y='90' xlink:href='#fk'/><title>&#x1F517;  References appsource ( source -&gt; code ) </title></a>
+  <use x='400' y='110' xlink:href='#nn'/><use x='401' y='109' xlink:href='#pk'><title>&#x1F511;  Pk pk_wf_belongs_to ( wf_id, source ) </title></use><a xlink:href='#smilodon.wf_belongs_to.wf_id'><text id='smilodon&#46;wf&#95;belongs&#95;to&#46;wf&#95;id' x='421' y='122' onmouseover="hghl(['wf_belongs_to_fk_wf_belongs_to_workflow','smilodon.workflow.id'])" onmouseout="uhghl(['wf_belongs_to_fk_wf_belongs_to_workflow','smilodon.workflow.id'])" class='colPk'>wf&#95;id</text><title>&#10697;  wf_id
+     * int
+ &#8599; workflow( id )</title></a>
+<a xlink:href='#smilodon.wf_belongs_to.wf_id'><use x='499' y='109' xlink:href='#fk'/><title>&#x1F517;  References workflow ( wf_id -&gt; id ) </title></a>
+
 <!-- == Table 'environment' == -->
-<rect id='depict_smilodon&#46;environment' class='entity' style='stroke:#F9FAFC' x='247' y='48' width='114' height='95' rx='4' ry='4' />
-<rect x='247' y='48' width='114' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
-<rect x='247' y='52' width='114' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
-<a xlink:href='#smilodon.environment'><text id='depict&#45;smilodon&#46;environment' x='263' y='69' class='tableHeader' style='fill:#414448;'>environment</text><title>Table smilodon.environment</title></a>
-  <use x='248' y='91' xlink:href='#nn'/><use x='249' y='90' xlink:href='#pk'><title>&#x1F511;  Pk pk_environment_0 ( code ) </title></use><a xlink:href='#smilodon.environment.code'><text id='smilodon&#46;environment&#46;code' x='269' y='103' onmouseover="hghl(['wf_engine_fk_wf_engine_environment','smilodon.wf_engine.environment','wf_instance_fk_wf_instance_environment','smilodon.wf_instance.env'])" onmouseout="uhghl(['wf_engine_fk_wf_engine_environment','smilodon.wf_engine.environment','wf_instance_fk_wf_instance_environment','smilodon.wf_instance.env'])" class='colPk'>code</text><title>&#10697;  code
+<rect id='depict_smilodon&#46;environment' class='entity' style='stroke:#F9FAFC' x='627' y='523' width='114' height='95' rx='4' ry='4' />
+<rect x='627' y='523' width='114' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
+<rect x='627' y='527' width='114' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
+<a xlink:href='#smilodon.environment'><text id='depict&#45;smilodon&#46;environment' x='643' y='544' class='tableHeader' style='fill:#414448;'>environment</text><title>Table smilodon.environment</title></a>
+  <use x='628' y='566' xlink:href='#nn'/><use x='629' y='565' xlink:href='#pk'><title>&#x1F511;  Pk pk_environment_0 ( code ) </title></use><a xlink:href='#smilodon.environment.code'><text id='smilodon&#46;environment&#46;code' x='649' y='578' onmouseover="hghl(['wf_engine_fk_wf_engine_environment','smilodon.wf_engine.environment','wf_instance_fk_wf_instance_environment','smilodon.wf_instance.env'])" onmouseout="uhghl(['wf_engine_fk_wf_engine_environment','smilodon.wf_engine.environment','wf_instance_fk_wf_instance_environment','smilodon.wf_instance.env'])" class='colPk'>code</text><title>&#10697;  code
      * int
  &#8601; wf_engine( environment )
  &#8601; wf_instance( env )</title></a>
-<a xlink:href='#smilodon.environment.code'><use x='347' y='90' xlink:href='#ref'/><title>&#x1F517;  Referred by wf_engine ( environment -&gt; code ) 
+<a xlink:href='#smilodon.environment.code'><use x='727' y='565' xlink:href='#ref'/><title>&#x1F517;  Referred by wf_engine ( environment -&gt; code ) 
 Referred by wf_instance ( env -&gt; code ) </title></a>
-  <use x='248' y='110' xlink:href='#nn'/><use x='249' y='109' xlink:href='#unq'><title>&#x1F50D;  Unq unq_environment_0 ( name ) </title></use><a xlink:href='#smilodon.environment.name'><text id='smilodon&#46;environment&#46;name' x='269' y='122'>name</text><title>&#10697;  name
+  <use x='628' y='585' xlink:href='#nn'/><use x='629' y='584' xlink:href='#unq'><title>&#x1F50D;  Unq unq_environment_0 ( name ) </title></use><a xlink:href='#smilodon.environment.name'><text id='smilodon&#46;environment&#46;name' x='649' y='597'>name</text><title>&#10697;  name
      * varchar(100)</title></a>
-<text x='358' y='118' text-anchor='end' class='colType'>t</text>
+<text x='738' y='593' text-anchor='end' class='colType'>t</text>
 <!-- == Table 'wf_engine' == -->
-<rect id='depict_smilodon&#46;wf&#95;engine' class='entity' style='stroke:#F9FAFC' x='57' y='48' width='133' height='152' rx='4' ry='4' />
-<rect x='57' y='48' width='133' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
-<rect x='57' y='52' width='133' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
-<a xlink:href='#smilodon.wf_engine'><text id='depict&#45;smilodon&#46;wf&#95;engine' x='90' y='69' class='tableHeader' style='fill:#414448;'>wf&#95;engine</text><title>Table smilodon.wf_engine</title></a>
-  <use x='58' y='91' xlink:href='#nn'/><use x='59' y='90' xlink:href='#idx'><title>&#x1F50D;  fk_wf_engine_environment ( environment ) </title></use><a xlink:href='#smilodon.wf_engine.environment'><text id='smilodon&#46;wf&#95;engine&#46;environment' x='79' y='103' onmouseover="hghl(['wf_engine_fk_wf_engine_environment','smilodon.environment.code'])" onmouseout="uhghl(['wf_engine_fk_wf_engine_environment','smilodon.environment.code'])">environment</text><title>&#10697;  environment
+<rect id='depict_smilodon&#46;wf&#95;engine' class='entity' style='stroke:#F9FAFC' x='627' y='637' width='133' height='152' rx='4' ry='4' />
+<rect x='627' y='637' width='133' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
+<rect x='627' y='641' width='133' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
+<a xlink:href='#smilodon.wf_engine'><text id='depict&#45;smilodon&#46;wf&#95;engine' x='660' y='658' class='tableHeader' style='fill:#414448;'>wf&#95;engine</text><title>Table smilodon.wf_engine</title></a>
+  <use x='628' y='680' xlink:href='#nn'/><use x='629' y='679' xlink:href='#idx'><title>&#x1F50D;  fk_wf_engine_environment ( environment ) </title></use><a xlink:href='#smilodon.wf_engine.environment'><text id='smilodon&#46;wf&#95;engine&#46;environment' x='649' y='692' onmouseover="hghl(['wf_engine_fk_wf_engine_environment','smilodon.environment.code'])" onmouseout="uhghl(['wf_engine_fk_wf_engine_environment','smilodon.environment.code'])">environment</text><title>&#10697;  environment
      * int
  &#8599; environment( code )</title></a>
-<a xlink:href='#smilodon.wf_engine.environment'><use x='176' y='90' xlink:href='#fk'/><title>&#x1F517;  References environment ( environment -&gt; code ) </title></a>
-  <use x='58' y='110' xlink:href='#nn'/><use x='59' y='109' xlink:href='#pk'><title>&#x1F511;  Pk pk_environment ( id ) </title></use><a xlink:href='#smilodon.wf_engine.id'><text id='smilodon&#46;wf&#95;engine&#46;id' x='79' y='122' class='colPk'>id</text><title>&#10697;  id
+<a xlink:href='#smilodon.wf_engine.environment'><use x='746' y='679' xlink:href='#fk'/><title>&#x1F517;  References environment ( environment -&gt; code ) </title></a>
+  <use x='628' y='699' xlink:href='#nn'/><use x='629' y='698' xlink:href='#pk'><title>&#x1F511;  Pk pk_environment ( id ) </title></use><a xlink:href='#smilodon.wf_engine.id'><text id='smilodon&#46;wf&#95;engine&#46;id' x='649' y='711' class='colPk'>id</text><title>&#10697;  id
      * int</title></a>
-<text x='187' y='118' text-anchor='end' class='colType'>&#35;</text>  <use x='58' y='129' xlink:href='#nn'/><use x='59' y='128' xlink:href='#unq'><title>&#x1F50D;  Unq unq_environment ( name ) </title></use><a xlink:href='#smilodon.wf_engine.name'><text id='smilodon&#46;wf&#95;engine&#46;name' x='79' y='141'>name</text><title>&#10697;  name
+<text x='757' y='707' text-anchor='end' class='colType'>&#35;</text>  <use x='628' y='718' xlink:href='#nn'/><use x='629' y='717' xlink:href='#unq'><title>&#x1F50D;  Unq unq_environment ( name ) </title></use><a xlink:href='#smilodon.wf_engine.name'><text id='smilodon&#46;wf&#95;engine&#46;name' x='649' y='730'>name</text><title>&#10697;  name
      * varchar(100)</title></a>
-<text x='187' y='137' text-anchor='end' class='colType'>t</text>  <use x='58' y='148' xlink:href='#nn'/><a xlink:href='#smilodon.wf_engine.last_beat'><text id='smilodon&#46;wf&#95;engine&#46;last&#95;beat' x='79' y='160'>last&#95;beat</text><title>&#10697;  last_beat
+<text x='757' y='726' text-anchor='end' class='colType'>t</text>  <use x='628' y='737' xlink:href='#nn'/><a xlink:href='#smilodon.wf_engine.last_beat'><text id='smilodon&#46;wf&#95;engine&#46;last&#95;beat' x='649' y='749'>last&#95;beat</text><title>&#10697;  last_beat
      * timestamp default current_timestamp()
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       heat beat every 60 seconds, to show that the engine is alive.</title></a>
-  <use x='58' y='167' xlink:href='#nn'/><a xlink:href='#smilodon.wf_engine.status'><text id='smilodon&#46;wf&#95;engine&#46;status' x='79' y='179'>status</text><title>&#10697;  status
+  <use x='628' y='756' xlink:href='#nn'/><a xlink:href='#smilodon.wf_engine.status'><text id='smilodon&#46;wf&#95;engine&#46;status' x='649' y='768'>status</text><title>&#10697;  status
      * int default 1
  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
       0-dead
       1-active
       2- retired</title></a>
-<text x='187' y='175' text-anchor='end' class='colType'>&#35;</text>
-<!-- == Table 'wf_info' == -->
-<rect id='depict_smilodon&#46;wf&#95;info' class='entity' style='stroke:#F9FAFC' x='228' y='162' width='133' height='133' rx='4' ry='4' />
-<rect x='228' y='162' width='133' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
-<rect x='228' y='166' width='133' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
-<a xlink:href='#smilodon.wf_info'><text id='depict&#45;smilodon&#46;wf&#95;info' x='270' y='183' class='tableHeader' style='fill:#414448;'>wf&#95;info</text><title>Table smilodon.wf_info</title></a>
-  <use x='229' y='205' xlink:href='#nn'/><use x='230' y='204' xlink:href='#pk'><title>&#x1F511;  Pk pk_wf_info ( wfi ) </title></use><a xlink:href='#smilodon.wf_info.wfi'><text id='smilodon&#46;wf&#95;info&#46;wfi' x='250' y='217' onmouseover="hghl(['wf_info_fk_wf_info_wf_instance','smilodon.wf_instance.id'])" onmouseout="uhghl(['wf_info_fk_wf_info_wf_instance','smilodon.wf_instance.id'])" class='colPk'>wfi</text><title>&#10697;  wfi
-     * bigint
- &#8599; wf_instance( id )</title></a>
-<a xlink:href='#smilodon.wf_info.wfi'><use x='347' y='204' xlink:href='#fk'/><title>&#x1F517;  References wf_instance ( wfi -&gt; id ) </title></a>
-  <a xlink:href='#smilodon.wf_info.parameters'><text id='smilodon&#46;wf&#95;info&#46;parameters' x='250' y='236'>parameters</text><title>&#10697;  parameters
-     longtext</title></a>
-<text x='358' y='232' text-anchor='end' class='colType'>t</text>  <a xlink:href='#smilodon.wf_info.url_overrides'><text id='smilodon&#46;wf&#95;info&#46;url&#95;overrides' x='250' y='255'>url&#95;overrides</text><title>&#10697;  url_overrides
-     longtext</title></a>
-<text x='358' y='251' text-anchor='end' class='colType'>t</text>  <a xlink:href='#smilodon.wf_info.ref'><text id='smilodon&#46;wf&#95;info&#46;ref' x='250' y='274'>ref</text><title>&#10697;  ref
-     varchar(60)</title></a>
-<text x='358' y='270' text-anchor='end' class='colType'>t</text>
+<text x='757' y='764' text-anchor='end' class='colType'>&#35;</text>
 <!-- == Table 'wf_version' == -->
-<rect id='depict_smilodon&#46;wf&#95;version' class='entity' style='stroke:#F9FAFC' x='627' y='105' width='114' height='209' rx='4' ry='4' />
-<rect x='627' y='105' width='114' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
-<rect x='627' y='109' width='114' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
-<a xlink:href='#smilodon.wf_version'><text id='depict&#45;smilodon&#46;wf&#95;version' x='649' y='126' class='tableHeader' style='fill:#414448;'>wf&#95;version</text><title>Table smilodon.wf_version</title></a>
-  <use x='628' y='148' xlink:href='#nn'/><use x='629' y='147' xlink:href='#pk'><title>&#x1F511;  Pk pk_workflow_version ( id ) </title></use><a xlink:href='#smilodon.wf_version.id'><text id='smilodon&#46;wf&#95;version&#46;id' x='649' y='160' onmouseover="hghl(['wf_instance_fk_wf_instance_wf_version','smilodon.wf_instance.wf_version'])" onmouseout="uhghl(['wf_instance_fk_wf_instance_wf_version','smilodon.wf_instance.wf_version'])" class='colPk'>id</text><title>&#10697;  id
-     * int
- &#8601; wf_instance( wf_version )</title></a>
-<a xlink:href='#smilodon.wf_version.id'><use x='727' y='147' xlink:href='#ref'/><title>&#x1F517;  Referred by wf_instance ( wf_version -&gt; id ) </title></a>
-  <use x='628' y='167' xlink:href='#nn'/><use x='629' y='166' xlink:href='#unq'><title>&#x1F50D;  Unq unq_wf_version ( workflow, version ) </title></use><a xlink:href='#smilodon.wf_version.version'><text id='smilodon&#46;wf&#95;version&#46;version' x='649' y='179'>version</text><title>&#10697;  version
-     * int</title></a>
-<text x='738' y='175' text-anchor='end' class='colType'>&#35;</text>  <use x='628' y='186' xlink:href='#nn'/><a xlink:href='#smilodon.wf_version.definition'><text id='smilodon&#46;wf&#95;version&#46;definition' x='649' y='198'>definition</text><title>&#10697;  definition
-     * longtext</title></a>
-<text x='738' y='194' text-anchor='end' class='colType'>t</text>  <use x='628' y='205' xlink:href='#nn'/><a xlink:href='#smilodon.wf_version.created'><text id='smilodon&#46;wf&#95;version&#46;created' x='649' y='217'>created</text><title>&#10697;  created
-     * timestamp default current_timestamp()</title></a>
-  <use x='628' y='224' xlink:href='#nn'/><a xlink:href='#smilodon.wf_version.active'><text id='smilodon&#46;wf&#95;version&#46;active' x='649' y='236'>active</text><title>&#10697;  active
-     * bit default 1</title></a>
-<text x='738' y='232' text-anchor='end' class='colType'>b</text>  <use x='628' y='243' xlink:href='#nn'/><a xlink:href='#smilodon.wf_version.published'><text id='smilodon&#46;wf&#95;version&#46;published' x='649' y='255'>published</text><title>&#10697;  published
-     * bit default 0</title></a>
-<text x='738' y='251' text-anchor='end' class='colType'>b</text>  <use x='628' y='262' xlink:href='#nn'/><use x='629' y='261' xlink:href='#unq'><title>&#x1F50D;  Unq unq_wf_version_0 ( guid ) </title></use><a xlink:href='#smilodon.wf_version.guid'><text id='smilodon&#46;wf&#95;version&#46;guid' x='649' y='274'>guid</text><title>&#10697;  guid
-     * varchar(42) default &apos;uuid()&apos;</title></a>
-<text x='738' y='270' text-anchor='end' class='colType'>t</text>  <use x='628' y='281' xlink:href='#nn'/><use x='629' y='280' xlink:href='#unq'><title>&#x1F50D;  fk_workflow_version_workflow ( workflow ) &#x1F50D;  Unq unq_wf_version ( workflow, version ) </title></use><a xlink:href='#smilodon.wf_version.workflow'><text id='smilodon&#46;wf&#95;version&#46;workflow' x='649' y='293' onmouseover="hghl(['wf_version_fk_workflow_version_workflow','smilodon.workflow.id'])" onmouseout="uhghl(['wf_version_fk_workflow_version_workflow','smilodon.workflow.id'])">workflow</text><title>&#10697;  workflow
+<rect id='depict_smilodon&#46;wf&#95;version' class='entity' style='stroke:#F9FAFC' x='570' y='200' width='114' height='209' rx='4' ry='4' />
+<rect x='570' y='200' width='114' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
+<rect x='570' y='204' width='114' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
+<a xlink:href='#smilodon.wf_version'><text id='depict&#45;smilodon&#46;wf&#95;version' x='592' y='221' class='tableHeader' style='fill:#414448;'>wf&#95;version</text><title>Table smilodon.wf_version</title></a>
+  <use x='571' y='243' xlink:href='#nn'/><use x='572' y='242' xlink:href='#unq'><title>&#x1F50D;  fk_workflow_version_workflow ( workflow ) &#x1F50D;  Unq unq_wf_version ( workflow, version ) </title></use><a xlink:href='#smilodon.wf_version.workflow'><text id='smilodon&#46;wf&#95;version&#46;workflow' x='592' y='255' onmouseover="hghl(['wf_version_fk_workflow_version_workflow','smilodon.workflow.id'])" onmouseout="uhghl(['wf_version_fk_workflow_version_workflow','smilodon.workflow.id'])">workflow</text><title>&#10697;  workflow
      * int
  &#8599; workflow( id )</title></a>
-<a xlink:href='#smilodon.wf_version.workflow'><use x='727' y='280' xlink:href='#fk'/><title>&#x1F517;  References workflow ( workflow -&gt; id ) </title></a>
-
-<!-- == Table 'workflow' == -->
-<rect id='depict_smilodon&#46;workflow' class='entity' style='stroke:#F9FAFC' x='646' y='333' width='95' height='114' rx='4' ry='4' />
-<rect x='646' y='333' width='95' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
-<rect x='646' y='337' width='95' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
-<a xlink:href='#smilodon.workflow'><text id='depict&#45;smilodon&#46;workflow' x='663' y='354' class='tableHeader' style='fill:#414448;'>workflow</text><title>Table smilodon.workflow</title></a>
-  <use x='647' y='376' xlink:href='#nn'/><use x='648' y='375' xlink:href='#pk'><title>&#x1F511;  Pk pk_workflow ( id ) </title></use><a xlink:href='#smilodon.workflow.id'><text id='smilodon&#46;workflow&#46;id' x='668' y='388' onmouseover="hghl(['wf_version_fk_workflow_version_workflow','smilodon.wf_version.workflow'])" onmouseout="uhghl(['wf_version_fk_workflow_version_workflow','smilodon.wf_version.workflow'])" class='colPk'>id</text><title>&#10697;  id
+<a xlink:href='#smilodon.wf_version.workflow'><use x='670' y='242' xlink:href='#fk'/><title>&#x1F517;  References workflow ( workflow -&gt; id ) </title></a>
+  <use x='571' y='262' xlink:href='#nn'/><use x='572' y='261' xlink:href='#pk'><title>&#x1F511;  Pk pk_workflow_version ( id ) </title></use><a xlink:href='#smilodon.wf_version.id'><text id='smilodon&#46;wf&#95;version&#46;id' x='592' y='274' onmouseover="hghl(['wf_instance_fk_wf_instance_wf_version','smilodon.wf_instance.wf_version'])" onmouseout="uhghl(['wf_instance_fk_wf_instance_wf_version','smilodon.wf_instance.wf_version'])" class='colPk'>id</text><title>&#10697;  id
      * int
- &#8601; wf_version( workflow )</title></a>
-<a xlink:href='#smilodon.workflow.id'><use x='727' y='375' xlink:href='#ref'/><title>&#x1F517;  Referred by wf_version ( workflow -&gt; id ) </title></a>
-  <use x='647' y='395' xlink:href='#nn'/><use x='648' y='394' xlink:href='#unq'><title>&#x1F50D;  Unq unq_workflow_0 ( code ) </title></use><a xlink:href='#smilodon.workflow.code'><text id='smilodon&#46;workflow&#46;code' x='668' y='407'>code</text><title>&#10697;  code
+ &#8601; wf_instance( wf_version )</title></a>
+<a xlink:href='#smilodon.wf_version.id'><use x='670' y='261' xlink:href='#ref'/><title>&#x1F517;  Referred by wf_instance ( wf_version -&gt; id ) </title></a>
+  <use x='571' y='281' xlink:href='#nn'/><use x='572' y='280' xlink:href='#unq'><title>&#x1F50D;  Unq unq_wf_version ( workflow, version ) </title></use><a xlink:href='#smilodon.wf_version.version'><text id='smilodon&#46;wf&#95;version&#46;version' x='592' y='293'>version</text><title>&#10697;  version
      * int</title></a>
-<text x='738' y='403' text-anchor='end' class='colType'>&#35;</text>  <use x='647' y='414' xlink:href='#nn'/><use x='648' y='413' xlink:href='#unq'><title>&#x1F50D;  Unq unq_workflow ( name ) </title></use><a xlink:href='#smilodon.workflow.name'><text id='smilodon&#46;workflow&#46;name' x='668' y='426'>name</text><title>&#10697;  name
-     * varchar(120)</title></a>
-<text x='738' y='422' text-anchor='end' class='colType'>t</text>
-<!-- == Table 'wf_instance' == -->
-<rect id='depict_smilodon&#46;wf&#95;instance' class='entity' style='stroke:#F9FAFC' x='418' y='86' width='114' height='209' rx='4' ry='4' />
-<rect x='418' y='86' width='114' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
-<rect x='418' y='90' width='114' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
-<a xlink:href='#smilodon.wf_instance'><text id='depict&#45;smilodon&#46;wf&#95;instance' x='437' y='107' class='tableHeader' style='fill:#414448;'>wf&#95;instance</text><title>Table smilodon.wf_instance</title></a>
-  <use x='419' y='129' xlink:href='#nn'/><use x='420' y='128' xlink:href='#idx'><title>&#x1F50D;  fk_wf_instance_environment ( env ) </title></use><a xlink:href='#smilodon.wf_instance.env'><text id='smilodon&#46;wf&#95;instance&#46;env' x='440' y='141' onmouseover="hghl(['wf_instance_fk_wf_instance_environment','smilodon.environment.code'])" onmouseout="uhghl(['wf_instance_fk_wf_instance_environment','smilodon.environment.code'])">env</text><title>&#10697;  env
-     * int
- &#8599; environment( code )</title></a>
-<a xlink:href='#smilodon.wf_instance.env'><use x='518' y='128' xlink:href='#fk'/><title>&#x1F517;  References environment ( env -&gt; code ) </title></a>
-  <use x='419' y='148' xlink:href='#nn'/><use x='420' y='147' xlink:href='#idx'><title>&#x1F50D;  fk_wf_instance_wf_version ( wf_version ) </title></use><a xlink:href='#smilodon.wf_instance.wf_version'><text id='smilodon&#46;wf&#95;instance&#46;wf&#95;version' x='440' y='160' onmouseover="hghl(['wf_instance_fk_wf_instance_wf_version','smilodon.wf_version.id'])" onmouseout="uhghl(['wf_instance_fk_wf_instance_wf_version','smilodon.wf_version.id'])">wf&#95;version</text><title>&#10697;  wf_version
-     * int
- &#8599; wf_version( id )</title></a>
-<a xlink:href='#smilodon.wf_instance.wf_version'><use x='518' y='147' xlink:href='#fk'/><title>&#x1F517;  References wf_version ( wf_version -&gt; id ) </title></a>
-  <use x='419' y='167' xlink:href='#nn'/><use x='420' y='166' xlink:href='#unq'><title>&#x1F50D;  Unq unq_wf_instance ( guid ) </title></use><a xlink:href='#smilodon.wf_instance.guid'><text id='smilodon&#46;wf&#95;instance&#46;guid' x='440' y='179'>guid</text><title>&#10697;  guid
-     * varchar(42) default &apos;uuid()&apos;</title></a>
-<text x='529' y='175' text-anchor='end' class='colType'>t</text>  <use x='419' y='186' xlink:href='#nn'/><a xlink:href='#smilodon.wf_instance.locked_by'><text id='smilodon&#46;wf&#95;instance&#46;locked&#95;by' x='440' y='198'>locked&#95;by</text><title>&#10697;  locked_by
-     * int default 0
- ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-      Engine Owner</title></a>
-<text x='529' y='194' text-anchor='end' class='colType'>&#35;</text>  <use x='419' y='205' xlink:href='#nn'/><use x='420' y='204' xlink:href='#pk'><title>&#x1F511;  Pk pk_wf_instance ( id ) </title></use><a xlink:href='#smilodon.wf_instance.id'><text id='smilodon&#46;wf&#95;instance&#46;id' x='440' y='217' onmouseover="hghl(['wfi_phase_fk_wf_group_wf_instance','smilodon.wfi_phase.wfi','wfi_step_fk_wf_step_wf_instance','smilodon.wfi_step.wfi','wf_info_fk_wf_info_wf_instance','smilodon.wf_info.wfi'])" onmouseout="uhghl(['wfi_phase_fk_wf_group_wf_instance','smilodon.wfi_phase.wfi','wfi_step_fk_wf_step_wf_instance','smilodon.wfi_step.wfi','wf_info_fk_wf_info_wf_instance','smilodon.wf_info.wfi'])" class='colPk'>id</text><title>&#10697;  id
-     * bigint
- &#8601; wfi_phase( wfi )
- &#8601; wfi_step( wfi )
- &#8601; wf_info( wfi )</title></a>
-<a xlink:href='#smilodon.wf_instance.id'><use x='518' y='204' xlink:href='#ref'/><title>&#x1F517;  Referred by wfi_phase ( wfi -&gt; id ) 
-Referred by wfi_step ( wfi -&gt; id ) 
-Referred by wf_info ( wfi -&gt; id ) </title></a>
-  <use x='419' y='224' xlink:href='#nn'/><a xlink:href='#smilodon.wf_instance.created'><text id='smilodon&#46;wf&#95;instance&#46;created' x='440' y='236'>created</text><title>&#10697;  created
-     * timestamp default current_timestamp()</title></a>
-  <use x='419' y='243' xlink:href='#nn'/><a xlink:href='#smilodon.wf_instance.modified'><text id='smilodon&#46;wf&#95;instance&#46;modified' x='440' y='255'>modified</text><title>&#10697;  modified
-     * timestamp default current_timestamp()</title></a>
-  <use x='419' y='262' xlink:href='#nn'/><use x='420' y='261' xlink:href='#idx'><title>&#x1F50D;  fk_wf_instance_wf_status ( status ) </title></use><a xlink:href='#smilodon.wf_instance.status'><text id='smilodon&#46;wf&#95;instance&#46;status' x='440' y='274' onmouseover="hghl(['wf_instance_fk_wf_instance_wf_status','smilodon.wfi_status.code'])" onmouseout="uhghl(['wf_instance_fk_wf_instance_wf_status','smilodon.wfi_status.code'])">status</text><title>&#10697;  status
-     * int
- &#8599; wfi_status( code )</title></a>
-<a xlink:href='#smilodon.wf_instance.status'><use x='518' y='261' xlink:href='#fk'/><title>&#x1F517;  References wfi_status ( status -&gt; code ) </title></a>
-
-<!-- == Table 'wfi_status' == -->
-<rect id='depict_smilodon&#46;wfi&#95;status' class='entity' style='stroke:#F9FAFC' x='266' y='447' width='95' height='95' rx='4' ry='4' />
-<rect x='266' y='447' width='95' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
-<rect x='266' y='451' width='95' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
-<a xlink:href='#smilodon.wfi_status'><text id='depict&#45;smilodon&#46;wfi&#95;status' x='281' y='468' class='tableHeader' style='fill:#414448;'>wfi&#95;status</text><title>Table smilodon.wfi_status</title></a>
-  <use x='267' y='490' xlink:href='#nn'/><use x='268' y='489' xlink:href='#pk'><title>&#x1F511;  Pk pk_wf_status ( code ) </title></use><a xlink:href='#smilodon.wfi_status.code'><text id='smilodon&#46;wfi&#95;status&#46;code' x='288' y='502' onmouseover="hghl(['wf_instance_fk_wf_instance_wf_status','smilodon.wf_instance.status','wfi_phase_fk_wf_group_wf_status','smilodon.wfi_phase.status','wfi_step_fk_wf_step_wf_status','smilodon.wfi_step.status','attempt_log_fk_step_log_wf_status','smilodon.attempt_log.status'])" onmouseout="uhghl(['wf_instance_fk_wf_instance_wf_status','smilodon.wf_instance.status','wfi_phase_fk_wf_group_wf_status','smilodon.wfi_phase.status','wfi_step_fk_wf_step_wf_status','smilodon.wfi_step.status','attempt_log_fk_step_log_wf_status','smilodon.attempt_log.status'])" class='colPk'>code</text><title>&#10697;  code
-     * int
- &#8601; wf_instance( status )
- &#8601; wfi_phase( status )
- &#8601; wfi_step( status )
- &#8601; attempt_log( status )</title></a>
-<a xlink:href='#smilodon.wfi_status.code'><use x='347' y='489' xlink:href='#ref'/><title>&#x1F517;  Referred by wf_instance ( status -&gt; code ) 
-Referred by wfi_phase ( status -&gt; code ) 
-Referred by wfi_step ( status -&gt; code ) 
-Referred by attempt_log ( status -&gt; code ) </title></a>
-  <use x='267' y='509' xlink:href='#nn'/><use x='268' y='508' xlink:href='#unq'><title>&#x1F50D;  Unq unq_wf_status ( name ) </title></use><a xlink:href='#smilodon.wfi_status.name'><text id='smilodon&#46;wfi&#95;status&#46;name' x='288' y='521'>name</text><title>&#10697;  name
-     * varchar(120)</title></a>
-<text x='358' y='517' text-anchor='end' class='colType'>t</text>
-<!-- == Table 'attempt_log' == -->
-<rect id='depict_smilodon&#46;attempt&#95;log' class='entity' style='stroke:#F9FAFC' x='57' y='447' width='114' height='190' rx='4' ry='4' />
-<rect x='57' y='447' width='114' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
-<rect x='57' y='451' width='114' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
-<a xlink:href='#smilodon.attempt_log'><text id='depict&#45;smilodon&#46;attempt&#95;log' x='75' y='468' class='tableHeader' style='fill:#414448;'>attempt&#95;log</text><title>Table smilodon.attempt_log</title></a>
-  <use x='58' y='490' xlink:href='#nn'/><use x='59' y='489' xlink:href='#idx'><title>&#x1F50D;  fk_step_log_wf_status ( status ) </title></use><a xlink:href='#smilodon.attempt_log.status'><text id='smilodon&#46;attempt&#95;log&#46;status' x='79' y='502' onmouseover="hghl(['attempt_log_fk_step_log_wf_status','smilodon.wfi_status.code'])" onmouseout="uhghl(['attempt_log_fk_step_log_wf_status','smilodon.wfi_status.code'])">status</text><title>&#10697;  status
-     * int
- &#8599; wfi_status( code )</title></a>
-<a xlink:href='#smilodon.attempt_log.status'><use x='157' y='489' xlink:href='#fk'/><title>&#x1F517;  References wfi_status ( status -&gt; code ) </title></a>
-  <use x='58' y='509' xlink:href='#nn'/><a xlink:href='#smilodon.attempt_log.output'><text id='smilodon&#46;attempt&#95;log&#46;output' x='79' y='521'>output</text><title>&#10697;  output
+<text x='681' y='289' text-anchor='end' class='colType'>&#35;</text>  <use x='571' y='300' xlink:href='#nn'/><a xlink:href='#smilodon.wf_version.definition'><text id='smilodon&#46;wf&#95;version&#46;definition' x='592' y='312'>definition</text><title>&#10697;  definition
      * longtext</title></a>
-<text x='168' y='517' text-anchor='end' class='colType'>t</text>  <use x='58' y='528' xlink:href='#nn'/><a xlink:href='#smilodon.attempt_log.created'><text id='smilodon&#46;attempt&#95;log&#46;created' x='79' y='540'>created</text><title>&#10697;  created
+<text x='681' y='308' text-anchor='end' class='colType'>t</text>  <use x='571' y='319' xlink:href='#nn'/><a xlink:href='#smilodon.wf_version.created'><text id='smilodon&#46;wf&#95;version&#46;created' x='592' y='331'>created</text><title>&#10697;  created
      * timestamp default current_timestamp()</title></a>
-  <use x='58' y='547' xlink:href='#nn'/><a xlink:href='#smilodon.attempt_log.modified'><text id='smilodon&#46;attempt&#95;log&#46;modified' x='79' y='559'>modified</text><title>&#10697;  modified
-     * timestamp default current_timestamp()</title></a>
-  <use x='58' y='566' xlink:href='#nn'/><a xlink:href='#smilodon.attempt_log.engine_id'><text id='smilodon&#46;attempt&#95;log&#46;engine&#95;id' x='79' y='578'>engine&#95;id</text><title>&#10697;  engine_id
-     * int default 0</title></a>
-<text x='168' y='574' text-anchor='end' class='colType'>&#35;</text>  <use x='58' y='585' xlink:href='#nn'/><use x='59' y='584' xlink:href='#pk'><title>&#x1F511;  Pk pk_step_log ( step, attempt ) </title></use><a xlink:href='#smilodon.attempt_log.attempt'><text id='smilodon&#46;attempt&#95;log&#46;attempt' x='79' y='597' class='colPk'>attempt</text><title>&#10697;  attempt
-     * int default 1</title></a>
-<text x='168' y='593' text-anchor='end' class='colType'>&#35;</text>  <use x='58' y='604' xlink:href='#nn'/><use x='59' y='603' xlink:href='#pk'><title>&#x1F511;  Pk pk_step_log ( step, attempt ) </title></use><a xlink:href='#smilodon.attempt_log.step'><text id='smilodon&#46;attempt&#95;log&#46;step' x='79' y='616' onmouseover="hghl(['attempt_log_fk_step_log_wf_step','smilodon.wfi_step.id'])" onmouseout="uhghl(['attempt_log_fk_step_log_wf_step','smilodon.wfi_step.id'])" class='colPk'>step</text><title>&#10697;  step
-     * bigint
- &#8599; wfi_step( id )</title></a>
-<a xlink:href='#smilodon.attempt_log.step'><use x='157' y='603' xlink:href='#fk'/><title>&#x1F517;  References wfi_step ( step -&gt; id ) </title></a>
-
-<!-- == Table 'wfi_step' == -->
-<rect id='depict_smilodon&#46;wfi&#95;step' class='entity' style='stroke:#F9FAFC' x='475' y='428' width='114' height='228' rx='4' ry='4' />
-<rect x='475' y='428' width='114' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
-<rect x='475' y='432' width='114' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
-<a xlink:href='#smilodon.wfi_step'><text id='depict&#45;smilodon&#46;wfi&#95;step' x='504' y='449' class='tableHeader' style='fill:#414448;'>wfi&#95;step</text><title>Table smilodon.wfi_step</title></a>
-  <use x='476' y='471' xlink:href='#nn'/><use x='477' y='470' xlink:href='#idx'><title>&#x1F50D;  fk_wf_step_wf_instance ( wfi ) </title></use><a xlink:href='#smilodon.wfi_step.wfi'><text id='smilodon&#46;wfi&#95;step&#46;wfi' x='497' y='483' onmouseover="hghl(['wfi_step_fk_wf_step_wf_instance','smilodon.wf_instance.id'])" onmouseout="uhghl(['wfi_step_fk_wf_step_wf_instance','smilodon.wf_instance.id'])">wfi</text><title>&#10697;  wfi
-     * bigint
- &#8599; wf_instance( id )</title></a>
-<a xlink:href='#smilodon.wfi_step.wfi'><use x='575' y='470' xlink:href='#fk'/><title>&#x1F517;  References wf_instance ( wfi -&gt; id ) </title></a>
-  <use x='476' y='490' xlink:href='#nn'/><use x='477' y='489' xlink:href='#idx'><title>&#x1F50D;  fk_wf_step_wf_status ( status ) </title></use><a xlink:href='#smilodon.wfi_step.status'><text id='smilodon&#46;wfi&#95;step&#46;status' x='497' y='502' onmouseover="hghl(['wfi_step_fk_wf_step_wf_status','smilodon.wfi_status.code'])" onmouseout="uhghl(['wfi_step_fk_wf_step_wf_status','smilodon.wfi_status.code'])">status</text><title>&#10697;  status
+  <use x='571' y='338' xlink:href='#nn'/><a xlink:href='#smilodon.wf_version.active'><text id='smilodon&#46;wf&#95;version&#46;active' x='592' y='350'>active</text><title>&#10697;  active
+     * bit default 1</title></a>
+<text x='681' y='346' text-anchor='end' class='colType'>b</text>  <use x='571' y='357' xlink:href='#nn'/><a xlink:href='#smilodon.wf_version.published'><text id='smilodon&#46;wf&#95;version&#46;published' x='592' y='369'>published</text><title>&#10697;  published
+     * bit default 0</title></a>
+<text x='681' y='365' text-anchor='end' class='colType'>b</text>  <use x='571' y='376' xlink:href='#nn'/><use x='572' y='375' xlink:href='#unq'><title>&#x1F50D;  Unq unq_wf_version_0 ( guid ) </title></use><a xlink:href='#smilodon.wf_version.guid'><text id='smilodon&#46;wf&#95;version&#46;guid' x='592' y='388'>guid</text><title>&#10697;  guid
+     * varchar(42) default &apos;uuid()&apos;</title></a>
+<text x='681' y='384' text-anchor='end' class='colType'>t</text>
+<!-- == Table 'workflow' == -->
+<rect id='depict_smilodon&#46;workflow' class='entity' style='stroke:#F9FAFC' x='570' y='67' width='95' height='114' rx='4' ry='4' />
+<rect x='570' y='67' width='95' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
+<rect x='570' y='71' width='95' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
+<a xlink:href='#smilodon.workflow'><text id='depict&#45;smilodon&#46;workflow' x='587' y='88' class='tableHeader' style='fill:#414448;'>workflow</text><title>Table smilodon.workflow</title></a>
+  <use x='571' y='110' xlink:href='#nn'/><use x='572' y='109' xlink:href='#pk'><title>&#x1F511;  Pk pk_workflow ( id ) </title></use><a xlink:href='#smilodon.workflow.id'><text id='smilodon&#46;workflow&#46;id' x='592' y='122' onmouseover="hghl(['wf_version_fk_workflow_version_workflow','smilodon.wf_version.workflow','wf_belongs_to_fk_wf_belongs_to_workflow','smilodon.wf_belongs_to.wf_id'])" onmouseout="uhghl(['wf_version_fk_workflow_version_workflow','smilodon.wf_version.workflow','wf_belongs_to_fk_wf_belongs_to_workflow','smilodon.wf_belongs_to.wf_id'])" class='colPk'>id</text><title>&#10697;  id
      * int
- &#8599; wfi_status( code )</title></a>
-<a xlink:href='#smilodon.wfi_step.status'><use x='575' y='489' xlink:href='#fk'/><title>&#x1F517;  References wfi_status ( status -&gt; code ) </title></a>
-  <use x='476' y='509' xlink:href='#nn'/><a xlink:href='#smilodon.wfi_step.code'><text id='smilodon&#46;wfi&#95;step&#46;code' x='497' y='521'>code</text><title>&#10697;  code
+ &#8601; wf_version( workflow )
+ &#8601; wf_belongs_to( wf_id )</title></a>
+<a xlink:href='#smilodon.workflow.id'><use x='651' y='109' xlink:href='#ref'/><title>&#x1F517;  Referred by wf_version ( workflow -&gt; id ) 
+Referred by wf_belongs_to ( wf_id -&gt; id ) </title></a>
+  <use x='571' y='129' xlink:href='#nn'/><use x='572' y='128' xlink:href='#unq'><title>&#x1F50D;  Unq unq_workflow_0 ( code ) </title></use><a xlink:href='#smilodon.workflow.code'><text id='smilodon&#46;workflow&#46;code' x='592' y='141'>code</text><title>&#10697;  code
      * int</title></a>
-<text x='586' y='517' text-anchor='end' class='colType'>&#35;</text>  <use x='476' y='528' xlink:href='#nn'/><a xlink:href='#smilodon.wfi_step.attempt'><text id='smilodon&#46;wfi&#95;step&#46;attempt' x='497' y='540'>attempt</text><title>&#10697;  attempt
-     * int default 1</title></a>
-<text x='586' y='536' text-anchor='end' class='colType'>&#35;</text>  <use x='476' y='547' xlink:href='#nn'/><a xlink:href='#smilodon.wfi_step.created'><text id='smilodon&#46;wfi&#95;step&#46;created' x='497' y='559'>created</text><title>&#10697;  created
-     * timestamp default current_timestamp()</title></a>
-  <use x='476' y='566' xlink:href='#nn'/><a xlink:href='#smilodon.wfi_step.modified'><text id='smilodon&#46;wfi&#95;step&#46;modified' x='497' y='578'>modified</text><title>&#10697;  modified
-     * timestamp default current_timestamp()</title></a>
-  <use x='476' y='585' xlink:href='#nn'/><a xlink:href='#smilodon.wfi_step.timeout'><text id='smilodon&#46;wfi&#95;step&#46;timeout' x='497' y='597'>timeout</text><title>&#10697;  timeout
-     * timestamp default current_timestamp()</title></a>
-  <use x='476' y='604' xlink:href='#nn'/><use x='477' y='603' xlink:href='#pk'><title>&#x1F511;  Pk pk_wf_step ( id ) </title></use><a xlink:href='#smilodon.wfi_step.id'><text id='smilodon&#46;wfi&#95;step&#46;id' x='497' y='616' onmouseover="hghl(['step_belongs_to_fk_step_belongs_to_wf_step','smilodon.step_belongs_to.step_id','attempt_log_fk_step_log_wf_step','smilodon.attempt_log.step','step_info_fk_step_info_wfi_step','smilodon.step_info.step'])" onmouseout="uhghl(['step_belongs_to_fk_step_belongs_to_wf_step','smilodon.step_belongs_to.step_id','attempt_log_fk_step_log_wf_step','smilodon.attempt_log.step','step_info_fk_step_info_wfi_step','smilodon.step_info.step'])" class='colPk'>id</text><title>&#10697;  id
-     * bigint
- &#8601; step_belongs_to( step_id )
- &#8601; attempt_log( step )
- &#8601; step_info( step )</title></a>
-<a xlink:href='#smilodon.wfi_step.id'><use x='575' y='603' xlink:href='#ref'/><title>&#x1F517;  Referred by step_belongs_to ( step_id -&gt; id ) 
-Referred by attempt_log ( step -&gt; id ) 
-Referred by step_info ( step -&gt; id ) </title></a>
-  <use x='476' y='623' xlink:href='#nn'/><a xlink:href='#smilodon.wfi_step.engine_id'><text id='smilodon&#46;wfi&#95;step&#46;engine&#95;id' x='497' y='635'>engine&#95;id</text><title>&#10697;  engine_id
-     * int default 0</title></a>
-<text x='586' y='631' text-anchor='end' class='colType'>&#35;</text>
-<!-- == Table 'step_info' == -->
-<rect id='depict_smilodon&#46;step&#95;info' class='entity' style='stroke:#F9FAFC' x='646' y='523' width='114' height='114' rx='4' ry='4' />
-<rect x='646' y='523' width='114' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
-<rect x='646' y='527' width='114' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
-<a xlink:href='#smilodon.step_info'><text id='depict&#45;smilodon&#46;step&#95;info' x='673' y='544' class='tableHeader' style='fill:#414448;'>step&#95;info</text><title>Table smilodon.step_info</title></a>
-  <a xlink:href='#smilodon.step_info.message'><text id='smilodon&#46;step&#95;info&#46;message' x='668' y='578'>message</text><title>&#10697;  message
-     text</title></a>
-<text x='757' y='574' text-anchor='end' class='colType'>t</text>  <a xlink:href='#smilodon.step_info.output'><text id='smilodon&#46;step&#95;info&#46;output' x='668' y='597'>output</text><title>&#10697;  output
-     longtext</title></a>
-<text x='757' y='593' text-anchor='end' class='colType'>t</text>  <use x='647' y='604' xlink:href='#nn'/><use x='648' y='603' xlink:href='#pk'><title>&#x1F511;  Pk pk_step_info ( step ) </title></use><a xlink:href='#smilodon.step_info.step'><text id='smilodon&#46;step&#95;info&#46;step' x='668' y='616' onmouseover="hghl(['step_info_fk_step_info_wfi_step','smilodon.wfi_step.id'])" onmouseout="uhghl(['step_info_fk_step_info_wfi_step','smilodon.wfi_step.id'])" class='colPk'>step</text><title>&#10697;  step
-     * bigint
- &#8599; wfi_step( id )</title></a>
-<a xlink:href='#smilodon.step_info.step'><use x='746' y='603' xlink:href='#fk'/><title>&#x1F517;  References wfi_step ( step -&gt; id ) </title></a>
-
-<!-- == Table 'wfi_phase' == -->
-<rect id='depict_smilodon&#46;wfi&#95;phase' class='entity' style='stroke:#F9FAFC' x='57' y='276' width='114' height='152' rx='4' ry='4' />
-<rect x='57' y='276' width='114' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
-<rect x='57' y='280' width='114' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
-<a xlink:href='#smilodon.wfi_phase'><text id='depict&#45;smilodon&#46;wfi&#95;phase' x='81' y='297' class='tableHeader' style='fill:#414448;'>wfi&#95;phase</text><title>Table smilodon.wfi_phase</title></a>
-  <use x='58' y='319' xlink:href='#nn'/><use x='59' y='318' xlink:href='#idx'><title>&#x1F50D;  fk_wf_group_wf_instance ( wfi ) </title></use><a xlink:href='#smilodon.wfi_phase.wfi'><text id='smilodon&#46;wfi&#95;phase&#46;wfi' x='79' y='331' onmouseover="hghl(['wfi_phase_fk_wf_group_wf_instance','smilodon.wf_instance.id'])" onmouseout="uhghl(['wfi_phase_fk_wf_group_wf_instance','smilodon.wf_instance.id'])">wfi</text><title>&#10697;  wfi
-     * bigint
- &#8599; wf_instance( id )</title></a>
-<a xlink:href='#smilodon.wfi_phase.wfi'><use x='157' y='318' xlink:href='#fk'/><title>&#x1F517;  References wf_instance ( wfi -&gt; id ) </title></a>
-  <use x='58' y='338' xlink:href='#nn'/><a xlink:href='#smilodon.wfi_phase.code'><text id='smilodon&#46;wfi&#95;phase&#46;code' x='79' y='350'>code</text><title>&#10697;  code
-     * int</title></a>
-<text x='168' y='346' text-anchor='end' class='colType'>&#35;</text>  <use x='58' y='357' xlink:href='#nn'/><use x='59' y='356' xlink:href='#pk'><title>&#x1F511;  Pk pk_wf_group ( id ) </title></use><a xlink:href='#smilodon.wfi_phase.id'><text id='smilodon&#46;wfi&#95;phase&#46;id' x='79' y='369' onmouseover="hghl(['step_belongs_to_fk_step_belongs_to_wf_group','smilodon.step_belongs_to.phase_id'])" onmouseout="uhghl(['step_belongs_to_fk_step_belongs_to_wf_group','smilodon.step_belongs_to.phase_id'])" class='colPk'>id</text><title>&#10697;  id
-     * bigint
- &#8601; step_belongs_to( phase_id )</title></a>
-<a xlink:href='#smilodon.wfi_phase.id'><use x='157' y='356' xlink:href='#ref'/><title>&#x1F517;  Referred by step_belongs_to ( phase_id -&gt; id ) </title></a>
-  <use x='58' y='376' xlink:href='#nn'/><a xlink:href='#smilodon.wfi_phase.attempt'><text id='smilodon&#46;wfi&#95;phase&#46;attempt' x='79' y='388'>attempt</text><title>&#10697;  attempt
-     * int default 1</title></a>
-<text x='168' y='384' text-anchor='end' class='colType'>&#35;</text>  <use x='58' y='395' xlink:href='#nn'/><use x='59' y='394' xlink:href='#idx'><title>&#x1F50D;  fk_wf_group_wf_status ( status ) </title></use><a xlink:href='#smilodon.wfi_phase.status'><text id='smilodon&#46;wfi&#95;phase&#46;status' x='79' y='407' onmouseover="hghl(['wfi_phase_fk_wf_group_wf_status','smilodon.wfi_status.code'])" onmouseout="uhghl(['wfi_phase_fk_wf_group_wf_status','smilodon.wfi_status.code'])">status</text><title>&#10697;  status
+<text x='662' y='137' text-anchor='end' class='colType'>&#35;</text>  <use x='571' y='148' xlink:href='#nn'/><use x='572' y='147' xlink:href='#unq'><title>&#x1F50D;  Unq unq_workflow ( name ) </title></use><a xlink:href='#smilodon.workflow.name'><text id='smilodon&#46;workflow&#46;name' x='592' y='160'>name</text><title>&#10697;  name
+     * varchar(120)</title></a>
+<text x='662' y='156' text-anchor='end' class='colType'>t</text>
+<!-- == Table 'appsource' == -->
+<rect id='depict_smilodon&#46;appsource' class='entity' style='stroke:#F9FAFC' x='247' y='124' width='95' height='95' rx='4' ry='4' />
+<rect x='247' y='124' width='95' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
+<rect x='247' y='128' width='95' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
+<a xlink:href='#smilodon.appsource'><text id='depict&#45;smilodon&#46;appsource' x='260' y='145' class='tableHeader' style='fill:#414448;'>appsource</text><title>Table smilodon.appsource</title></a>
+  <use x='248' y='167' xlink:href='#nn'/><use x='249' y='166' xlink:href='#pk'><title>&#x1F511;  Pk pk_appsource ( code ) </title></use><a xlink:href='#smilodon.appsource.code'><text id='smilodon&#46;appsource&#46;code' x='269' y='179' onmouseover="hghl(['wf_belongs_to_fk_wf_belongs_to_appsource','smilodon.wf_belongs_to.source','wfi_belongs_to_fk_wfi_belongs_to_appsource','smilodon.wfi_belongs_to.source'])" onmouseout="uhghl(['wf_belongs_to_fk_wf_belongs_to_appsource','smilodon.wf_belongs_to.source','wfi_belongs_to_fk_wfi_belongs_to_appsource','smilodon.wfi_belongs_to.source'])" class='colPk'>code</text><title>&#10697;  code
      * int
- &#8599; wfi_status( code )</title></a>
-<a xlink:href='#smilodon.wfi_phase.status'><use x='157' y='394' xlink:href='#fk'/><title>&#x1F517;  References wfi_status ( status -&gt; code ) </title></a>
-
-<!-- == Table 'step_belongs_to' == -->
-<rect id='depict_smilodon&#46;step&#95;belongs&#95;to' class='entity' style='stroke:#F9FAFC' x='57' y='675' width='133' height='95' rx='4' ry='4' />
-<rect x='57' y='675' width='133' height='8' rx='4' ry='4' style='stroke-width:0;fill:url(#ttl_C1D8EE);'/>
-<rect x='57' y='679' width='133' height='29' style='stroke-width:0;fill:url(#tbg_C1D8EE);'/>
-<a xlink:href='#smilodon.step_belongs_to'><text id='depict&#45;smilodon&#46;step&#95;belongs&#95;to' x='72' y='696' class='tableHeader' style='fill:#414448;'>step&#95;belongs&#95;to</text><title>Table smilodon.step_belongs_to</title></a>
-  <use x='58' y='718' xlink:href='#nn'/><use x='59' y='717' xlink:href='#pk'><title>&#x1F511;  Pk pk_step_belongs_to ( step_id, phase_id ) &#x1F50D;  fk_step_belongs_to_wf_group ( phase_id ) </title></use><a xlink:href='#smilodon.step_belongs_to.phase_id'><text id='smilodon&#46;step&#95;belongs&#95;to&#46;phase&#95;id' x='79' y='730' onmouseover="hghl(['step_belongs_to_fk_step_belongs_to_wf_group','smilodon.wfi_phase.id'])" onmouseout="uhghl(['step_belongs_to_fk_step_belongs_to_wf_group','smilodon.wfi_phase.id'])" class='colPk'>phase&#95;id</text><title>&#10697;  phase_id
-     * bigint
- &#8599; wfi_phase( id )</title></a>
-<a xlink:href='#smilodon.step_belongs_to.phase_id'><use x='176' y='717' xlink:href='#fk'/><title>&#x1F517;  References wfi_phase ( phase_id -&gt; id ) </title></a>
-  <use x='58' y='737' xlink:href='#nn'/><use x='59' y='736' xlink:href='#pk'><title>&#x1F511;  Pk pk_step_belongs_to ( step_id, phase_id ) </title></use><a xlink:href='#smilodon.step_belongs_to.step_id'><text id='smilodon&#46;step&#95;belongs&#95;to&#46;step&#95;id' x='79' y='749' onmouseover="hghl(['step_belongs_to_fk_step_belongs_to_wf_step','smilodon.wfi_step.id'])" onmouseout="uhghl(['step_belongs_to_fk_step_belongs_to_wf_step','smilodon.wfi_step.id'])" class='colPk'>step&#95;id</text><title>&#10697;  step_id
-     * bigint
- &#8599; wfi_step( id )</title></a>
-<a xlink:href='#smilodon.step_belongs_to.step_id'><use x='176' y='736' xlink:href='#fk'/><title>&#x1F517;  References wfi_step ( step_id -&gt; id ) </title></a>
-
+ &#8601; wf_belongs_to( source )
+ &#8601; wfi_belongs_to( source )</title></a>
+<a xlink:href='#smilodon.appsource.code'><use x='328' y='166' xlink:href='#ref'/><title>&#x1F517;  Referred by wf_belongs_to ( source -&gt; code ) 
+Referred by wfi_belongs_to ( source -&gt; code ) </title></a>
+  <use x='248' y='186' xlink:href='#nn'/><a xlink:href='#smilodon.appsource.name'><text id='smilodon&#46;appsource&#46;name' x='269' y='198'>name</text><title>&#10697;  name
+     * varchar(120)</title></a>
+<text x='339' y='194' text-anchor='end' class='colType'>t</text>
 </g></svg></div>
 <script type='text/javascript'>
 var svgContainers = document.getElementsByClassName("svgContainer");
@@ -783,17 +863,47 @@ function searchSVG( searchValue) {
 <div class='card custom-card'><div class='card-body'><a name='smilodon' style='cursor:pointer;'><h5 class='card-title text-center'>Schema smilodon</h5></div></div>
 
 <br><br>
-<div class='card custom-card'><div class='card-body'><a name='smilodon.attempt_log'  onclick="window.scrollTo(60, 456);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.attempt_log').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table attempt_log</h5></a>
+<div class='card custom-card'><div class='card-body'><a name='smilodon.appsource'  onclick="window.scrollTo(60, 133);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.appsource').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table appsource</h5></a>
 <table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
 <thead>
 <tr><th style='width:5%'>Idx</th><th style='width:40%'>Column Name</th><th>Data Type</th></tr>
 </thead>
 <tbody>
 	<tr>
-		<td><span class='text-danger'>*</span><svg width='14' height='14'><use xlink:href='#idx'/></svg><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
-		<td><a name='smilodon.attempt_log.status'>status</a></td>
+		<td><span class='text-danger'>*</span><svg width='14' height='14'><use xlink:href='#pk'/></svg><svg width='14' height='14'><use xlink:href='#ref'/></svg></td>
+		<td><a name='smilodon.appsource.code'>code</a></td>
 		<td class='dataType'> INT  </td>
 	</tr>
+	<tr>
+		<td><span class='text-danger'>*</span></td>
+		<td><a name='smilodon.appsource.name'>name</a></td>
+		<td class='dataType'> VARCHAR&#40;120&#41;  </td>
+	</tr>
+<tr><th colspan='3'>Indexes</th></tr>
+	<tr>		<td><svg width='14' height='14'><use xlink:href='#pk'/></svg></td><td>pk&#95;appsource</td>
+		<td>Primary Key ON code</td>
+	</tr>
+<tr><th colspan='3'>Referring Foreign Key</th></tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_wf_belongs_to_appsource</td>
+		<td > code &#8601; <a href='#smilodon&#46;wf&#95;belongs&#95;to'  onclick="window.scrollTo(199, 57);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_belongs_to').classList.add('palpable'); return false;">&#10063; wf&#95;belongs&#95;to</a>(source) </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_wfi_belongs_to_appsource</td>
+		<td > code &#8601; <a href='#smilodon&#46;wfi&#95;belongs&#95;to'  onclick="window.scrollTo(199, 190);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_belongs_to').classList.add('palpable'); return false;">&#10063; wfi&#95;belongs&#95;to</a>(source) </td>
+	</tr>
+<tr><th colspan='3'>Options</th></tr>
+<tr><td colspan='3'>engine&#61;InnoDB</td></tr>
+</tbody>
+</table></div></div>
+
+<br><br>
+<div class='card custom-card'><div class='card-body'><a name='smilodon.attempt_log'  onclick="window.scrollTo(60, 608);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.attempt_log').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table attempt_log</h5></a>
+<table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
+<thead>
+<tr><th style='width:5%'>Idx</th><th style='width:40%'>Column Name</th><th>Data Type</th></tr>
+</thead>
+<tbody>
 	<tr>
 		<td><span class='text-danger'>*</span></td>
 		<td><a name='smilodon.attempt_log.output'>output</a></td>
@@ -803,6 +913,11 @@ function searchSVG( searchValue) {
 		<td><span class='text-danger'>*</span></td>
 		<td><a name='smilodon.attempt_log.created'>created</a></td>
 		<td class='dataType'> TIMESTAMP  DEFAULT current_timestamp() </td>
+	</tr>
+	<tr>
+		<td><span class='text-danger'>*</span><svg width='14' height='14'><use xlink:href='#idx'/></svg><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='smilodon.attempt_log.status'>status</a></td>
+		<td class='dataType'> INT  </td>
 	</tr>
 	<tr>
 		<td><span class='text-danger'>*</span></td>
@@ -834,11 +949,11 @@ function searchSVG( searchValue) {
 <tr><th colspan='3'>Foreign Key</th></tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_step_log_wf_status</td>
-		<td > status &#8599; <a href='#smilodon&#46;wfi&#95;status'  onclick="window.scrollTo(66, 456);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_status').classList.add('palpable'); return false;">&#10063; wfi&#95;status</a>(code) </td>
+		<td > status &#8599; <a href='#smilodon&#46;wfi&#95;status'  onclick="window.scrollTo(60, 646);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_status').classList.add('palpable'); return false;">&#10063; wfi&#95;status</a>(code) </td>
 	</tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_step_log_wf_step</td>
-		<td > step &#8599; <a href='#smilodon&#46;wfi&#95;step'  onclick="window.scrollTo(275, 437);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_step').classList.add('palpable'); return false;">&#10063; wfi&#95;step</a>(id) </td>
+		<td > step &#8599; <a href='#smilodon&#46;wfi&#95;step'  onclick="window.scrollTo(237, 589);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_step').classList.add('palpable'); return false;">&#10063; wfi&#95;step</a>(id) </td>
 	</tr>
 <tr><th colspan='3'>Options</th></tr>
 <tr><td colspan='3'>engine&#61;InnoDB</td></tr>
@@ -846,7 +961,7 @@ function searchSVG( searchValue) {
 </table></div></div>
 
 <br><br>
-<div class='card custom-card'><div class='card-body'><a name='smilodon.environment'  onclick="window.scrollTo(60, 57);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.environment').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table environment</h5></a>
+<div class='card custom-card'><div class='card-body'><a name='smilodon.environment'  onclick="window.scrollTo(427, 532);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.environment').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table environment</h5></a>
 <table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
 <thead>
 <tr><th style='width:5%'>Idx</th><th style='width:40%'>Column Name</th><th>Data Type</th></tr>
@@ -872,11 +987,11 @@ function searchSVG( searchValue) {
 <tr><th colspan='3'>Referring Foreign Key</th></tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_wf_engine_environment</td>
-		<td > code &#8601; <a href='#smilodon&#46;wf&#95;engine'  onclick="window.scrollTo(60, 57);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_engine').classList.add('palpable'); return false;">&#10063; wf&#95;engine</a>(environment) </td>
+		<td > code &#8601; <a href='#smilodon&#46;wf&#95;engine'  onclick="window.scrollTo(427, 646);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_engine').classList.add('palpable'); return false;">&#10063; wf&#95;engine</a>(environment) </td>
 	</tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_wf_instance_environment</td>
-		<td > code &#8601; <a href='#smilodon&#46;wf&#95;instance'  onclick="window.scrollTo(218, 95);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_instance').classList.add('palpable'); return false;">&#10063; wf&#95;instance</a>(env) </td>
+		<td > code &#8601; <a href='#smilodon&#46;wf&#95;instance'  onclick="window.scrollTo(199, 361);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_instance').classList.add('palpable'); return false;">&#10063; wf&#95;instance</a>(env) </td>
 	</tr>
 <tr><th colspan='3'>Options</th></tr>
 <tr><td colspan='3'>engine&#61;InnoDB</td></tr>
@@ -884,7 +999,7 @@ function searchSVG( searchValue) {
 </table></div></div>
 
 <br><br>
-<div class='card custom-card'><div class='card-body'><a name='smilodon.step_belongs_to'  onclick="window.scrollTo(60, 684);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.step_belongs_to').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table step_belongs_to</h5></a>
+<div class='card custom-card'><div class='card-body'><a name='smilodon.step_belongs_to'  onclick="window.scrollTo(60, 817);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.step_belongs_to').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table step_belongs_to</h5></a>
 <table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
 <thead>
 <tr><th style='width:5%'>Idx</th><th style='width:40%'>Column Name</th><th>Data Type</th></tr>
@@ -910,11 +1025,11 @@ function searchSVG( searchValue) {
 <tr><th colspan='3'>Foreign Key</th></tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_step_belongs_to_wf_step</td>
-		<td > step&#95;id &#8599; <a href='#smilodon&#46;wfi&#95;step'  onclick="window.scrollTo(275, 437);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_step').classList.add('palpable'); return false;">&#10063; wfi&#95;step</a>(id) </td>
+		<td > step&#95;id &#8599; <a href='#smilodon&#46;wfi&#95;step'  onclick="window.scrollTo(237, 589);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_step').classList.add('palpable'); return false;">&#10063; wfi&#95;step</a>(id) </td>
 	</tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_step_belongs_to_wf_group</td>
-		<td > phase&#95;id &#8599; <a href='#smilodon&#46;wfi&#95;phase'  onclick="window.scrollTo(60, 285);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_phase').classList.add('palpable'); return false;">&#10063; wfi&#95;phase</a>(id) </td>
+		<td > phase&#95;id &#8599; <a href='#smilodon&#46;wfi&#95;phase'  onclick="window.scrollTo(60, 456);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_phase').classList.add('palpable'); return false;">&#10063; wfi&#95;phase</a>(id) </td>
 	</tr>
 <tr><th colspan='3'>Options</th></tr>
 <tr><td colspan='3'>engine&#61;InnoDB</td></tr>
@@ -922,7 +1037,7 @@ function searchSVG( searchValue) {
 </table></div></div>
 
 <br><br>
-<div class='card custom-card'><div class='card-body'><a name='smilodon.step_info'  onclick="window.scrollTo(446, 532);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.step_info').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table step_info</h5></a>
+<div class='card custom-card'><div class='card-body'><a name='smilodon.step_info'  onclick="window.scrollTo(104, 798);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.step_info').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table step_info</h5></a>
 <table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
 <thead>
 <tr><th style='width:5%'>Idx</th><th style='width:40%'>Column Name</th><th>Data Type</th></tr>
@@ -950,7 +1065,7 @@ function searchSVG( searchValue) {
 <tr><th colspan='3'>Foreign Key</th></tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_step_info_wfi_step</td>
-		<td > step &#8599; <a href='#smilodon&#46;wfi&#95;step'  onclick="window.scrollTo(275, 437);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_step').classList.add('palpable'); return false;">&#10063; wfi&#95;step</a>(id) </td>
+		<td > step &#8599; <a href='#smilodon&#46;wfi&#95;step'  onclick="window.scrollTo(237, 589);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_step').classList.add('palpable'); return false;">&#10063; wfi&#95;step</a>(id) </td>
 	</tr>
 <tr><th colspan='3'>Options</th></tr>
 <tr><td colspan='3'>engine&#61;InnoDB</td></tr>
@@ -958,7 +1073,42 @@ function searchSVG( searchValue) {
 </table></div></div>
 
 <br><br>
-<div class='card custom-card'><div class='card-body'><a name='smilodon.wf_engine'  onclick="window.scrollTo(60, 57);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_engine').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table wf_engine</h5></a>
+<div class='card custom-card'><div class='card-body'><a name='smilodon.wf_belongs_to'  onclick="window.scrollTo(199, 57);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_belongs_to').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table wf_belongs_to</h5></a>
+<table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
+<thead>
+<tr><th style='width:5%'>Idx</th><th style='width:40%'>Column Name</th><th>Data Type</th></tr>
+</thead>
+<tbody>
+	<tr>
+		<td><span class='text-danger'>*</span><svg width='14' height='14'><use xlink:href='#pk'/></svg><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='smilodon.wf_belongs_to.source'>source</a></td>
+		<td class='dataType'> INT  </td>
+	</tr>
+	<tr>
+		<td><span class='text-danger'>*</span><svg width='14' height='14'><use xlink:href='#pk'/></svg><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='smilodon.wf_belongs_to.wf_id'>wf&#95;id</a></td>
+		<td class='dataType'> INT  </td>
+	</tr>
+<tr><th colspan='3'>Indexes</th></tr>
+	<tr>		<td><svg width='14' height='14'><use xlink:href='#pk'/></svg></td><td>pk&#95;wf&#95;belongs&#95;to</td>
+		<td>Primary Key ON wf&#95;id&#44; source</td>
+	</tr>
+<tr><th colspan='3'>Foreign Key</th></tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_wf_belongs_to_appsource</td>
+		<td > source &#8599; <a href='#smilodon&#46;appsource'  onclick="window.scrollTo(60, 133);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.appsource').classList.add('palpable'); return false;">&#10063; appsource</a>(code) </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_wf_belongs_to_workflow</td>
+		<td > wf&#95;id &#8599; <a href='#smilodon&#46;workflow'  onclick="window.scrollTo(370, 76);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.workflow').classList.add('palpable'); return false;">&#10063; workflow</a>(id) </td>
+	</tr>
+<tr><th colspan='3'>Options</th></tr>
+<tr><td colspan='3'>engine&#61;InnoDB</td></tr>
+</tbody>
+</table></div></div>
+
+<br><br>
+<div class='card custom-card'><div class='card-body'><a name='smilodon.wf_engine'  onclick="window.scrollTo(427, 646);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_engine').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table wf_engine</h5></a>
 <table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
 <thead>
 <tr><th style='width:5%'>Idx</th><th style='width:20%'>Column Name</th><th style='width:23%'>Definition</th><th style='width:52%'>Description</th></tr>
@@ -1010,7 +1160,7 @@ function searchSVG( searchValue) {
 <tr><th colspan='4'>Foreign Key</th></tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_wf_engine_environment</td>
-		<td > environment &#8599; <a href='#smilodon&#46;environment'  onclick="window.scrollTo(60, 57);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.environment').classList.add('palpable'); return false;">&#10063; environment</a>(code) </td>
+		<td > environment &#8599; <a href='#smilodon&#46;environment'  onclick="window.scrollTo(427, 532);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.environment').classList.add('palpable'); return false;">&#10063; environment</a>(code) </td>
 		<td>  </td>
 	</tr>
 <tr><th colspan='4'>Options</th></tr>
@@ -1019,7 +1169,7 @@ function searchSVG( searchValue) {
 </table></div></div>
 
 <br><br>
-<div class='card custom-card'><div class='card-body'><a name='smilodon.wf_info'  onclick="window.scrollTo(60, 171);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_info').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table wf_info</h5></a>
+<div class='card custom-card'><div class='card-body'><a name='smilodon.wf_info'  onclick="window.scrollTo(60, 323);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_info').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table wf_info</h5></a>
 <table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
 <thead>
 <tr><th style='width:5%'>Idx</th><th style='width:40%'>Column Name</th><th>Data Type</th></tr>
@@ -1040,11 +1190,6 @@ function searchSVG( searchValue) {
 		<td><a name='smilodon.wf_info.url_overrides'>url&#95;overrides</a></td>
 		<td class='dataType'> LONGTEXT  </td>
 	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td><a name='smilodon.wf_info.ref'>ref</a></td>
-		<td class='dataType'> VARCHAR&#40;60&#41;  </td>
-	</tr>
 <tr><th colspan='3'>Indexes</th></tr>
 	<tr>		<td><svg width='14' height='14'><use xlink:href='#pk'/></svg></td><td>pk&#95;wf&#95;info</td>
 		<td>Primary Key ON wfi</td>
@@ -1052,7 +1197,7 @@ function searchSVG( searchValue) {
 <tr><th colspan='3'>Foreign Key</th></tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_wf_info_wf_instance</td>
-		<td > wfi &#8599; <a href='#smilodon&#46;wf&#95;instance'  onclick="window.scrollTo(218, 95);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_instance').classList.add('palpable'); return false;">&#10063; wf&#95;instance</a>(id) </td>
+		<td > wfi &#8599; <a href='#smilodon&#46;wf&#95;instance'  onclick="window.scrollTo(199, 361);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_instance').classList.add('palpable'); return false;">&#10063; wf&#95;instance</a>(id) </td>
 	</tr>
 <tr><th colspan='3'>Options</th></tr>
 <tr><td colspan='3'>engine&#61;InnoDB</td></tr>
@@ -1060,24 +1205,12 @@ function searchSVG( searchValue) {
 </table></div></div>
 
 <br><br>
-<div class='card custom-card'><div class='card-body'><a name='smilodon.wf_instance'  onclick="window.scrollTo(218, 95);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_instance').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table wf_instance</h5></a>
+<div class='card custom-card'><div class='card-body'><a name='smilodon.wf_instance'  onclick="window.scrollTo(199, 361);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_instance').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table wf_instance</h5></a>
 <table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
 <thead>
 <tr><th style='width:5%'>Idx</th><th style='width:20%'>Column Name</th><th style='width:23%'>Definition</th><th style='width:52%'>Description</th></tr>
 </thead>
 <tbody>
-	<tr>
-		<td><span class='text-danger'>*</span><svg width='14' height='14'><use xlink:href='#idx'/></svg><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
-		<td><a name='smilodon.wf_instance.env'>env</a></td>
-		<td class='dataType'> INT  </td>
-		<td>  </td>
-	</tr>
-	<tr>
-		<td><span class='text-danger'>*</span><svg width='14' height='14'><use xlink:href='#idx'/></svg><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
-		<td><a name='smilodon.wf_instance.wf_version'>wf&#95;version</a></td>
-		<td class='dataType'> INT  </td>
-		<td>  </td>
-	</tr>
 	<tr>
 		<td><span class='text-danger'>*</span><svg width='14' height='14'><use xlink:href='#unq'/></svg></td>
 		<td><a name='smilodon.wf_instance.guid'>guid</a></td>
@@ -1091,15 +1224,27 @@ function searchSVG( searchValue) {
 		<td> Engine Owner </td>
 	</tr>
 	<tr>
-		<td><span class='text-danger'>*</span><svg width='14' height='14'><use xlink:href='#pk'/></svg><svg width='14' height='14'><use xlink:href='#ref'/></svg></td>
-		<td><a name='smilodon.wf_instance.id'>id</a></td>
-		<td class='dataType'> BIGINT AUTO_INCREMENT </td>
+		<td><span class='text-danger'>*</span><svg width='14' height='14'><use xlink:href='#idx'/></svg><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='smilodon.wf_instance.wf_version'>wf&#95;version</a></td>
+		<td class='dataType'> INT  </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td><span class='text-danger'>*</span><svg width='14' height='14'><use xlink:href='#idx'/></svg><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='smilodon.wf_instance.env'>env</a></td>
+		<td class='dataType'> INT  </td>
 		<td>  </td>
 	</tr>
 	<tr>
 		<td><span class='text-danger'>*</span></td>
 		<td><a name='smilodon.wf_instance.created'>created</a></td>
 		<td class='dataType'> TIMESTAMP  DEFAULT current_timestamp() </td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<td><span class='text-danger'>*</span><svg width='14' height='14'><use xlink:href='#pk'/></svg><svg width='14' height='14'><use xlink:href='#ref'/></svg></td>
+		<td><a name='smilodon.wf_instance.id'>id</a></td>
+		<td class='dataType'> BIGINT AUTO_INCREMENT </td>
 		<td>  </td>
 	</tr>
 	<tr>
@@ -1138,33 +1283,38 @@ function searchSVG( searchValue) {
 <tr><th colspan='4'>Foreign Key</th></tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_wf_instance_wf_version</td>
-		<td > wf&#95;version &#8599; <a href='#smilodon&#46;wf&#95;version'  onclick="window.scrollTo(427, 114);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_version').classList.add('palpable'); return false;">&#10063; wf&#95;version</a>(id) </td>
+		<td > wf&#95;version &#8599; <a href='#smilodon&#46;wf&#95;version'  onclick="window.scrollTo(370, 209);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_version').classList.add('palpable'); return false;">&#10063; wf&#95;version</a>(id) </td>
 		<td>  </td>
 	</tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_wf_instance_wf_status</td>
-		<td > status &#8599; <a href='#smilodon&#46;wfi&#95;status'  onclick="window.scrollTo(66, 456);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_status').classList.add('palpable'); return false;">&#10063; wfi&#95;status</a>(code) </td>
+		<td > status &#8599; <a href='#smilodon&#46;wfi&#95;status'  onclick="window.scrollTo(60, 646);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_status').classList.add('palpable'); return false;">&#10063; wfi&#95;status</a>(code) </td>
 		<td>  </td>
 	</tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_wf_instance_environment</td>
-		<td > env &#8599; <a href='#smilodon&#46;environment'  onclick="window.scrollTo(60, 57);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.environment').classList.add('palpable'); return false;">&#10063; environment</a>(code) </td>
+		<td > env &#8599; <a href='#smilodon&#46;environment'  onclick="window.scrollTo(427, 532);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.environment').classList.add('palpable'); return false;">&#10063; environment</a>(code) </td>
 		<td>  </td>
 	</tr>
 <tr><th colspan='4'>Referring Foreign Key</th></tr>
 	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_wf_info_wf_instance</td>
+		<td > id &#8601; <a href='#smilodon&#46;wf&#95;info'  onclick="window.scrollTo(60, 323);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_info').classList.add('palpable'); return false;">&#10063; wf&#95;info</a>(wfi) </td>
+		<td>  </td>
+	</tr>
+	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_wf_group_wf_instance</td>
-		<td > id &#8601; <a href='#smilodon&#46;wfi&#95;phase'  onclick="window.scrollTo(60, 285);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_phase').classList.add('palpable'); return false;">&#10063; wfi&#95;phase</a>(wfi) </td>
+		<td > id &#8601; <a href='#smilodon&#46;wfi&#95;phase'  onclick="window.scrollTo(60, 456);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_phase').classList.add('palpable'); return false;">&#10063; wfi&#95;phase</a>(wfi) </td>
 		<td>  </td>
 	</tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_wf_step_wf_instance</td>
-		<td > id &#8601; <a href='#smilodon&#46;wfi&#95;step'  onclick="window.scrollTo(275, 437);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_step').classList.add('palpable'); return false;">&#10063; wfi&#95;step</a>(wfi) </td>
+		<td > id &#8601; <a href='#smilodon&#46;wfi&#95;step'  onclick="window.scrollTo(237, 589);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_step').classList.add('palpable'); return false;">&#10063; wfi&#95;step</a>(wfi) </td>
 		<td>  </td>
 	</tr>
 	<tr>
-		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_wf_info_wf_instance</td>
-		<td > id &#8601; <a href='#smilodon&#46;wf&#95;info'  onclick="window.scrollTo(60, 171);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_info').classList.add('palpable'); return false;">&#10063; wf&#95;info</a>(wfi) </td>
+		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_wfi_belongs_to_wf_instance</td>
+		<td > id &#8601; <a href='#smilodon&#46;wfi&#95;belongs&#95;to'  onclick="window.scrollTo(199, 190);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_belongs_to').classList.add('palpable'); return false;">&#10063; wfi&#95;belongs&#95;to</a>(wfi&#95;id) </td>
 		<td>  </td>
 	</tr>
 <tr><th colspan='4'>Options</th></tr>
@@ -1173,12 +1323,17 @@ function searchSVG( searchValue) {
 </table></div></div>
 
 <br><br>
-<div class='card custom-card'><div class='card-body'><a name='smilodon.wf_version'  onclick="window.scrollTo(427, 114);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_version').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table wf_version</h5></a>
+<div class='card custom-card'><div class='card-body'><a name='smilodon.wf_version'  onclick="window.scrollTo(370, 209);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_version').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table wf_version</h5></a>
 <table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
 <thead>
 <tr><th style='width:5%'>Idx</th><th style='width:40%'>Column Name</th><th>Data Type</th></tr>
 </thead>
 <tbody>
+	<tr>
+		<td><span class='text-danger'>*</span><svg width='14' height='14'><use xlink:href='#unq'/></svg><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='smilodon.wf_version.workflow'>workflow</a></td>
+		<td class='dataType'> INT  </td>
+	</tr>
 	<tr>
 		<td><span class='text-danger'>*</span><svg width='14' height='14'><use xlink:href='#pk'/></svg><svg width='14' height='14'><use xlink:href='#ref'/></svg></td>
 		<td><a name='smilodon.wf_version.id'>id</a></td>
@@ -1214,11 +1369,6 @@ function searchSVG( searchValue) {
 		<td><a name='smilodon.wf_version.guid'>guid</a></td>
 		<td class='dataType'> VARCHAR&#40;42&#41;  DEFAULT 'uuid()' </td>
 	</tr>
-	<tr>
-		<td><span class='text-danger'>*</span><svg width='14' height='14'><use xlink:href='#unq'/></svg><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
-		<td><a name='smilodon.wf_version.workflow'>workflow</a></td>
-		<td class='dataType'> INT  </td>
-	</tr>
 <tr><th colspan='3'>Indexes</th></tr>
 	<tr>		<td><svg width='14' height='14'><use xlink:href='#pk'/></svg></td><td>pk&#95;workflow&#95;version</td>
 		<td>Primary Key ON id</td>
@@ -1235,12 +1385,12 @@ function searchSVG( searchValue) {
 <tr><th colspan='3'>Foreign Key</th></tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_workflow_version_workflow</td>
-		<td > workflow &#8599; <a href='#smilodon&#46;workflow'  onclick="window.scrollTo(446, 342);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.workflow').classList.add('palpable'); return false;">&#10063; workflow</a>(id) </td>
+		<td > workflow &#8599; <a href='#smilodon&#46;workflow'  onclick="window.scrollTo(370, 76);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.workflow').classList.add('palpable'); return false;">&#10063; workflow</a>(id) </td>
 	</tr>
 <tr><th colspan='3'>Referring Foreign Key</th></tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_wf_instance_wf_version</td>
-		<td > id &#8601; <a href='#smilodon&#46;wf&#95;instance'  onclick="window.scrollTo(218, 95);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_instance').classList.add('palpable'); return false;">&#10063; wf&#95;instance</a>(wf&#95;version) </td>
+		<td > id &#8601; <a href='#smilodon&#46;wf&#95;instance'  onclick="window.scrollTo(199, 361);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_instance').classList.add('palpable'); return false;">&#10063; wf&#95;instance</a>(wf&#95;version) </td>
 	</tr>
 <tr><th colspan='3'>Constraints</th></tr>
 	<tr>
@@ -1251,7 +1401,52 @@ function searchSVG( searchValue) {
 </table></div></div>
 
 <br><br>
-<div class='card custom-card'><div class='card-body'><a name='smilodon.wfi_phase'  onclick="window.scrollTo(60, 285);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_phase').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table wfi_phase</h5></a>
+<div class='card custom-card'><div class='card-body'><a name='smilodon.wfi_belongs_to'  onclick="window.scrollTo(199, 190);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_belongs_to').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table wfi_belongs_to</h5></a>
+<table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
+<thead>
+<tr><th style='width:5%'>Idx</th><th style='width:40%'>Column Name</th><th>Data Type</th></tr>
+</thead>
+<tbody>
+	<tr>
+		<td><span class='text-danger'>*</span><svg width='14' height='14'><use xlink:href='#pk'/></svg><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='smilodon.wfi_belongs_to.source'>source</a></td>
+		<td class='dataType'> INT  </td>
+	</tr>
+	<tr>
+		<td><span class='text-danger'>*</span><svg width='14' height='14'><use xlink:href='#pk'/></svg><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='smilodon.wfi_belongs_to.wfi_id'>wfi&#95;id</a></td>
+		<td class='dataType'> BIGINT  </td>
+	</tr>
+	<tr>
+		<td><span class='text-danger'>*</span></td>
+		<td><a name='smilodon.wfi_belongs_to.owner'>owner</a></td>
+		<td class='dataType'> BIGINT  DEFAULT 0 </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='smilodon.wfi_belongs_to.ref'>ref</a></td>
+		<td class='dataType'> VARCHAR&#40;45&#41;  </td>
+	</tr>
+<tr><th colspan='3'>Indexes</th></tr>
+	<tr>		<td><svg width='14' height='14'><use xlink:href='#pk'/></svg></td><td>pk&#95;wfi&#95;belongs&#95;to</td>
+		<td>Primary Key ON wfi&#95;id&#44; source</td>
+	</tr>
+<tr><th colspan='3'>Foreign Key</th></tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_wfi_belongs_to_appsource</td>
+		<td > source &#8599; <a href='#smilodon&#46;appsource'  onclick="window.scrollTo(60, 133);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.appsource').classList.add('palpable'); return false;">&#10063; appsource</a>(code) </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_wfi_belongs_to_wf_instance</td>
+		<td > wfi&#95;id &#8599; <a href='#smilodon&#46;wf&#95;instance'  onclick="window.scrollTo(199, 361);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_instance').classList.add('palpable'); return false;">&#10063; wf&#95;instance</a>(id) </td>
+	</tr>
+<tr><th colspan='3'>Options</th></tr>
+<tr><td colspan='3'>engine&#61;InnoDB</td></tr>
+</tbody>
+</table></div></div>
+
+<br><br>
+<div class='card custom-card'><div class='card-body'><a name='smilodon.wfi_phase'  onclick="window.scrollTo(60, 456);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_phase').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table wfi_phase</h5></a>
 <table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
 <thead>
 <tr><th style='width:5%'>Idx</th><th style='width:40%'>Column Name</th><th>Data Type</th></tr>
@@ -1295,16 +1490,16 @@ function searchSVG( searchValue) {
 <tr><th colspan='3'>Foreign Key</th></tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_wf_group_wf_instance</td>
-		<td > wfi &#8599; <a href='#smilodon&#46;wf&#95;instance'  onclick="window.scrollTo(218, 95);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_instance').classList.add('palpable'); return false;">&#10063; wf&#95;instance</a>(id) </td>
+		<td > wfi &#8599; <a href='#smilodon&#46;wf&#95;instance'  onclick="window.scrollTo(199, 361);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_instance').classList.add('palpable'); return false;">&#10063; wf&#95;instance</a>(id) </td>
 	</tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_wf_group_wf_status</td>
-		<td > status &#8599; <a href='#smilodon&#46;wfi&#95;status'  onclick="window.scrollTo(66, 456);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_status').classList.add('palpable'); return false;">&#10063; wfi&#95;status</a>(code) </td>
+		<td > status &#8599; <a href='#smilodon&#46;wfi&#95;status'  onclick="window.scrollTo(60, 646);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_status').classList.add('palpable'); return false;">&#10063; wfi&#95;status</a>(code) </td>
 	</tr>
 <tr><th colspan='3'>Referring Foreign Key</th></tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_step_belongs_to_wf_group</td>
-		<td > id &#8601; <a href='#smilodon&#46;step&#95;belongs&#95;to'  onclick="window.scrollTo(60, 684);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.step_belongs_to').classList.add('palpable'); return false;">&#10063; step&#95;belongs&#95;to</a>(phase&#95;id) </td>
+		<td > id &#8601; <a href='#smilodon&#46;step&#95;belongs&#95;to'  onclick="window.scrollTo(60, 817);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.step_belongs_to').classList.add('palpable'); return false;">&#10063; step&#95;belongs&#95;to</a>(phase&#95;id) </td>
 	</tr>
 <tr><th colspan='3'>Options</th></tr>
 <tr><td colspan='3'>engine&#61;InnoDB<br> AUTO&#95;INCREMENT 1100  <br></td></tr>
@@ -1312,7 +1507,7 @@ function searchSVG( searchValue) {
 </table></div></div>
 
 <br><br>
-<div class='card custom-card'><div class='card-body'><a name='smilodon.wfi_status'  onclick="window.scrollTo(66, 456);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_status').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table wfi_status</h5></a>
+<div class='card custom-card'><div class='card-body'><a name='smilodon.wfi_status'  onclick="window.scrollTo(60, 646);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_status').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table wfi_status</h5></a>
 <table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
 <thead>
 <tr><th style='width:5%'>Idx</th><th style='width:40%'>Column Name</th><th>Data Type</th></tr>
@@ -1337,20 +1532,20 @@ function searchSVG( searchValue) {
 	</tr>
 <tr><th colspan='3'>Referring Foreign Key</th></tr>
 	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_step_log_wf_status</td>
+		<td > code &#8601; <a href='#smilodon&#46;attempt&#95;log'  onclick="window.scrollTo(60, 608);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.attempt_log').classList.add('palpable'); return false;">&#10063; attempt&#95;log</a>(status) </td>
+	</tr>
+	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_wf_instance_wf_status</td>
-		<td > code &#8601; <a href='#smilodon&#46;wf&#95;instance'  onclick="window.scrollTo(218, 95);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_instance').classList.add('palpable'); return false;">&#10063; wf&#95;instance</a>(status) </td>
+		<td > code &#8601; <a href='#smilodon&#46;wf&#95;instance'  onclick="window.scrollTo(199, 361);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_instance').classList.add('palpable'); return false;">&#10063; wf&#95;instance</a>(status) </td>
 	</tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_wf_group_wf_status</td>
-		<td > code &#8601; <a href='#smilodon&#46;wfi&#95;phase'  onclick="window.scrollTo(60, 285);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_phase').classList.add('palpable'); return false;">&#10063; wfi&#95;phase</a>(status) </td>
+		<td > code &#8601; <a href='#smilodon&#46;wfi&#95;phase'  onclick="window.scrollTo(60, 456);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_phase').classList.add('palpable'); return false;">&#10063; wfi&#95;phase</a>(status) </td>
 	</tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_wf_step_wf_status</td>
-		<td > code &#8601; <a href='#smilodon&#46;wfi&#95;step'  onclick="window.scrollTo(275, 437);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_step').classList.add('palpable'); return false;">&#10063; wfi&#95;step</a>(status) </td>
-	</tr>
-	<tr>
-		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_step_log_wf_status</td>
-		<td > code &#8601; <a href='#smilodon&#46;attempt&#95;log'  onclick="window.scrollTo(60, 456);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.attempt_log').classList.add('palpable'); return false;">&#10063; attempt&#95;log</a>(status) </td>
+		<td > code &#8601; <a href='#smilodon&#46;wfi&#95;step'  onclick="window.scrollTo(237, 589);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_step').classList.add('palpable'); return false;">&#10063; wfi&#95;step</a>(status) </td>
 	</tr>
 <tr><th colspan='3'>Options</th></tr>
 <tr><td colspan='3'>engine&#61;InnoDB</td></tr>
@@ -1358,7 +1553,7 @@ function searchSVG( searchValue) {
 </table></div></div>
 
 <br><br>
-<div class='card custom-card'><div class='card-body'><a name='smilodon.wfi_step'  onclick="window.scrollTo(275, 437);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_step').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table wfi_step</h5></a>
+<div class='card custom-card'><div class='card-body'><a name='smilodon.wfi_step'  onclick="window.scrollTo(237, 589);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_step').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table wfi_step</h5></a>
 <table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
 <thead>
 <tr><th style='width:5%'>Idx</th><th style='width:40%'>Column Name</th><th>Data Type</th></tr>
@@ -1370,11 +1565,6 @@ function searchSVG( searchValue) {
 		<td class='dataType'> BIGINT  </td>
 	</tr>
 	<tr>
-		<td><span class='text-danger'>*</span><svg width='14' height='14'><use xlink:href='#idx'/></svg><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
-		<td><a name='smilodon.wfi_step.status'>status</a></td>
-		<td class='dataType'> INT  </td>
-	</tr>
-	<tr>
 		<td><span class='text-danger'>*</span></td>
 		<td><a name='smilodon.wfi_step.code'>code</a></td>
 		<td class='dataType'> INT  </td>
@@ -1383,6 +1573,11 @@ function searchSVG( searchValue) {
 		<td><span class='text-danger'>*</span></td>
 		<td><a name='smilodon.wfi_step.attempt'>attempt</a></td>
 		<td class='dataType'> INT  DEFAULT 1 </td>
+	</tr>
+	<tr>
+		<td><span class='text-danger'>*</span><svg width='14' height='14'><use xlink:href='#idx'/></svg><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='smilodon.wfi_step.status'>status</a></td>
+		<td class='dataType'> INT  </td>
 	</tr>
 	<tr>
 		<td><span class='text-danger'>*</span></td>
@@ -1422,24 +1617,24 @@ function searchSVG( searchValue) {
 <tr><th colspan='3'>Foreign Key</th></tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_wf_step_wf_instance</td>
-		<td > wfi &#8599; <a href='#smilodon&#46;wf&#95;instance'  onclick="window.scrollTo(218, 95);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_instance').classList.add('palpable'); return false;">&#10063; wf&#95;instance</a>(id) </td>
+		<td > wfi &#8599; <a href='#smilodon&#46;wf&#95;instance'  onclick="window.scrollTo(199, 361);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_instance').classList.add('palpable'); return false;">&#10063; wf&#95;instance</a>(id) </td>
 	</tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>fk_wf_step_wf_status</td>
-		<td > status &#8599; <a href='#smilodon&#46;wfi&#95;status'  onclick="window.scrollTo(66, 456);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_status').classList.add('palpable'); return false;">&#10063; wfi&#95;status</a>(code) </td>
+		<td > status &#8599; <a href='#smilodon&#46;wfi&#95;status'  onclick="window.scrollTo(60, 646);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wfi_status').classList.add('palpable'); return false;">&#10063; wfi&#95;status</a>(code) </td>
 	</tr>
 <tr><th colspan='3'>Referring Foreign Key</th></tr>
 	<tr>
-		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_step_belongs_to_wf_step</td>
-		<td > id &#8601; <a href='#smilodon&#46;step&#95;belongs&#95;to'  onclick="window.scrollTo(60, 684);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.step_belongs_to').classList.add('palpable'); return false;">&#10063; step&#95;belongs&#95;to</a>(step&#95;id) </td>
+		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_step_log_wf_step</td>
+		<td > id &#8601; <a href='#smilodon&#46;attempt&#95;log'  onclick="window.scrollTo(60, 608);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.attempt_log').classList.add('palpable'); return false;">&#10063; attempt&#95;log</a>(step) </td>
 	</tr>
 	<tr>
-		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_step_log_wf_step</td>
-		<td > id &#8601; <a href='#smilodon&#46;attempt&#95;log'  onclick="window.scrollTo(60, 456);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.attempt_log').classList.add('palpable'); return false;">&#10063; attempt&#95;log</a>(step) </td>
+		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_step_belongs_to_wf_step</td>
+		<td > id &#8601; <a href='#smilodon&#46;step&#95;belongs&#95;to'  onclick="window.scrollTo(60, 817);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.step_belongs_to').classList.add('palpable'); return false;">&#10063; step&#95;belongs&#95;to</a>(step&#95;id) </td>
 	</tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_step_info_wfi_step</td>
-		<td > id &#8601; <a href='#smilodon&#46;step&#95;info'  onclick="window.scrollTo(446, 532);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.step_info').classList.add('palpable'); return false;">&#10063; step&#95;info</a>(step) </td>
+		<td > id &#8601; <a href='#smilodon&#46;step&#95;info'  onclick="window.scrollTo(104, 798);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.step_info').classList.add('palpable'); return false;">&#10063; step&#95;info</a>(step) </td>
 	</tr>
 <tr><th colspan='3'>Options</th></tr>
 <tr><td colspan='3'>engine&#61;InnoDB<br> AUTO&#95;INCREMENT 900  <br></td></tr>
@@ -1447,7 +1642,7 @@ function searchSVG( searchValue) {
 </table></div></div>
 
 <br><br>
-<div class='card custom-card'><div class='card-body'><a name='smilodon.workflow'  onclick="window.scrollTo(446, 342);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.workflow').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table workflow</h5></a>
+<div class='card custom-card'><div class='card-body'><a name='smilodon.workflow'  onclick="window.scrollTo(370, 76);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.workflow').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title text-center'>Table workflow</h5></a>
 <table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
 <thead>
 <tr><th style='width:5%'>Idx</th><th style='width:40%'>Column Name</th><th>Data Type</th></tr>
@@ -1481,7 +1676,11 @@ function searchSVG( searchValue) {
 <tr><th colspan='3'>Referring Foreign Key</th></tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_workflow_version_workflow</td>
-		<td > id &#8601; <a href='#smilodon&#46;wf&#95;version'  onclick="window.scrollTo(427, 114);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_version').classList.add('palpable'); return false;">&#10063; wf&#95;version</a>(workflow) </td>
+		<td > id &#8601; <a href='#smilodon&#46;wf&#95;version'  onclick="window.scrollTo(370, 209);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_version').classList.add('palpable'); return false;">&#10063; wf&#95;version</a>(workflow) </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>fk_wf_belongs_to_workflow</td>
+		<td > id &#8601; <a href='#smilodon&#46;wf&#95;belongs&#95;to'  onclick="window.scrollTo(199, 57);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_smilodon.wf_belongs_to').classList.add('palpable'); return false;">&#10063; wf&#95;belongs&#95;to</a>(wf&#95;id) </td>
 	</tr>
 <tr><th colspan='3'>Options</th></tr>
 <tr><td colspan='3'>engine&#61;InnoDB<br> AUTO&#95;INCREMENT 1200  <br></td></tr>
