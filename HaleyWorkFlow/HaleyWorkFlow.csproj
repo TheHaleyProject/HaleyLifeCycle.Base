@@ -53,7 +53,7 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Haley.Rest" Version="2.0.26" />
+        <PackageReference Include="Haley.Rest" Version="2.0.31" />
       </ItemGroup>
     </Otherwise>
   </Choose>
@@ -68,7 +68,7 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Haley.Events" Version="2.2.10" />
+        <PackageReference Include="Haley.Events" Version="2.2.14" />
       </ItemGroup>
     </Otherwise>
   </Choose>
@@ -83,17 +83,16 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Haley.Log" Version="2.0.32" />
+        <PackageReference Include="Haley.Log" Version="2.0.37" />
       </ItemGroup>
     </Otherwise>
   </Choose>
 
   <ItemGroup>
-    <Compile Remove="Utils\MariaDBRepository.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="Resources\wfengine.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sample_wfdef.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

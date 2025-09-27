@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Haley.Abstractions;
 
 namespace Haley.Utils {
-    public class WorkflowEngine {
+    public class WorkflowEngine : IWorkflowEngine {
         private readonly IWorkflowRepository _repository;
         private readonly ILogger<WorkflowEngine> _logger;
         private readonly Dictionary<Guid, WorkflowInstance> _activeInstances = new();

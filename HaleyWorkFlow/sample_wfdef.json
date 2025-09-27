@@ -1,0 +1,248 @@
+{
+  "name": "SurveyProcessing",
+  "version": 11,
+  "baseUrls": {
+    "userApi": "https://api.example.com",
+    "loggingApi": "https://logs.example.com",
+    "archiveApi": "https://archive.example.com"
+  },
+  "parameters": {
+    "surveyId": "abc123",
+    "userEmail": "user@example.com",
+    "userId": "u-456",
+    "reviewerId": "r-789",
+    "requiredDocs": ["consent-form", "feedback-sheet"]
+  },
+  "telemetry": {
+    "auditTrail": true,
+    "logStepEvents": true
+  },
+  "phases": [
+    {
+      "code": 1000,
+      "name": "InitialDispatch",
+      "steps": [1000, 1001, 1002],
+      "retries": {
+        "max": 2,
+        "backoff": "PT10S"
+      },
+      "retryMode": "group"
+    },
+    {
+      "code": 1001,
+      "name": "ResponseHandling",
+      "steps": [1003, 1004, 1005, 1006, 1007],
+      "retries": {
+        "max": 1,
+        "backoff": "PT15S"
+      },
+      "retryMode": "step"
+    },
+    {
+      "code": 1002,
+      "name": "DocumentValidation",
+      "loop": {
+        "over": "$.parameters.requiredDocs",
+        "stepTemplate": {
+          "name": "ValidateDoc-{{item}}",
+          "type": "http",
+          "baseUrl": "archiveApi",
+          "endpoint": "/validate/{{item}}",
+          "method": "POST",
+          "successCondition": "response.status == 'valid'",
+          "onFailure": {
+            "action": "email",
+            "config": {
+              "template": "doc-rejection",
+              "recipient": "$.parameters.userEmail",
+              "reason": "{{item}} validation failed"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "steps": [
+    {
+      "code": 1000,
+      "name": "FetchUserProfile",
+      "type": "http",
+      "baseUrl": "userApi",
+      "endpoint": "/user/profile",
+      "method": "GET",
+      "queryParams": {
+        "userId": "$.parameters.userId"
+      },
+      "timeout": "PT10S",
+      "tags": ["critical", "external-api"]
+    },
+    {
+      "code": 1001,
+      "name": "SendSurveyEmail",
+      "type": "http",
+      "baseUrl": "userApi",
+      "endpoint": "/send-email",
+      "method": "POST",
+      "queryParams": {
+        "trackingId": "$.parameters.surveyId"
+      },
+      "body": {
+        "template": "survey_invite",
+        "email": "$.parameters.userEmail",
+        "userName": "$.1000.output.name",
+        "segment": "$.1000.output.segment"
+      },
+      "dependsOn": [1000],
+      "timeout": "PT30S",
+      "retries": {
+        "max": 3,
+        "backoff": "PT5S"
+      },
+      "tags": ["external-api"],
+      "onFailure": {
+        "action": "email",
+        "config": {
+          "template": "survey-failure",
+          "recipient": "$.parameters.userEmail",
+          "reason": "Survey email dispatch failed"
+        }
+      }
+    },
+    {
+      "code": 1002,
+      "name": "WaitForResponse",
+      "type": "wait",
+      "timeout": "P3D",
+      "dependsOn": [1001],
+      "onTimeout": {
+        "steps": [1010]
+      }
+    },
+    {
+      "code": 1003,
+      "name": "EvaluateResponse",
+      "type": "condition",
+      "dependsOn": [1002],
+      "condition": {
+        "path": "$.1002.output.score",
+        "operator": "gte",
+        "value": 80
+      },
+      "branches": {
+        "true": [1004, 1006],
+        "false": [1005, 1007]
+      },
+      "successCondition": "response.status != 'error'"
+    },
+    {
+      "code": 1004,
+      "name": "SendThankYou",
+      "type": "http",
+      "baseUrl": "userApi",
+      "endpoint": "/user/{{parameters.userId}}/thankyou",
+      "method": "POST",
+      "body": {
+        "email": "$.parameters.userEmail",
+        "name": "$.1000.output.name"
+      },
+      "dependsOn": [1003],
+      "timeout": "PT20S"
+    },
+    {
+      "code": 1005,
+      "name": "TriggerFollowUp",
+      "type": "http",
+      "baseUrl": "userApi",
+      "endpoint": "/follow-up",
+      "method": "POST",
+      "queryParams": {
+        "surveyId": "$.parameters.surveyId"
+      },
+      "body": {
+        "email": "$.parameters.userEmail",
+        "segment": "$.1000.output.segment"
+      },
+      "dependsOn": [1003],
+      "timeout": "PT20S",
+      "onFailure": {
+        "action": "email",
+        "config": {
+          "template": "followup-failure",
+          "recipient": "$.parameters.userEmail",
+          "reason": "Follow-up dispatch failed"
+        }
+      }
+    },
+    {
+      "code": 1006,
+      "name": "LogPositiveResponse",
+      "type": "http",
+      "baseUrl": "loggingApi",
+      "endpoint": "/log/response",
+      "method": "POST",
+      "body": {
+        "userId": "$.parameters.userId",
+        "score": "$.1002.output.score",
+        "status": "positive"
+      },
+      "dependsOn": [1003]
+    },
+    {
+      "code": 1007,
+      "name": "LogNegativeResponse",
+      "type": "http",
+      "baseUrl": "loggingApi",
+      "endpoint": "/log/response",
+      "method": "POST",
+      "body": {
+        "userId": "$.parameters.userId",
+        "score": "$.1002.output.score",
+        "status": "negative"
+      },
+      "dependsOn": [1003]
+    },
+    {
+      "code": 1008,
+      "name": "ArchiveSurvey",
+      "type": "http",
+      "baseUrl": "archiveApi",
+      "endpoint": "/archive",
+      "method": "POST",
+      "body": {
+        "surveyId": "$.parameters.surveyId",
+        "responseScore": "$.1002.output.score"
+      },
+      "dependsOnPhase": [1001],
+      "parallel": true,
+      "timeout": "PT15S",
+      "tags": ["finalization"],
+      "successCondition": "response.status == 'archived'"
+    },
+    {
+      "code": 1009,
+      "name": "NotifyAdmin",
+      "type": "http",
+      "baseUrl": "loggingApi",
+      "endpoint": "/notify/admin",
+      "method": "POST",
+      "body": {
+        "workflow": "$.parameters.surveyId",
+        "error": "$.lastError.message"
+      },
+      "onError": true
+    },
+    {
+      "code": 1010,
+      "name": "NotifyReviewer",
+      "type": "http",
+      "baseUrl": "userApi",
+      "endpoint": "/notify-reviewer",
+      "method": "POST",
+      "body": {
+        "reviewerId": "$.parameters.reviewerId",
+        "message": "Review timed out for surveyId: $.parameters.surveyId"
+      },
+      "trigger": "onTimeout"
+    }
+  ]
+}
