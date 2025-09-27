@@ -194,5 +194,31 @@ namespace Haley.Utils {
         public Task UpdateStateAsync(Guid instanceGuid, WorkflowState state) {
             throw new NotImplementedException();
         }
+
+        public async Task<IFeedback> GetVersionAsync(int workflowId) {
+            var fb = new Feedback();
+
+            if (workflowId < 1) return fb.SetStatus(false).SetMessage("Invalid workflow ID.");
+
+            var result = await _agw.Read(new AdapterArgs { Query = QRY_WF_VERSION.SELECT_LATEST, Filter = ResultFilter.FirstDictionary, JsonStringAsNode = true }, (WORKFLOW, workflowId));
+            if (result is Dictionary<string, object> dic && dic.Count > 0)
+                return fb.SetStatus(true).SetResult(dic);
+
+            return fb.SetStatus(false).SetMessage($"No version found for workflow ID {workflowId}.");
+        }
+
+
+        public async Task<IFeedback> GetVersionByGUIDAsync(Guid guid) {
+            var fb = new Feedback();
+
+            if (guid == Guid.Empty) return fb.SetStatus(false).SetMessage("Invalid version GUID.");
+
+            var result = await _agw.Read(new AdapterArgs { Query = QRY_WF_VERSION.SELECT_BY_GUID, Filter = ResultFilter.FirstDictionary, JsonStringAsNode=true }, (GUID, guid));
+            if (result is Dictionary<string, object> dic && dic.Count > 0)
+                return fb.SetStatus(true).SetResult(dic);
+
+            return fb.SetStatus(false).SetMessage($"No version found for GUID {guid}.");
+        }
+
     }
 }

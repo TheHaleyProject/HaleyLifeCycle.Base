@@ -24,6 +24,8 @@ namespace Haley.Abstractions {
         Task<WorkflowDefinition> LoadVersionAsync(Guid versionGuid);
         Task<WorkflowDefinition> LoadLatestVersionAsync(int workflowId);
         Task<IFeedback<Guid>> CreateVersionAsync(int workflowId, string definitionJson);
+        Task<IFeedback> GetVersionAsync(int workflowId);
+        Task<IFeedback> GetVersionByGUIDAsync(Guid guid);
         Task MarkVersionAsPublishedAsync(Guid versionGuid);
 
         // --- Workflow Instances ---
