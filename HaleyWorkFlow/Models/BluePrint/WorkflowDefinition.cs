@@ -12,5 +12,6 @@ namespace Haley.Models {
         public TelemetryConfig Telemetry { get; set; }
         public List<WorkflowPhase> Phases { get; set; } = new List<WorkflowPhase>();
         public List<WorkflowStep> Steps { get; set; }
+        public object RawJson { get; set; }
     }
 }

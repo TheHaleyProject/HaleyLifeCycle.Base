@@ -20,13 +20,22 @@ namespace Haley.Utils {
             _logger = logger;
         }
 
-        public async Task<Guid> StartWorkflowAsync(Guid definitionId, Dictionary<string, object> parameters, Dictionary<string, string> urlOverrides) {
+        public async Task<IFeedback<Guid>> StartWorkflow(int code, int source, Dictionary<string, object>? parameters, Dictionary<string, string>? urlOverrides) {
+            var definition = await LoadDefinitionAsync(code,source);
+            return await StartWorkFlowInternal(definition, parameters, urlOverrides);
+        }
+
+        public async Task<IFeedback<Guid>> StartWorkflow(Guid definitionId, Dictionary<string, object>? parameters, Dictionary<string, string>? urlOverrides) {
             var definition = await LoadDefinitionAsync(definitionId);
+            return await StartWorkFlowInternal(definition, parameters, urlOverrides);
+        }
+
+        async Task<IFeedback<Guid>> StartWorkFlowInternal(WorkflowDefinition definition, Dictionary<string, object>? parameters, Dictionary<string, string>? urlOverrides) {
             var instance = new WorkflowInstance {
-                InstanceId = Guid.NewGuid(), // this should come from the database. So,
-                DefinitionId = definitionId,
-                Parameters = parameters,
-                UrlOverrides = urlOverrides,
+                InstanceId = Guid.NewGuid(), //Are we sure that we are creating this instance here & just synchronizing in the database?
+                DefinitionId = definition.Guid,
+                Parameters = parameters ?? definition.Parameters,
+                UrlOverrides = urlOverrides ?? definition.BaseUrls,
                 State = WorkflowStatus.Pending,
                 CreatedAt = DateTime.UtcNow,
                 LastUpdated = DateTime.UtcNow,
@@ -37,7 +46,7 @@ namespace Haley.Utils {
             await _repository.SaveInstanceAsync(instance);
             _logger.LogInformation($"Workflow {instance.InstanceId} started.");
 
-            return instance.InstanceId;
+            return new Feedback<Guid>(true) { Result = instance.InstanceId };
         }
 
         public async Task ExecuteAsync(Guid instanceId) {
@@ -86,13 +95,20 @@ namespace Haley.Utils {
             _logger.LogInformation($"Workflow {instanceId} completed with status {state.Status}.");
         }
 
-        private async Task<WorkflowDefinition> LoadDefinitionAsync(Guid definitionId) {
-            if (_definitionCache.TryGetValue(definitionId, out var cached))
+        async Task<WorkflowDefinition> LoadDefinitionAsync(int wf_code, int source = 0) {
+            var guidObj = await _repository.GetGuidByWfCode(wf_code,source); //Always fetch the latest item.
+            if (!guidObj.Status) throw new Exception(guidObj.Message);
+            return await LoadDefinitionAsync(guidObj.Result);
+        }
+
+        async Task<WorkflowDefinition> LoadDefinitionAsync(Guid def_guid) {
+            if (_definitionCache.TryGetValue(def_guid, out var cached))
                 return cached;
 
-            var definition = await _repository.LoadDefinitionAsync(definitionId);
-            _definitionCache[definitionId] = definition;
-            return definition;
+            var defObj = await _repository.LoadWorkflow(def_guid);
+            if (!defObj.Status || defObj.Result == null) throw new Exception(defObj.Message);
+            _definitionCache[def_guid] = defObj.Result;
+            return defObj.Result;
         }
 
         private async Task<StepResult> ExecuteStepAsync(WorkflowStep step, Dictionary<string, object> parameters, Dictionary<string, string> urlOverrides) {

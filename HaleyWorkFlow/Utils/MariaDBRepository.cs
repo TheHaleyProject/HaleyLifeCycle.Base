@@ -4,6 +4,7 @@ using Haley.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -34,7 +35,7 @@ namespace Haley.Utils {
 
                 //First get the latest version and check if the definition is the same or not.
                 try {
-                    var latestDefObj = await _agw.Read(new AdapterArgs() { Query = QRY_WF_VERSION.SELECT_LATEST, Filter = ResultFilter.FirstDictionary }, (WORKFLOW, workflowId));
+                    var latestDefObj = await _agw.Read(new AdapterArgs() { Query = QRY_WF_VERSION.SELECT_DEF_BY_WF_ID, Filter = ResultFilter.FirstDictionary }, (WORKFLOW, workflowId));
                     if (latestDefObj != null && latestDefObj is Dictionary<string, object> latest && latest.TryGetValue("definition", out var latestDef)) {
                         //So some latest object exists. Check if the definition is same as the one we are trying to insert.
                         var hash1 = JsonSerializer.Serialize(JsonNode.Parse(latestDef.ToString()))?.ComputeHash();
@@ -65,7 +66,7 @@ namespace Haley.Utils {
             }
         }
 
-        public async Task<IFeedback<Dictionary<string, object>>> CreateOrGetWorkflowAsync(int code, string name, int source =0) {
+        public async Task<IFeedback<Dictionary<string, object>>> CreateOrGetWorkflow(int code, string name, int source =0) {
             var fb = new Feedback<Dictionary<string, object>>();
             try {
                 var parameters = new Dictionary<string, object> { { SOURCE, source }, { CODE, code }, { NAME, name } };
@@ -89,7 +90,7 @@ namespace Haley.Utils {
             }
         }
 
-        public async Task UpdateWorkflowAsync( int code, string name, int source =0) {
+        public async Task UpdateWorkflow( int code, string name, int source =0) {
             var affected = await _agw.NonQuery(
                 new AdapterArgs { Query = QRY_WORKFLOW.UPDATE },
                 (SOURCE, source),
@@ -131,21 +132,58 @@ namespace Haley.Utils {
             }
         }
 
+        async Task<IFeedback<WorkflowDefinition>> LoadWorkflowInternal(Dictionary<string, object> dic) {
+            var fb = new Feedback<WorkflowDefinition>();
+            try {
+                if (dic == null || !dic.TryGetValue("definition", out var defJsonObj))  return fb.SetMessage($"Unable to load workflow definition for the given inputs");
 
-        public async Task<WorkflowDefinition> LoadWorkflowByCodeAsync(int source, int code) {
-            var wfObj = await _agw.Read( new AdapterArgs() { Query = QRY_WORKFLOW.SELECT_LATEST_DEFINITION , Filter = ResultFilter.FirstDictionary},
-                (SOURCE, source),
+                var defJson = defJsonObj?.ToString();
+                if (string.IsNullOrWhiteSpace(defJson) || !defJson.IsValidJson()) return fb.SetMessage("Definition JSON is missing or invalid.");
+
+                var def = defJson.FromJson<WorkflowDefinition>();
+                if (def == null || def.Guid == Guid.Empty) return fb.SetMessage("Failed to deserialize workflow definition.");
+
+                // Hydrate metadata from DB
+                def.Id = Convert.ToInt32(dic["workflow"]);
+                def.Key = dic["code"]?.ToString();
+                def.Name = dic["name"]?.ToString();
+                def.Version = Convert.ToInt32(dic["version"]);
+                def.SetGuid(Guid.Parse(dic["guid"].ToString()));
+
+                Console.WriteLine($"Deserialized workflow: {def.Name} (v{def.Version}) [{def.Guid}]");
+                return fb.SetStatus(true).SetResult(def);
+            } catch (Exception ex) {
+                return fb.SetStatus(false).SetMessage(ex.Message);
+            }
+        }
+
+        public async Task<IFeedback<WorkflowDefinition>> LoadWorkflow(Guid guid) {
+            var defFb = await GetWFVersion(guid); // assumes source = 0 for global
+            if (!defFb.Status || defFb.Result is not Dictionary<string, object> dic || !dic.TryGetValue("definition", out var defJsonObj))
+                return new Feedback<WorkflowDefinition>(false, $"Unable to load workflow definition for the given guid {guid}");
+            return await LoadWorkflowInternal(dic);
+        }
+
+        public async Task<IFeedback<WorkflowDefinition>> LoadWorkflow(int code, int source) {
+            var defFb = await GetWFVersion(code,source); // assumes source = 0 for global
+            if (!defFb.Status || defFb.Result is not Dictionary<string, object> dic || !dic.TryGetValue("definition", out var defJsonObj))
+                return new Feedback<WorkflowDefinition>(false, $"Unable to load workflow definition for the given code {code} and source {source}");
+            return await LoadWorkflowInternal(dic);
+        }
+
+        public async Task<IFeedback<Guid>> GetGuidByWfCode(int code, int source = 0) {
+            var fb = new Feedback<Guid>();
+            if (code < 1) return fb.SetStatus(false).SetMessage("Invalid workflow code.");
+
+            var result = await _agw.Scalar(
+                new AdapterArgs { Query = QRY_WORKFLOW.GET_GUID_BY_CODE},
+                (SOURCE, source), // Assuming global workflows
                 (CODE, code)
             );
 
-            if (wfObj == null || !(wfObj is Dictionary<string, object> dic)) return null;
-            return null;
+            if (result != null && Guid.TryParse(result.ToString(),out var guid)) return fb.SetStatus(true).SetResult(guid);
+            return fb.SetStatus(false).SetMessage($"Unable to fetch the Guid for the given inputs, code {code} and source {source}.");
         }
-
-        public async Task<WorkflowDefinition> LoadDefinitionAsync(Guid guid) {
-            return null;
-        }
-
 
         public Task<WorkflowInstance> LoadInstanceAsync(Guid instanceGuid) {
             throw new NotImplementedException();
@@ -175,10 +213,6 @@ namespace Haley.Utils {
             throw new NotImplementedException();
         }
 
-        public Task<WorkflowDefinition> LoadWorkflowByCodeAsync(int code) {
-            throw new NotImplementedException();
-        }
-
         public Task MarkVersionAsPublishedAsync(Guid versionGuid) {
             throw new NotImplementedException();
         }
@@ -195,12 +229,12 @@ namespace Haley.Utils {
             throw new NotImplementedException();
         }
 
-        public async Task<IFeedback> GetVersionAsync(int workflowId) {
+        public async Task<IFeedback> GetWFVersion(int workflowId) {
             var fb = new Feedback();
 
             if (workflowId < 1) return fb.SetStatus(false).SetMessage("Invalid workflow ID.");
 
-            var result = await _agw.Read(new AdapterArgs { Query = QRY_WF_VERSION.SELECT_LATEST, Filter = ResultFilter.FirstDictionary, JsonStringAsNode = true }, (WORKFLOW, workflowId));
+            var result = await _agw.Read(new AdapterArgs { Query = QRY_WF_VERSION.SELECT_DEF_BY_WF_ID, Filter = ResultFilter.FirstDictionary, JsonStringAsNode = true }, (WORKFLOW, workflowId));
             if (result is Dictionary<string, object> dic && dic.Count > 0)
                 return fb.SetStatus(true).SetResult(dic);
 
@@ -208,16 +242,31 @@ namespace Haley.Utils {
         }
 
 
-        public async Task<IFeedback> GetVersionByGUIDAsync(Guid guid) {
+        public async Task<IFeedback> GetWFVersion(Guid guid) {
             var fb = new Feedback();
 
             if (guid == Guid.Empty) return fb.SetStatus(false).SetMessage("Invalid version GUID.");
 
-            var result = await _agw.Read(new AdapterArgs { Query = QRY_WF_VERSION.SELECT_BY_GUID, Filter = ResultFilter.FirstDictionary, JsonStringAsNode=true }, (GUID, guid));
-            if (result is Dictionary<string, object> dic && dic.Count > 0)
-                return fb.SetStatus(true).SetResult(dic);
+            var result = await _agw.Read(new AdapterArgs { Query = QRY_WF_VERSION.SELECT_DEF_BY_GUID, Filter = ResultFilter.FirstDictionary, JsonStringAsNode=true }, (GUID, guid));
+            if (result is Dictionary<string, object> dic && dic.Count > 0) return fb.SetStatus(true).SetResult(dic);
 
             return fb.SetStatus(false).SetMessage($"No version found for GUID {guid}.");
+        }
+
+        public async Task<IFeedback> GetWFVersion(int wf_code, int source = 0) {
+            var fb = new Feedback();
+
+            if (wf_code < 1) return fb.SetStatus(false).SetMessage("Invalid workflow code.");
+
+            var result = await _agw.Read(
+                new AdapterArgs { Query = QRY_WF_VERSION.SELECT_DEF_BY_WF_CODE, Filter = ResultFilter.FirstDictionary, JsonStringAsNode = true },
+                (SOURCE, source), // Assuming global workflows
+                (CODE, wf_code)
+            );
+
+            if (result is Dictionary<string, object> dic && dic.Count > 0) return fb.SetStatus(true).SetResult(dic);
+
+            return fb.SetStatus(false).SetMessage($"No version found for workflow code {wf_code} and source {source}.");
         }
 
     }

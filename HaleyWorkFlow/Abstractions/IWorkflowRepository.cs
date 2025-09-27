@@ -12,20 +12,21 @@ namespace Haley.Abstractions {
 
         // --- Workflow (root entity) ---
         Task<WorkflowDefinition> LoadWorkflowAsync(int id);
-        Task<WorkflowDefinition> LoadWorkflowByCodeAsync(int code);
         Task<IEnumerable<WorkflowDefinition>> LoadAllWorkflowsAsync();
-        Task<WorkflowDefinition> LoadWorkflowByCodeAsync(int source, int code);
-        Task<WorkflowDefinition> LoadDefinitionAsync(Guid guid);
-        Task<IFeedback<Dictionary<string, object>>> CreateOrGetWorkflowAsync(int code, string name, int source = 0);
-        Task UpdateWorkflowAsync(int code, string name, int source = 0);
+        Task<IFeedback<WorkflowDefinition>> LoadWorkflow(int code, int source);
+        Task<IFeedback<WorkflowDefinition>> LoadWorkflow(Guid guid);
+        Task<IFeedback<Dictionary<string, object>>> CreateOrGetWorkflow(int code, string name, int source = 0);
+        Task<IFeedback<Guid>> GetGuidByWfCode(int code, int source = 0);
+        Task UpdateWorkflow(int code, string name, int source = 0);
         Task DeleteWorkflowAsync(int code);
 
         // --- Workflow Versions ---
         Task<WorkflowDefinition> LoadVersionAsync(Guid versionGuid);
         Task<WorkflowDefinition> LoadLatestVersionAsync(int workflowId);
         Task<IFeedback<Guid>> CreateVersionAsync(int workflowId, string definitionJson);
-        Task<IFeedback> GetVersionAsync(int workflowId);
-        Task<IFeedback> GetVersionByGUIDAsync(Guid guid);
+        Task<IFeedback> GetWFVersion(int workflowId);
+        Task<IFeedback> GetWFVersion(Guid guid);
+        Task<IFeedback> GetWFVersion(int wf_code, int source);
         Task MarkVersionAsPublishedAsync(Guid versionGuid);
 
         // --- Workflow Instances ---
