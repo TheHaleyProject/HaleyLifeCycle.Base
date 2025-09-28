@@ -8,6 +8,6 @@ using System.Threading.Tasks;
 namespace Haley.Models {
     public class EngineRegistrationRequest {
         public string EngineId { get; set; } = default!;
-        public string Environment { get; set; } = default!;
+        public int Environment { get; set; } 
     }
 }
