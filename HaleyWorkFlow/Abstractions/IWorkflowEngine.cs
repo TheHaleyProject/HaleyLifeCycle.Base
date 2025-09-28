@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace Haley.Abstractions {
     public interface IWorkflowEngine {
-        Task<IFeedback<Guid>> StartWorkflow(Guid definitionId, Dictionary<string, object>? parameters, Dictionary<string, string>? urlOverrides);
-        Task<IFeedback<Guid>> StartWorkflow(int code, int source, Dictionary<string, object>? parameters, Dictionary<string, string>? urlOverrides);
+        Task<IFeedback<Guid>> StartWorkflow(Guid definitionId, WorkflowPayload? payload);
+        Task<IFeedback<Guid>> StartWorkflow(int code, int source, WorkflowPayload? payload);
         Task ExecuteAsync(Guid instanceId);
         //Task<WorkflowDefinition> LoadDefinitionByGuidAsync(Guid def_guid);
         //Task<WorkflowDefinition> LoadDefinitionByWFCode(int wf_code, int source = 0);

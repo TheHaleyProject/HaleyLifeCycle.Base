@@ -28,6 +28,7 @@ namespace Haley.Abstractions {
         Task<IFeedback> GetWFVersion(Guid guid);
         Task<IFeedback> GetWFVersion(int wf_code, int source);
         Task MarkVersionAsPublishedAsync(Guid versionGuid);
+        Task<int> GetVersionIdByDefinitionGuidAsync(Guid versionGuid);
 
         // --- Workflow Instances ---
         Task SaveInstanceAsync(WorkflowInstance instance);

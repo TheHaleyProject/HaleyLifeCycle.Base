@@ -31,3 +31,11 @@ WORKFLOW ENGINE:
 	4. Track status transitions and retries
 	5. Handle timeouts, failures, and external triggers
 	6. Persist state to MariaDB and support crash recovery
+
+WORKFLOW CONCEPT: (ENGINE VS INITIATOR)
+* One central Workflow API: stores definitions, versions, instances, metadata.
+* Multiple wf_clients: external apps (.NET APIs) that initiate workflows.
+* Multiple wf_engines: background jobs or daemons that execute workflows.
+* Shared database: single source of truth for all orchestration.
+* Load-balanced execution: engines pick up work based on availability.
+* Fail-safe recovery: orphaned workflows are reclaimed by healthy engines.
