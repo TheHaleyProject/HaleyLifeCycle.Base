@@ -26,6 +26,7 @@ namespace Haley.Abstractions {
         public const string STATUS = "@STATUS";             // Engine or instance status
         public const string LAST_BEAT = "@LAST_BEAT";       // Timestamp for heartbeat
         public const string ENGINE_GUID = "@ENGINE_GUID";   // Unique engine identifier
+        public const string ENGINE_LASTBEAT = "last_beat";
 
         // 🔹 WF_INSTANCE
         public const string WF_VERSION = "@WF_VERSION";     // FK → WF_VERSION.ID
@@ -47,6 +48,8 @@ namespace Haley.Abstractions {
         // 🔹 Claiming & Filtering
         public const string STATUS_LIST = "@STATUS_LIST";   // Comma-separated status codes
         public const string LIMIT = "@LIMIT";               // Row limit for claim
+
+  
     }
 
 }
