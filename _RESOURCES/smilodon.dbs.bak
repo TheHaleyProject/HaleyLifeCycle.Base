@@ -384,10 +384,10 @@
 		<entity schema="smilodon" name="wf_instance" color="C1D8EE" x="399" y="399" />
 		<entity schema="smilodon" name="wf_engine" color="C1D8EE" x="627" y="589" />
 		<entity schema="smilodon" name="wf_info" color="C1D8EE" x="190" y="361" />
-		<entity schema="smilodon" name="workflow" color="C1D8EE" x="399" y="57" />
-		<entity schema="smilodon" name="app_source" color="C1D8EE" x="228" y="57" />
 		<entity schema="smilodon" name="wfi_belongs_to" color="C1D8EE" x="399" y="209" />
 		<entity schema="smilodon" name="wf_version" color="C1D8EE" x="589" y="190" />
 		<entity schema="smilodon" name="app_instance" color="C1D8EE" x="209" y="190" />
+		<entity schema="smilodon" name="workflow" color="C1D8EE" x="399" y="57" />
+		<entity schema="smilodon" name="app_source" color="C1D8EE" x="228" y="57" />
 	</layout>
 </project>

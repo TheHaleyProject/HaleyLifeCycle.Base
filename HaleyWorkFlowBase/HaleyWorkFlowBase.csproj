@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Haley</RootNamespace>
+    <AssemblyName>Haley.WorkFlow.Base</AssemblyName>
+    <Authors>TheHaleyProject</Authors>
+    <Company>TheHaleyProject</Company>
+    <Copyright>Haley 2025</Copyright>
+    <SignAssembly>True</SignAssembly>
+    <IsPackable>true</IsPackable>
+    <AssemblyOriginatorKeyFile>..\..\HaleyProject\HaleyProject.snk</AssemblyOriginatorKeyFile>
+    <PackageIcon>Haley.png</PackageIcon>
+    <Version>0.0.1</Version>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageReleaseNotes>Pilot release</PackageReleaseNotes>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/TheHaleyProject/HaleyWorkFlow.Base</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/TheHaleyProject/HaleyWorkFlow.Base</RepositoryUrl>
+    <OpenApiGenerateDocuments>false</OpenApiGenerateDocuments>
+    <Description>Base library for Workflow</Description>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\HaleyLog\Haley.png" Link="Haley.png">
+      <PackagePath></PackagePath>
+      <Pack>True</Pack>
+    </None>
+  </ItemGroup>
+  
+  <Import Project="$(SolutionDir)ProjectReferences_$(SolutionName).txt" Condition="Exists('$(SolutionDir)ProjectReferences_$(SolutionName).txt')" />
+
+  <Choose>
+    <When Condition="Exists($(HaleyLog))">
+      <ItemGroup>
+        <ProjectReference Include="$(HaleyLog)\HaleyLog.csproj">
+          <Name>HaleyLog</Name>
+        </ProjectReference>
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <PackageReference Include="Haley.Log" Version="2.0.37" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+
+  <ItemGroup>
+    <Content Include="sample_wfdef.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\HaleyLog\Haley.png" Link="Haley.png">
+      <PackagePath></PackagePath>
+      <Pack>True</Pack>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,27 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project name="Smilodon" database="MariaDb" id="be85c71b-56d7-49a5-adfc-f1d9f130360a" >
 	<schema name="smilodon" >
-		<table name="app_instance" prior="app_instan" >
-			<column name="source" type="INT" mandatory="y" />
-			<column name="name" type="VARCHAR" length="100" mandatory="y" />
-			<column name="id" type="INT" mandatory="y" >
-				<identity><![CDATA[AUTO_INCREMENT]]></identity>
-			</column>
-			<column name="guid" type="VARCHAR" length="42" mandatory="y" />
-			<column name="registered" type="TIMESTAMP" mandatory="y" >
-				<defo><![CDATA[CURRENT_TIMESTAMP]]></defo>
-			</column>
-			<index name="pk_app_instance" unique="PRIMARY_KEY" >
-				<column name="id" />
-			</index>
-			<index name="unq_app_instance" unique="UNIQUE_KEY" >
-				<column name="guid" />
-			</index>
-			<fk name="fk_app_instance_app_source" to_schema="smilodon" to_table="app_source" >
-				<fk_column name="source" pk="code" />
-			</fk>
-			<options><![CDATA[engine=InnoDB]]></options>
-		</table>
 		<table name="app_source" prior="wf_source" >
 			<column name="code" prior="id" type="INT" mandatory="y" />
 			<column name="name" type="VARCHAR" length="120" mandatory="y" />
@@ -244,7 +223,6 @@
 		</table>
 		<table name="wfi_belongs_to" prior="wfi_belong" >
 			<column name="source" type="INT" mandatory="y" />
-			<column name="app_inst" type="INT" mandatory="y" />
 			<column name="wfi_id" type="BIGINT" mandatory="y" />
 			<column name="owner" type="BIGINT" mandatory="y" >
 				<defo><![CDATA[0]]></defo>
@@ -262,9 +240,6 @@
 			</fk>
 			<fk name="fk_wfi_belongs_to_wf_instance" to_schema="smilodon" to_table="wf_instance" >
 				<fk_column name="wfi_id" pk="id" />
-			</fk>
-			<fk name="fk_wfi_belongs_to_app_instance" to_schema="smilodon" to_table="app_instance" >
-				<fk_column name="app_inst" pk="id" />
 			</fk>
 			<options><![CDATA[engine=InnoDB]]></options>
 		</table>
@@ -374,20 +349,19 @@
 		</table>
 	</schema>
 	<layout name="Default Diagram" id="35316b00-322c-430f-83ec-07d9ec742d12" joined_routing="y" show_relation="cascade" >
-		<entity schema="smilodon" name="wfi_step" color="C1D8EE" x="437" y="627" />
-		<entity schema="smilodon" name="wfi_phase" color="C1D8EE" x="209" y="494" />
-		<entity schema="smilodon" name="attempt_log" color="C1D8EE" x="57" y="646" />
-		<entity schema="smilodon" name="wfi_status" color="C1D8EE" x="228" y="684" />
-		<entity schema="smilodon" name="step_belongs_to" color="C1D8EE" x="95" y="855" />
-		<entity schema="smilodon" name="step_info" color="C1D8EE" x="304" y="836" />
-		<entity schema="smilodon" name="environment" color="C1D8EE" x="627" y="456" />
-		<entity schema="smilodon" name="wf_instance" color="C1D8EE" x="399" y="399" />
-		<entity schema="smilodon" name="wf_engine" color="C1D8EE" x="627" y="589" />
-		<entity schema="smilodon" name="wf_info" color="C1D8EE" x="190" y="361" />
-		<entity schema="smilodon" name="wfi_belongs_to" color="C1D8EE" x="399" y="209" />
-		<entity schema="smilodon" name="wf_version" color="C1D8EE" x="589" y="190" />
-		<entity schema="smilodon" name="app_instance" color="C1D8EE" x="209" y="190" />
+		<entity schema="smilodon" name="wfi_step" color="C1D8EE" x="437" y="608" />
+		<entity schema="smilodon" name="wfi_phase" color="C1D8EE" x="209" y="475" />
+		<entity schema="smilodon" name="attempt_log" color="C1D8EE" x="57" y="627" />
+		<entity schema="smilodon" name="wfi_status" color="C1D8EE" x="228" y="665" />
+		<entity schema="smilodon" name="step_belongs_to" color="C1D8EE" x="95" y="836" />
+		<entity schema="smilodon" name="step_info" color="C1D8EE" x="304" y="817" />
+		<entity schema="smilodon" name="environment" color="C1D8EE" x="627" y="437" />
+		<entity schema="smilodon" name="wf_instance" color="C1D8EE" x="399" y="380" />
+		<entity schema="smilodon" name="wf_engine" color="C1D8EE" x="627" y="570" />
+		<entity schema="smilodon" name="wf_info" color="C1D8EE" x="190" y="342" />
+		<entity schema="smilodon" name="wf_version" color="C1D8EE" x="589" y="171" />
+		<entity schema="smilodon" name="wfi_belongs_to" color="C1D8EE" x="399" y="228" />
 		<entity schema="smilodon" name="workflow" color="C1D8EE" x="399" y="57" />
-		<entity schema="smilodon" name="app_source" color="C1D8EE" x="228" y="57" />
+		<entity schema="smilodon" name="app_source" color="C1D8EE" x="228" y="152" />
 	</layout>
 </project>
