@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <OutputType>Library</OutputType>
     <RootNamespace>Haley</RootNamespace>
-    <AssemblyName>Haley.WorkFlow.Base</AssemblyName>
+    <AssemblyName>Haley.LifeCycle.Base</AssemblyName>
     <Authors>TheHaleyProject</Authors>
     <Company>TheHaleyProject</Company>
     <Copyright>Haley 2025</Copyright>
@@ -20,8 +20,8 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageReleaseNotes>Pilot release</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/TheHaleyProject/HaleyWorkFlow.Base</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/TheHaleyProject/HaleyWorkFlow.Base</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/TheHaleyProject/HaleyLifeCycle.Base</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/TheHaleyProject/HaleyLifeCycle.Base</RepositoryUrl>
     <OpenApiGenerateDocuments>false</OpenApiGenerateDocuments>
     <Description>Base library for Workflow</Description>
     <RepositoryType>git</RepositoryType>
