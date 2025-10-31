@@ -119,3 +119,31 @@ Justification: Represented as a state (e.g., AwaitingApproval) but the actual wa
 Feature: External notifications
 Included: No
 Justification: All side effects and communication belong to Agent execution, not State tracking.
+
+## h2 Workflow Execution Hierarchy
+
+Workflow Instance (macro process)
+│
+├── State Machine (macro lifecycle)
+│     ├── State: InitialDispatch
+│     ├── State: ResponseHandling
+│     ├── State: DocumentValidation
+│     └── State: Completed / Failed
+│
+└── Workflow Engine (micro execution)
+      ├── Phase 1: InitialDispatch (linked to State: InitialDispatch)
+      │    ├── Step 1: FetchUserProfile
+      │    ├── Step 2: SendSurveyEmail
+      │    └── Step 3: WaitForResponse
+      │
+      ├── Phase 2: ResponseHandling (linked to State: ResponseHandling)
+      │    ├── Step 4: EvaluateResponse
+      │    ├── Step 5: LogPositiveResponse / LogNegativeResponse
+      │    └── Step 6: TriggerFollowUp
+      │
+      ├── Phase 3: DocumentValidation (linked to State: DocumentValidation)
+      │    ├── Step 7: ValidateDoc-A
+      │    ├── Step 8: ValidateDoc-B
+      │    └── Step 9: ArchiveSurvey
+      │
+      └── Final: Completed / Failed (terminal states)

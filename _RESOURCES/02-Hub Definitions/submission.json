@@ -2,7 +2,7 @@
   "workflow": {
     "name": "SurveyProcessing",
     "version": 11,
-    "description": "Survey processing workflow across multiple APIs and validation phases",
+    "description": "Survey processing workflow across multiple APIs and validation phases, linked with SurveyProcessingState",
     "state_definition_ref": "SurveyProcessingState-11.0",
     "baseUrls": {
       "userApi": "https://api.example.com",
@@ -25,6 +25,9 @@
     {
       "code": 1000,
       "name": "InitialDispatch",
+      "state": "InitialDispatch",
+      "onSuccessEvent": "Dispatched",
+      "onFailureEvent": "ErrorOccurred",
       "retryPolicy": { "max_attempts": 2, "backoff": "PT10S" },
       "retryMode": "group",
       "steps": [1000, 1001, 1002]
@@ -32,6 +35,9 @@
     {
       "code": 1001,
       "name": "ResponseHandling",
+      "state": "ResponseHandling",
+      "onSuccessEvent": "ResponsesProcessed",
+      "onFailureEvent": "ErrorOccurred",
       "retryPolicy": { "max_attempts": 1, "backoff": "PT15S" },
       "retryMode": "step",
       "steps": [1003, 1004, 1005, 1006, 1007]
@@ -39,6 +45,9 @@
     {
       "code": 1002,
       "name": "DocumentValidation",
+      "state": "DocumentValidation",
+      "onSuccessEvent": "AllDocsValidated",
+      "onFailureEvent": "ValidationError",
       "loop": {
         "over": "$.parameters.requiredDocs",
         "template": "ValidateDoc-{{item}}",
@@ -67,7 +76,10 @@
       "method": "GET",
       "queryParams": { "userId": "$.parameters.userId" },
       "timeout": "PT10S",
-      "outputs": { "name": "$.response.name", "segment": "$.response.segment" },
+      "outputs": {
+        "name": "$.response.name",
+        "segment": "$.response.segment"
+      },
       "tags": ["critical", "external-api"]
     },
     {
@@ -93,6 +105,9 @@
           "recipient": "$.parameters.userEmail",
           "reason": "Survey email dispatch failed"
         }
+      },
+      "outputs": {
+        "emailStatus": "$.response.status"
       }
     },
     {
@@ -101,7 +116,11 @@
       "type": "wait",
       "dependsOn": [1001],
       "timeout": "P3D",
-      "onTimeout": { "nextStep": 1010 }
+      "onTimeout": { "nextStep": 1010 },
+      "outputs": {
+        "score": "$.response.score",
+        "timestamp": "$.response.timestamp"
+      }
     },
     {
       "code": 1003,
@@ -125,12 +144,15 @@
       "baseUrl": "userApi",
       "endpoint": "/user/{{parameters.userId}}/thankyou",
       "method": "POST",
+      "dependsOn": [1003],
       "inputs": {
         "email": "$.parameters.userEmail",
         "name": "$.1000.output.name"
       },
-      "dependsOn": [1003],
-      "timeout": "PT20S"
+      "timeout": "PT20S",
+      "outputs": {
+        "thankYouId": "$.response.id"
+      }
     },
     {
       "code": 1005,
@@ -152,6 +174,9 @@
           "template": "followup-failure",
           "recipient": "$.parameters.userEmail"
         }
+      },
+      "outputs": {
+        "followUpResult": "$.response.status"
       }
     },
     {
@@ -166,6 +191,9 @@
         "userId": "$.parameters.userId",
         "score": "$.1002.output.score",
         "status": "positive"
+      },
+      "outputs": {
+        "logId": "$.response.id"
       }
     },
     {
@@ -180,6 +208,9 @@
         "userId": "$.parameters.userId",
         "score": "$.1002.output.score",
         "status": "negative"
+      },
+      "outputs": {
+        "logId": "$.response.id"
       }
     },
     {
@@ -196,7 +227,10 @@
         "responseScore": "$.1002.output.score"
       },
       "timeout": "PT15S",
-      "successCondition": "response.status == 'archived'"
+      "successCondition": "response.status == 'archived'",
+      "outputs": {
+        "archiveId": "$.response.id"
+      }
     },
     {
       "code": 1009,
