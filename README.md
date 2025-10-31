@@ -1,4 +1,4 @@
-#H1 Haley Lifecycle.
+##H1 Haley Lifecycle.
 
 State Definition : Describes What COULD happen. iow, logical states, transitions.
 State Instance : Describes What DID happen.
