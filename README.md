@@ -1,4 +1,4 @@
-## Haley Lifecycle.
+# Haley Lifecycle.
 
 State Definition : Describes What COULD happen. iow, logical states, transitions.
 State Instance : Describes What DID happen.
@@ -27,10 +27,10 @@ Hub observes and coordinates.
 
 ## Role : AGENT VS STATE
 
-# AGENT: 
+### AGENT: 
     The Agent is the executor — it takes workflow logic from the Hub, performs actions, and records the results in the State machine.
 
-# STATE MACHINE:
+### STATE MACHINE:
     STATE MACHINE IS A PURE LIFECYCLE LEDGER. STATE MACHINE SHOULD NOT KNOW ABOUT THE STEP PROGRESS.. THAT IS AGENT AND HUB RESPONSIBILITY. STATE MACHINE SHOULD NOT BE POLLUTED. IT SHOULD ONLY CONTAIN FINALIZED TRANSITIONS.
 
 
