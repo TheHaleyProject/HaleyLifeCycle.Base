@@ -5,7 +5,7 @@ State Instance : Describes What DID happen.
 
 Hub (Orchestrator) Definition : Describes what should we do when it happens.. iow, How each step is executed.
 
-## H2 GENERAL WORKFLOW
+## GENERAL WORKFLOW
 
 1.  Hub defines: “When event Approve happens → call ApproveAPI → move to Approved”
 2.  Agent receives job → executes ApproveAPI.
@@ -25,7 +25,7 @@ Agent performs the work.
 State records what happened.
 Hub observes and coordinates.
 
-## H2 Role : AGENT VS STATE
+## Role : AGENT VS STATE
 
 # AGENT: 
     The Agent is the executor — it takes workflow logic from the Hub, performs actions, and records the results in the State machine.
@@ -56,7 +56,7 @@ Workflow Instance (1)
     └── State: Approved
         ├── Step 5: Publish
 
-## H3 RESPONSIBILITY CONTRACT
+## RESPONSIBILITY CONTRACT
 
 Concern: What is the overall workflow status?
 Belongs to : State Machine
@@ -90,7 +90,7 @@ Concern: Who handles retries and timeouts?
 Belongs to : Agent (guided by Hub policy)
 Why : Retry logic is an execution concern, not a state concern.
 
-## H3 State machine responsibilities
+## State machine responsibilities
 
 Feature: State validation
 Included: Yes
@@ -120,7 +120,7 @@ Feature: External notifications
 Included: No
 Justification: All side effects and communication belong to Agent execution, not State tracking.
 
-## h2 Workflow Execution Hierarchy
+## Workflow Execution Hierarchy
 
 Workflow Instance (macro process)
 │
