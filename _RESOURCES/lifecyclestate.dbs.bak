@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="lifecycle_state" database="LogicalDesign" id="138b2fd4-998d-4a18-8560-261bd72dc683" >
+	<schema name="lifecycle_state" />
+	<layout name="Default Diagram" id="4cb66576-3ed0-4354-8f3b-7306849fca26" show_relation="columns" >
+		<callout x="57" y="57" pointer="Round" >
+			<comment><![CDATA[- Create new entities by right-clicking the diagram. 
+- Double-click entity headers to edit.
+- Get a better understanding of the schema by creating multiple diagrams.
+- Convert the logical design to physical design and deploy it into the database.]]></comment>
+		</callout>
+	</layout>
+</project>
