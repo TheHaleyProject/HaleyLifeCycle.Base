@@ -1,7 +1,109 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<project name="lifecycle_state" database="LogicalDesign" id="138b2fd4-998d-4a18-8560-261bd72dc683" >
-	<schema name="lifecycle_state" />
-	<layout name="Default Diagram" id="4cb66576-3ed0-4354-8f3b-7306849fca26" show_relation="columns" >
+<project name="lifecycle_state" database="MariaDb" id="19f578f4-fff8-4e61-ac61-4d42ca9c2334" >
+	<schema name="lifecycle_state" >
+		<table name="def_version" prior="def_versio" >
+			<column name="parent" type="INT" mandatory="y" />
+			<column name="id" type="INT" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="guid" type="CHAR" length="36" mandatory="y" >
+				<defo><![CDATA[uuid()]]></defo>
+			</column>
+			<column name="version" type="INT" mandatory="y" >
+				<defo><![CDATA[1]]></defo>
+			</column>
+			<column name="created" type="DATETIME" mandatory="y" >
+				<defo><![CDATA[CURRENT_TIMESTAMP]]></defo>
+			</column>
+			<column name="modified" type="DATETIME" mandatory="y" >
+				<defo><![CDATA[CURRENT_TIMESTAMP]]></defo>
+			</column>
+			<column name="data" type="LONGTEXT" mandatory="y" />
+			<index name="pk_def_version" unique="PRIMARY_KEY" >
+				<column name="id" />
+				<column name="parent" />
+			</index>
+			<index name="unq_def_version" unique="UNIQUE_KEY" virtual="y" >
+				<column name="parent" />
+				<column name="version" />
+			</index>
+			<index name="fk_def_version_definition" unique="NORMAL" >
+				<column name="parent" />
+			</index>
+			<index name="unq_def_version_0" unique="UNIQUE_KEY" >
+				<column name="guid" />
+			</index>
+			<index name="unq_def_version_id" unique="UNIQUE_KEY" >
+				<column name="id" />
+			</index>
+			<constraint name="cns_def_version" >
+				<string><![CDATA[(version > 0)]]></string>
+			</constraint>
+			<constraint name="cns_def_version_0" >
+				<string><![CDATA[json_valid(data)]]></string>
+			</constraint>
+			<fk name="fk_def_version_definition" to_schema="lifecycle_state" to_table="definition" >
+				<fk_column name="parent" pk="id" />
+			</fk>
+			<options><![CDATA[
+ AUTO_INCREMENT 1990  
+]]></options>
+		</table>
+		<table name="definition" prior="definit" >
+			<column name="id" type="INT" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="guid" type="CHAR" length="36" mandatory="y" >
+				<defo><![CDATA[uuid()]]></defo>
+			</column>
+			<column name="display_name" type="TEXT" mandatory="y" />
+			<column name="name" type="VARCHAR" length="200" >
+				<identity><![CDATA[GENERATED  ALWAYS AS (lcase(`display_name`))]]></identity>
+			</column>
+			<column name="description" type="TEXT" />
+			<column name="created" prior="created_at" type="DATETIME" mandatory="y" >
+				<defo><![CDATA[current_timestamp()]]></defo>
+			</column>
+			<index name="pk_definition" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="unq_definition" unique="UNIQUE_KEY" virtual="y" >
+				<column name="name" />
+			</index>
+			<index name="unq_definition_0" unique="UNIQUE_KEY" virtual="y" >
+				<column name="guid" />
+			</index>
+			<options><![CDATA[
+ AUTO_INCREMENT 1998  ]]></options>
+		</table>
+		<table name="state" prior="tbl" >
+			<column name="def_version" type="INT" mandatory="y" />
+			<column name="id" type="INT" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="name" type="VARCHAR" length="200" mandatory="y" >
+				<identity><![CDATA[GENERATED ALWAYS AS ( lower(display_name) ) STORED]]></identity>
+			</column>
+			<column name="display_name" type="VARCHAR" length="200" mandatory="y" />
+			<index name="pk_state" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="unq_state" unique="UNIQUE_KEY" >
+				<column name="def_version" />
+				<column name="name" />
+			</index>
+			<fk name="fk_state_def_version" to_schema="lifecycle_state" to_table="def_version" >
+				<fk_column name="def_version" pk="id" />
+			</fk>
+			<options><![CDATA[engine=InnoDB
+ AUTO_INCREMENT 2014 
+]]></options>
+		</table>
+	</schema>
+	<layout name="Default Diagram" id="18212873-6564-437d-a8a1-bcd5f7f6492f" confirmed="y" joined_routing="y" show_relation="columns" >
+		<entity schema="lifecycle_state" name="definition" color="C1D8EE" x="228" y="266" />
+		<entity schema="lifecycle_state" name="def_version" color="C1D8EE" x="456" y="266" />
+		<entity schema="lifecycle_state" name="state" color="C1D8EE" x="228" y="494" />
 		<callout x="57" y="57" pointer="Round" >
 			<comment><![CDATA[- Create new entities by right-clicking the diagram. 
 - Double-click entity headers to edit.
