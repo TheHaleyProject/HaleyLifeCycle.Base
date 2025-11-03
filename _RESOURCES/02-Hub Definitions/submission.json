@@ -1,0 +1,262 @@
+{
+  "workflow": {
+    "name": "SurveyProcessing",
+    "version": 11,
+    "description": "Survey processing workflow across multiple APIs and validation phases, linked with SurveyProcessingState",
+    "state_definition_ref": "SurveyProcessingState-11.0",
+    "baseUrls": {
+      "userApi": "https://api.example.com",
+      "loggingApi": "https://logs.example.com",
+      "archiveApi": "https://archive.example.com"
+    },
+    "parameters": {
+      "surveyId": "abc123",
+      "userEmail": "user@example.com",
+      "userId": "u-456",
+      "reviewerId": "r-789",
+      "requiredDocs": ["consent-form", "feedback-sheet"]
+    },
+    "telemetry": {
+      "auditTrail": true,
+      "logStepEvents": true
+    }
+  },
+  "phases": [
+    {
+      "code": 1000,
+      "name": "InitialDispatch",
+      "state": "InitialDispatch",
+      "onSuccessEvent": "Dispatched",
+      "onFailureEvent": "ErrorOccurred",
+      "retryPolicy": { "max_attempts": 2, "backoff": "PT10S" },
+      "retryMode": "group",
+      "steps": [1000, 1001, 1002]
+    },
+    {
+      "code": 1001,
+      "name": "ResponseHandling",
+      "state": "ResponseHandling",
+      "onSuccessEvent": "ResponsesProcessed",
+      "onFailureEvent": "ErrorOccurred",
+      "retryPolicy": { "max_attempts": 1, "backoff": "PT15S" },
+      "retryMode": "step",
+      "steps": [1003, 1004, 1005, 1006, 1007]
+    },
+    {
+      "code": 1002,
+      "name": "DocumentValidation",
+      "state": "DocumentValidation",
+      "onSuccessEvent": "AllDocsValidated",
+      "onFailureEvent": "ValidationError",
+      "loop": {
+        "over": "$.parameters.requiredDocs",
+        "template": "ValidateDoc-{{item}}",
+        "baseUrl": "archiveApi",
+        "endpoint": "/validate/{{item}}",
+        "method": "POST",
+        "successCondition": "response.status == 'valid'",
+        "onFailure": {
+          "action": "email",
+          "config": {
+            "template": "doc-rejection",
+            "recipient": "$.parameters.userEmail",
+            "reason": "{{item}} validation failed"
+          }
+        }
+      }
+    }
+  ],
+  "steps": [
+    {
+      "code": 1000,
+      "name": "FetchUserProfile",
+      "type": "http",
+      "baseUrl": "userApi",
+      "endpoint": "/user/profile",
+      "method": "GET",
+      "queryParams": { "userId": "$.parameters.userId" },
+      "timeout": "PT10S",
+      "outputs": {
+        "name": "$.response.name",
+        "segment": "$.response.segment"
+      },
+      "tags": ["critical", "external-api"]
+    },
+    {
+      "code": 1001,
+      "name": "SendSurveyEmail",
+      "type": "http",
+      "baseUrl": "userApi",
+      "endpoint": "/send-email",
+      "method": "POST",
+      "dependsOn": [1000],
+      "timeout": "PT30S",
+      "inputs": {
+        "template": "survey_invite",
+        "email": "$.parameters.userEmail",
+        "userName": "$.1000.output.name",
+        "segment": "$.1000.output.segment"
+      },
+      "retryPolicy": { "max_attempts": 3, "backoff": "PT5S" },
+      "onFailure": {
+        "action": "email",
+        "config": {
+          "template": "survey-failure",
+          "recipient": "$.parameters.userEmail",
+          "reason": "Survey email dispatch failed"
+        }
+      },
+      "outputs": {
+        "emailStatus": "$.response.status"
+      }
+    },
+    {
+      "code": 1002,
+      "name": "WaitForResponse",
+      "type": "wait",
+      "dependsOn": [1001],
+      "timeout": "P3D",
+      "onTimeout": { "nextStep": 1010 },
+      "outputs": {
+        "score": "$.response.score",
+        "timestamp": "$.response.timestamp"
+      }
+    },
+    {
+      "code": 1003,
+      "name": "EvaluateResponse",
+      "type": "condition",
+      "dependsOn": [1002],
+      "condition": {
+        "path": "$.1002.output.score",
+        "operator": "gte",
+        "value": 80
+      },
+      "branches": {
+        "true": [1004, 1006],
+        "false": [1005, 1007]
+      }
+    },
+    {
+      "code": 1004,
+      "name": "SendThankYou",
+      "type": "http",
+      "baseUrl": "userApi",
+      "endpoint": "/user/{{parameters.userId}}/thankyou",
+      "method": "POST",
+      "dependsOn": [1003],
+      "inputs": {
+        "email": "$.parameters.userEmail",
+        "name": "$.1000.output.name"
+      },
+      "timeout": "PT20S",
+      "outputs": {
+        "thankYouId": "$.response.id"
+      }
+    },
+    {
+      "code": 1005,
+      "name": "TriggerFollowUp",
+      "type": "http",
+      "baseUrl": "userApi",
+      "endpoint": "/follow-up",
+      "method": "POST",
+      "dependsOn": [1003],
+      "inputs": {
+        "surveyId": "$.parameters.surveyId",
+        "email": "$.parameters.userEmail",
+        "segment": "$.1000.output.segment"
+      },
+      "retryPolicy": { "max_attempts": 2, "backoff": "PT5S" },
+      "onFailure": {
+        "action": "email",
+        "config": {
+          "template": "followup-failure",
+          "recipient": "$.parameters.userEmail"
+        }
+      },
+      "outputs": {
+        "followUpResult": "$.response.status"
+      }
+    },
+    {
+      "code": 1006,
+      "name": "LogPositiveResponse",
+      "type": "http",
+      "baseUrl": "loggingApi",
+      "endpoint": "/log/response",
+      "method": "POST",
+      "dependsOn": [1003],
+      "inputs": {
+        "userId": "$.parameters.userId",
+        "score": "$.1002.output.score",
+        "status": "positive"
+      },
+      "outputs": {
+        "logId": "$.response.id"
+      }
+    },
+    {
+      "code": 1007,
+      "name": "LogNegativeResponse",
+      "type": "http",
+      "baseUrl": "loggingApi",
+      "endpoint": "/log/response",
+      "method": "POST",
+      "dependsOn": [1003],
+      "inputs": {
+        "userId": "$.parameters.userId",
+        "score": "$.1002.output.score",
+        "status": "negative"
+      },
+      "outputs": {
+        "logId": "$.response.id"
+      }
+    },
+    {
+      "code": 1008,
+      "name": "ArchiveSurvey",
+      "type": "http",
+      "baseUrl": "archiveApi",
+      "endpoint": "/archive",
+      "method": "POST",
+      "dependsOnPhase": [1001],
+      "parallel": true,
+      "inputs": {
+        "surveyId": "$.parameters.surveyId",
+        "responseScore": "$.1002.output.score"
+      },
+      "timeout": "PT15S",
+      "successCondition": "response.status == 'archived'",
+      "outputs": {
+        "archiveId": "$.response.id"
+      }
+    },
+    {
+      "code": 1009,
+      "name": "NotifyAdmin",
+      "type": "http",
+      "baseUrl": "loggingApi",
+      "endpoint": "/notify/admin",
+      "method": "POST",
+      "inputs": {
+        "workflow": "$.parameters.surveyId",
+        "error": "$.lastError.message"
+      },
+      "onError": true
+    },
+    {
+      "code": 1010,
+      "name": "NotifyReviewer",
+      "type": "http",
+      "baseUrl": "userApi",
+      "endpoint": "/notify-reviewer",
+      "method": "POST",
+      "inputs": {
+        "reviewerId": "$.parameters.reviewerId",
+        "message": "Review timed out for surveyId: $.parameters.surveyId"
+      },
+      "trigger": "onTimeout"
+    }
+  ]
+}

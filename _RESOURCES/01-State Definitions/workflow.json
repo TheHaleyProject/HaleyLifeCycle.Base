@@ -1,0 +1,40 @@
+{
+  "definition": {
+    "name": "WorkflowFlow",
+    "version": "2.0",
+    "description": "Generic engine workflow lifecycle"
+  },
+  "states": [
+    {
+      "name": "Initiated",
+      "is_initial": true,
+      "steps": [
+        { "name": "RegisterWorkflow", "type": "system", "action": "RegisterInHub" }
+      ]
+    },
+    {
+      "name": "InProgress",
+      "steps": [
+        { "name": "ExecuteMainTask", "type": "system", "max_attempts": 3, "action": "RunWorkflowJob" }
+      ]
+    },
+    {
+      "name": "WaitingForEvent",
+      "steps": [
+        { "name": "ListenForExternalEvent", "type": "system", "action": "WaitForSignal" }
+      ]
+    },
+    { "name": "Retrying", "steps": [{ "name": "RetryFailedTask", "max_attempts": 5 }] },
+    { "name": "Failed", "is_final": true },
+    { "name": "Completed", "is_final": true }
+  ],
+  "transitions": [
+    { "from": "Initiated", "event": "Start", "to": "InProgress" },
+    { "from": "InProgress", "event": "Wait", "to": "WaitingForEvent" },
+    { "from": "WaitingForEvent", "event": "Resume", "to": "InProgress" },
+    { "from": "InProgress", "event": "Complete", "to": "Completed" },
+    { "from": "InProgress", "event": "Error", "to": "Failed", "max_retries": 3 },
+    { "from": "Failed", "event": "Retry", "to": "Retrying" },
+    { "from": "Retrying", "event": "Restart", "to": "InProgress" }
+  ]
+}

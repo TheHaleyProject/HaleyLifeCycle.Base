@@ -1,0 +1,45 @@
+{
+  "definition": {
+    "name": "InvoiceFlow",
+    "version": "2.0",
+    "description": "Invoice lifecycle"
+  },
+  "states": [
+    {
+      "name": "Created",
+      "is_initial": true,
+      "steps": [
+        { "name": "ValidateInvoice", "action": "ValidateInvoiceData" },
+        { "name": "GenerateInvoicePDF", "action": "GenerateInvoiceDocument" }
+      ]
+    },
+    {
+      "name": "Sent",
+      "steps": [
+        { "name": "SendInvoiceEmail", "type": "system", "action": "SendInvoiceMail" }
+      ]
+    },
+    {
+      "name": "Paid",
+      "steps": [
+        { "name": "RecordPayment", "type": "system", "action": "RecordPaymentTransaction" }
+      ]
+    },
+    {
+      "name": "Overdue",
+      "sla_seconds": 2592000,
+      "steps": [
+        { "name": "SendReminder", "type": "system", "action": "SendReminderMail" },
+        { "name": "AddLateFee", "type": "system", "action": "ApplyLateCharges" }
+      ]
+    },
+    { "name": "Closed", "is_final": true }
+  ],
+  "transitions": [
+    { "from": "Created", "event": "Send", "to": "Sent", "action_name": "OnSendInvoice" },
+    { "from": "Sent", "event": "MarkPaid", "to": "Paid", "action_name": "OnMarkPaid" },
+    { "from": "Sent", "event": "MarkOverdue", "to": "Overdue" },
+    { "from": "Paid", "event": "Close", "to": "Closed" },
+    { "from": "Overdue", "event": "Close", "to": "Closed" }
+  ]
+}

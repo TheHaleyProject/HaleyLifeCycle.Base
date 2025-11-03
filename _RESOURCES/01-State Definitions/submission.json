@@ -1,0 +1,21 @@
+{
+  "definition": {
+    "name": "SurveyProcessingState",
+    "version": "11.0",
+    "description": "Pure state definition for Survey Processing lifecycle"
+  },
+  "states": [
+    { "name": "InitialDispatch", "is_initial": true, "category": "system" },
+    { "name": "ResponseHandling", "category": "business" },
+    { "name": "DocumentValidation", "category": "business" },
+    { "name": "Completed", "is_final": true, "category": "system" },
+    { "name": "Failed", "is_final": true, "category": "error" }
+  ],
+  "transitions": [
+    { "from": "InitialDispatch", "event": "Dispatched", "to": "ResponseHandling" },
+    { "from": "ResponseHandling", "event": "ResponsesProcessed", "to": "DocumentValidation" },
+    { "from": "DocumentValidation", "event": "AllDocsValidated", "to": "Completed" },
+    { "from": "ResponseHandling", "event": "ErrorOccurred", "to": "Failed" },
+    { "from": "DocumentValidation", "event": "ValidationError", "to": "Failed" }
+  ]
+}
