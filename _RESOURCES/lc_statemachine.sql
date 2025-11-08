@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `definition` (
   `name` varchar(200) GENERATED ALWAYS AS (lcase(`display_name`)) STORED,
   `description` text DEFAULT NULL,
   `created` datetime NOT NULL DEFAULT utc_timestamp(),
-  `env` int(11) NOT NULL DEFAULT 0 COMMENT 'environment code',
+  `env` int(11) NOT NULL DEFAULT 0 COMMENT 'environment code\nCOMMENT ''0=Dev,1=Test,2=UAT,3=Prod''',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1998 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 

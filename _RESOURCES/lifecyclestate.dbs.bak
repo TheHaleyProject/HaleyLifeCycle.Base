@@ -19,7 +19,7 @@
 			</column>
 			<column name="data" type="LONGTEXT" mandatory="y" />
 			<column name="parent" type="INT" mandatory="y" />
-			<index name="unq_def_version" unique="UNIQUE_KEY" virtual="y" >
+			<index name="unq_def_version" unique="UNIQUE_KEY" >
 				<column name="parent" />
 				<column name="version" />
 			</index>
@@ -68,10 +68,11 @@ COMMENT '0=Dev,1=Test,2=UAT,3=Prod']]></comment>
 			<index name="pk_definition" unique="PRIMARY_KEY" >
 				<column name="id" />
 			</index>
-			<index name="unq_definition" unique="UNIQUE_KEY" virtual="y" >
+			<index name="unq_definition" unique="UNIQUE_KEY" >
+				<column name="env" />
 				<column name="name" />
 			</index>
-			<index name="unq_definition_0" unique="UNIQUE_KEY" virtual="y" >
+			<index name="unq_definition_0" unique="UNIQUE_KEY" >
 				<column name="guid" />
 			</index>
 			<options><![CDATA[
@@ -275,12 +276,12 @@ is_rollback = 8]]></comment>
 		</table>
 	</schema>
 	<layout name="Default Diagram" id="18212873-6564-437d-a8a1-bcd5f7f6492f" confirmed="y" joined_routing="y" show_relation="cascade" >
-		<entity schema="lifecycle_state" name="transition" color="C1D8EE" x="456" y="57" />
-		<entity schema="lifecycle_state" name="def_version" color="C1D8EE" x="475" y="475" />
-		<entity schema="lifecycle_state" name="state" color="C1D8EE" x="247" y="76" />
-		<entity schema="lifecycle_state" name="transition_log" color="C1D8EE" x="57" y="380" />
-		<entity schema="lifecycle_state" name="events" color="C1D8EE" x="475" y="304" />
-		<entity schema="lifecycle_state" name="instance" color="C1D8EE" x="247" y="285" />
 		<entity schema="lifecycle_state" name="definition" color="C1D8EE" x="285" y="570" />
+		<entity schema="lifecycle_state" name="transition_log" color="C1D8EE" x="57" y="380" />
+		<entity schema="lifecycle_state" name="instance" color="C1D8EE" x="247" y="285" />
+		<entity schema="lifecycle_state" name="state" color="C1D8EE" x="247" y="76" />
+		<entity schema="lifecycle_state" name="def_version" color="C1D8EE" x="475" y="475" />
+		<entity schema="lifecycle_state" name="events" color="C1D8EE" x="475" y="304" />
+		<entity schema="lifecycle_state" name="transition" color="C1D8EE" x="456" y="57" />
 	</layout>
 </project>
