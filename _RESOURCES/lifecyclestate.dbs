@@ -117,7 +117,9 @@ COMMENT '0=Dev,1=Test,2=UAT,3=Prod']]></comment>
  AUTO_INCREMENT 1998  ]]></options>
 		</table>
 		<table name="events" prior="e" >
-			<column name="id" type="INT" mandatory="y" />
+			<column name="id" type="INT" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
 			<column name="display_name" type="VARCHAR" length="120" mandatory="y" />
 			<column name="name" type="VARCHAR" length="120" >
 				<identity><![CDATA[GENERATED  ALWAYS AS (lcase(`display_name`))]]></identity>
@@ -319,8 +321,8 @@ is_rollback = 8]]></comment>
 		<entity schema="lifecycle_state" name="instance" color="C1D8EE" x="247" y="285" />
 		<entity schema="lifecycle_state" name="state" color="C1D8EE" x="247" y="76" />
 		<entity schema="lifecycle_state" name="def_version" color="C1D8EE" x="475" y="475" />
-		<entity schema="lifecycle_state" name="events" color="C1D8EE" x="475" y="304" />
 		<entity schema="lifecycle_state" name="ack_log" color="C1D8EE" x="57" y="152" />
 		<entity schema="lifecycle_state" name="transition" color="C1D8EE" x="456" y="57" />
+		<entity schema="lifecycle_state" name="events" color="C1D8EE" x="475" y="304" />
 	</layout>
 </project>
