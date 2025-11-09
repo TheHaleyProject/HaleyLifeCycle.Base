@@ -1,39 +1,23 @@
 {
   "definition": {
-    "name": "WorkflowFlow",
+    "name": "WorkflowExecutionState",
     "version": "2.0",
-    "description": "Generic engine workflow lifecycle"
+    "description": "Pure state definition for generic workflow execution lifecycle"
   },
   "states": [
-    {
-      "name": "Initiated",
-      "is_initial": true,
-      "steps": [
-        { "name": "RegisterWorkflow", "type": "system", "action": "RegisterInHub" }
-      ]
-    },
-    {
-      "name": "InProgress",
-      "steps": [
-        { "name": "ExecuteMainTask", "type": "system", "max_attempts": 3, "action": "RunWorkflowJob" }
-      ]
-    },
-    {
-      "name": "WaitingForEvent",
-      "steps": [
-        { "name": "ListenForExternalEvent", "type": "system", "action": "WaitForSignal" }
-      ]
-    },
-    { "name": "Retrying", "steps": [{ "name": "RetryFailedTask", "max_attempts": 5 }] },
-    { "name": "Failed", "is_final": true },
-    { "name": "Completed", "is_final": true }
+    { "name": "Initiated", "is_initial": true, "category": "system" },
+    { "name": "InProgress", "category": "business" },
+    { "name": "WaitingForEvent", "category": "system" },
+    { "name": "Retrying", "category": "system" },
+    { "name": "Failed", "is_final": true, "category": "error" },
+    { "name": "Completed", "is_final": true, "category": "system" }
   ],
   "transitions": [
     { "from": "Initiated", "event": "Start", "to": "InProgress" },
     { "from": "InProgress", "event": "Wait", "to": "WaitingForEvent" },
     { "from": "WaitingForEvent", "event": "Resume", "to": "InProgress" },
     { "from": "InProgress", "event": "Complete", "to": "Completed" },
-    { "from": "InProgress", "event": "Error", "to": "Failed", "max_retries": 3 },
+    { "from": "InProgress", "event": "Error", "to": "Failed" },
     { "from": "Failed", "event": "Retry", "to": "Retrying" },
     { "from": "Retrying", "event": "Restart", "to": "InProgress" }
   ]

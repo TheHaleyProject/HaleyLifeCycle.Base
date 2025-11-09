@@ -1,0 +1,48 @@
+{
+  "definition": {
+    "name": "VendorPreQualificationState",
+    "version": "2.3",
+    "description": "Lifecycle definition for vendor form submission, evaluation, clarification handling, and final tier approval process."
+  },
+  "states": [
+    { "name": "FormSubmitted", "is_initial": true, "category": "system" },
+    { "name": "WorkflowSelection", "category": "system" },
+    { "name": "UnderEvaluation", "category": "business" },
+    { "name": "Overdue", "category": "system" },
+    { "name": "PendingClarification", "category": "business" },
+    { "name": "ClarificationReview", "category": "business" },
+    { "name": "ClarificationReviewed", "category": "business" },
+    { "name": "WorkItemsReview", "category": "technical" },
+    { "name": "CompanyTierCalculation", "category": "system" },
+    { "name": "TierValidation", "category": "business" },
+    { "name": "CompanyTierChanged", "category": "system" },
+    { "name": "Completed", "is_final": true, "category": "system" }
+  ],
+  "transitions": [
+    { "from": "FormSubmitted", "event": "SelectWorkflow", "to": "WorkflowSelection" },
+    { "from": "WorkflowSelection", "event": "AssignEvaluator", "to": "UnderEvaluation" },
+
+    { "from": "UnderEvaluation", "event": "EvaluationTimeout", "to": "Overdue" },
+    { "from": "Overdue", "event": "EvaluationResumed", "to": "UnderEvaluation" },
+
+    { "from": "UnderEvaluation", "event": "ClarificationsRequested", "to": "PendingClarification" },
+    { "from": "PendingClarification", "event": "EscalateToSuperUser", "to": "ClarificationReview" },
+
+    { "from": "ClarificationReview", "event": "ClarificationsValidated", "to": "ReturnedToVendor" },
+    { "from": "ClarificationReview", "event": "ClarificationsInvalid", "to": "ClarificationReviewed" },
+
+    { "from": "ClarificationReviewed", "event": "IsTechnicalSubmission", "to": "WorkItemsReview" },
+    { "from": "ClarificationReviewed", "event": "IsNonTechnicalSubmission", "to": "CompanyTierCalculation" },
+
+    { "from": "UnderEvaluation", "event": "EvaluationCompleted", "to": "ClarificationReviewed" },
+
+    { "from": "WorkItemsReview", "event": "TechnicalReviewCompleted", "to": "CompanyTierCalculation" },
+    { "from": "CompanyTierCalculation", "event": "TierChanged", "to": "TierValidation" },
+    { "from": "CompanyTierCalculation", "event": "TierUnchanged", "to": "Completed" },
+
+    { "from": "TierValidation", "event": "Validated", "to": "Completed" },
+    { "from": "TierValidation", "event": "TierAdjusted", "to": "CompanyTierChanged" },
+
+    { "from": "CompanyTierChanged", "event": "Acknowledged", "to": "Completed" }
+  ]
+}

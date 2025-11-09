@@ -1,0 +1,26 @@
+{
+  "definition": {
+    "name": "VendorRegistrationState",
+    "version": "1.0",
+    "description": "Lifecycle definition for new vendor registration, validation, and vendor ID generation."
+  },
+  "states": [
+    { "name": "RegistrationStarted", "is_initial": true, "category": "system" },
+    { "name": "Submitted", "category": "business" },
+    { "name": "DuplicateCheck", "category": "system" },
+    { "name": "PendingValidation", "category": "business" },
+    { "name": "CompanyValidation", "category": "business" },
+    { "name": "Rejected", "is_final": true, "category": "error" },
+    { "name": "Registered", "is_final": true, "category": "system" }
+  ],
+  "transitions": [
+    { "from": "RegistrationStarted", "event": "Submit", "to": "Submitted" },
+    { "from": "Submitted", "event": "CheckDuplicate", "to": "DuplicateCheck" },
+    { "from": "DuplicateCheck", "event": "AlreadyRegistered", "to": "Rejected" },
+    { "from": "DuplicateCheck", "event": "NotRegistered", "to": "PendingValidation" },
+    { "from": "PendingValidation", "event": "RequestWithin12Months", "to": "Rejected" },
+    { "from": "PendingValidation", "event": "ValidateCompany", "to": "CompanyValidation" },
+    { "from": "CompanyValidation", "event": "InvalidCompany", "to": "Rejected" },
+    { "from": "CompanyValidation", "event": "ValidCompany", "to": "Registered" }
+  ]
+}
