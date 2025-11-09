@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project name="lifecycle_state" database="MariaDb" id="19f578f4-fff8-4e61-ac61-4d42ca9c2334" >
 	<schema name="lifecycle_state" >
+		<table name="ack_log" prior="ack_l" >
+			<column name="id" type="BIGINT" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="transition_log" type="BIGINT" mandatory="y" />
+			<column name="ack_status" type="INT" mandatory="y" >
+				<defo><![CDATA[0]]></defo>
+				<comment><![CDATA[Flag:
+1 = Sent
+2 = Acknowledged
+3 = Failed]]></comment>
+			</column>
+			<column name="last_retry" type="DATETIME" mandatory="y" >
+				<defo><![CDATA[utc_timestamp()]]></defo>
+			</column>
+			<column name="retry_count" type="INT" mandatory="y" >
+				<defo><![CDATA[0]]></defo>
+			</column>
+			<column name="created" type="DATETIME" mandatory="y" >
+				<defo><![CDATA[utc_timestamp()]]></defo>
+			</column>
+			<column name="modified" type="DATETIME" mandatory="y" >
+				<defo><![CDATA[utc_timestamp()]]></defo>
+			</column>
+			<column name="message_id" prior="guid" type="CHAR" length="36" mandatory="y" >
+				<defo><![CDATA[uuid()]]></defo>
+			</column>
+			<index name="pk_ack_log" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="fk_ack_log_transition_log" unique="NORMAL" >
+				<column name="transition_log" />
+			</index>
+			<fk name="fk_ack_log_transition_log" to_schema="lifecycle_state" to_table="transition_log" >
+				<fk_column name="transition_log" pk="id" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
 		<table name="def_version" prior="def_versio" >
 			<column name="id" type="INT" mandatory="y" >
 				<identity><![CDATA[AUTO_INCREMENT]]></identity>
@@ -283,5 +321,6 @@ is_rollback = 8]]></comment>
 		<entity schema="lifecycle_state" name="def_version" color="C1D8EE" x="475" y="475" />
 		<entity schema="lifecycle_state" name="events" color="C1D8EE" x="475" y="304" />
 		<entity schema="lifecycle_state" name="transition" color="C1D8EE" x="456" y="57" />
+		<entity schema="lifecycle_state" name="ack_log" color="C1D8EE" x="57" y="152" />
 	</layout>
 </project>
