@@ -1,6 +1,6 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               11.8.2-MariaDB - mariadb.org binary distribution
+-- Server version:               11.7.2-MariaDB - mariadb.org binary distribution
 -- Server OS:                    Win64
 -- HeidiSQL Version:             12.10.0.7000
 -- --------------------------------------------------------
@@ -16,7 +16,7 @@
 
 
 -- Dumping database structure for lifecycle_state
-CREATE DATABASE IF NOT EXISTS `lifecycle_state` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
+CREATE DATABASE IF NOT EXISTS `lifecycle_state` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
 USE `lifecycle_state`;
 
 -- Dumping structure for table lifecycle_state.ack_log
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `ack_log` (
   PRIMARY KEY (`id`),
   KEY `fk_ack_log_transition_log` (`transition_log`),
   CONSTRAINT `fk_ack_log_transition_log` FOREIGN KEY (`transition_log`) REFERENCES `transition_log` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Data exporting was unselected.
 
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `definition` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `unq_definition_0` (`guid`),
   UNIQUE KEY `unq_definition` (`env`,`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=1998 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1998 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Data exporting was unselected.
 
@@ -62,26 +62,26 @@ CREATE TABLE IF NOT EXISTS `def_version` (
   `data` longtext NOT NULL,
   `parent` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `unq_def_version_0` (`guid`),
   UNIQUE KEY `unq_def_version` (`parent`,`version`),
+  UNIQUE KEY `unq_def_version_0` (`guid`),
   KEY `fk_def_version_definition` (`parent`),
   CONSTRAINT `fk_def_version_definition` FOREIGN KEY (`parent`) REFERENCES `definition` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `cns_def_version` CHECK (`version` > 0),
   CONSTRAINT `cns_def_version_0` CHECK (json_valid(`data`))
-) ENGINE=InnoDB AUTO_INCREMENT=1990 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1990 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Data exporting was unselected.
 
 -- Dumping structure for table lifecycle_state.events
 CREATE TABLE IF NOT EXISTS `events` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `display_name` varchar(120) NOT NULL,
   `name` varchar(120) GENERATED ALWAYS AS (lcase(`display_name`)) VIRTUAL,
   `def_version` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unq_events` (`def_version`,`name`),
   CONSTRAINT `fk_events_def_version` FOREIGN KEY (`def_version`) REFERENCES `def_version` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Data exporting was unselected.
 
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `instance` (
   CONSTRAINT `fk_instance_def_version` FOREIGN KEY (`def_version`) REFERENCES `def_version` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_instance_events` FOREIGN KEY (`last_event`) REFERENCES `events` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_instance_state` FOREIGN KEY (`current_state`) REFERENCES `state` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Data exporting was unselected.
 
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `state` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `unq_state` (`def_version`,`name`),
   CONSTRAINT `fk_state_def_version` FOREIGN KEY (`def_version`) REFERENCES `def_version` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2014 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2014 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Data exporting was unselected.
 
@@ -144,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `transition` (
   CONSTRAINT `fk_transition_events` FOREIGN KEY (`event`) REFERENCES `events` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_transition_state` FOREIGN KEY (`from_state`) REFERENCES `state` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_transition_state_0` FOREIGN KEY (`to_state`) REFERENCES `state` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Data exporting was unselected.
 
@@ -163,7 +163,7 @@ CREATE TABLE IF NOT EXISTS `transition_log` (
   KEY `fk_transition_log_instance` (`instance_id`),
   CONSTRAINT `fk_transition_log_instance` FOREIGN KEY (`instance_id`) REFERENCES `instance` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `cns_transition_log` CHECK (json_valid(`metadata`))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Data exporting was unselected.
 
